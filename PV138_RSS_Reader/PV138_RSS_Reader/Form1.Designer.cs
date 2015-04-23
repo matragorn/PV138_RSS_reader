@@ -29,6 +29,28 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Node0");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Node4");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Node6");
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Node1", new System.Windows.Forms.TreeNode[] {
+            treeNode15,
+            treeNode16,
+            treeNode17});
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Node7");
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node8");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Node9");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Node2", new System.Windows.Forms.TreeNode[] {
+            treeNode19,
+            treeNode20,
+            treeNode21});
+            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Node10");
+            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Node11");
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Node12");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Node3", new System.Windows.Forms.TreeNode[] {
+            treeNode23,
+            treeNode24,
+            treeNode25});
             this.menuStrip_MainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,16 +65,25 @@
             this.panel_FeedDetails = new System.Windows.Forms.Panel();
             this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
             this.toolMenu_ExampleButton = new System.Windows.Forms.ToolStripButton();
+            this.treeView_Chanels = new System.Windows.Forms.TreeView();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip_MainMenu.SuspendLayout();
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
             this.splitContainer_Tree_MainContent.Panel2.SuspendLayout();
             this.splitContainer_Tree_MainContent.SuspendLayout();
+            this.panel_TreeChanals.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Feeds_FeedDetails)).BeginInit();
             this.splitContainer_Feeds_FeedDetails.Panel1.SuspendLayout();
             this.splitContainer_Feeds_FeedDetails.Panel2.SuspendLayout();
             this.splitContainer_Feeds_FeedDetails.SuspendLayout();
+            this.panel_Feeds.SuspendLayout();
             this.toolStrip_ToolMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -131,17 +162,19 @@
             // 
             this.splitContainer_Tree_MainContent.Panel2.Controls.Add(this.splitContainer_Feeds_FeedDetails);
             this.splitContainer_Tree_MainContent.Size = new System.Drawing.Size(963, 517);
-            this.splitContainer_Tree_MainContent.SplitterDistance = 321;
+            this.splitContainer_Tree_MainContent.SplitterDistance = 250;
             this.splitContainer_Tree_MainContent.TabIndex = 4;
+            this.splitContainer_Tree_MainContent.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_Tree_MainContent_SplitterMoved);
             this.splitContainer_Tree_MainContent.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_Feeds_FeedDetails_MouseUp);
             // 
             // panel_TreeChanals
             // 
             this.panel_TreeChanals.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_TreeChanals.Controls.Add(this.treeView_Chanels);
             this.panel_TreeChanals.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_TreeChanals.Location = new System.Drawing.Point(0, 0);
             this.panel_TreeChanals.Name = "panel_TreeChanals";
-            this.panel_TreeChanals.Size = new System.Drawing.Size(317, 513);
+            this.panel_TreeChanals.Size = new System.Drawing.Size(246, 513);
             this.panel_TreeChanals.TabIndex = 0;
             // 
             // splitContainer_Feeds_FeedDetails
@@ -159,18 +192,20 @@
             // splitContainer_Feeds_FeedDetails.Panel2
             // 
             this.splitContainer_Feeds_FeedDetails.Panel2.Controls.Add(this.panel_FeedDetails);
-            this.splitContainer_Feeds_FeedDetails.Size = new System.Drawing.Size(638, 517);
-            this.splitContainer_Feeds_FeedDetails.SplitterDistance = 212;
+            this.splitContainer_Feeds_FeedDetails.Size = new System.Drawing.Size(709, 517);
+            this.splitContainer_Feeds_FeedDetails.SplitterDistance = 250;
             this.splitContainer_Feeds_FeedDetails.TabIndex = 0;
+            this.splitContainer_Feeds_FeedDetails.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_Feeds_FeedDetails_SplitterMoved);
             this.splitContainer_Feeds_FeedDetails.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_Feeds_FeedDetails_MouseUp);
             // 
             // panel_Feeds
             // 
             this.panel_Feeds.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_Feeds.Controls.Add(this.listView1);
             this.panel_Feeds.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_Feeds.Location = new System.Drawing.Point(0, 0);
             this.panel_Feeds.Name = "panel_Feeds";
-            this.panel_Feeds.Size = new System.Drawing.Size(634, 208);
+            this.panel_Feeds.Size = new System.Drawing.Size(705, 246);
             this.panel_Feeds.TabIndex = 0;
             // 
             // panel_FeedDetails
@@ -179,7 +214,7 @@
             this.panel_FeedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_FeedDetails.Location = new System.Drawing.Point(0, 0);
             this.panel_FeedDetails.Name = "panel_FeedDetails";
-            this.panel_FeedDetails.Size = new System.Drawing.Size(634, 297);
+            this.panel_FeedDetails.Size = new System.Drawing.Size(705, 259);
             this.panel_FeedDetails.TabIndex = 0;
             // 
             // toolStrip_ToolMenu
@@ -201,6 +236,87 @@
             this.toolMenu_ExampleButton.Size = new System.Drawing.Size(23, 22);
             this.toolMenu_ExampleButton.Text = "toolStripButton1";
             // 
+            // treeView_Chanels
+            // 
+            this.treeView_Chanels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_Chanels.Location = new System.Drawing.Point(0, 0);
+            this.treeView_Chanels.Name = "treeView_Chanels";
+            treeNode14.Name = "Node0";
+            treeNode14.Text = "Node0";
+            treeNode15.Name = "Node4";
+            treeNode15.Text = "Node4";
+            treeNode16.Checked = true;
+            treeNode16.Name = "Node5";
+            treeNode16.Text = "Node5";
+            treeNode17.Name = "Node6";
+            treeNode17.Text = "Node6";
+            treeNode18.Name = "Node1";
+            treeNode18.Text = "Node1";
+            treeNode19.Name = "Node7";
+            treeNode19.Text = "Node7";
+            treeNode20.Name = "Node8";
+            treeNode20.Text = "Node8";
+            treeNode21.Name = "Node9";
+            treeNode21.Text = "Node9";
+            treeNode22.Name = "Node2";
+            treeNode22.Text = "Node2";
+            treeNode23.Name = "Node10";
+            treeNode23.Text = "Node10";
+            treeNode24.Name = "Node11";
+            treeNode24.Text = "Node11";
+            treeNode25.Name = "Node12";
+            treeNode25.Text = "Node12";
+            treeNode26.Name = "Node3";
+            treeNode26.Text = "Node3";
+            this.treeView_Chanels.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode18,
+            treeNode22,
+            treeNode26});
+            this.treeView_Chanels.Size = new System.Drawing.Size(246, 513);
+            this.treeView_Chanels.TabIndex = 0;
+            // 
+            // listView1
+            // 
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(705, 246);
+            this.listView1.TabIndex = 4;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Date";
+            this.columnHeader1.Width = 100;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Feed";
+            this.columnHeader2.Width = 300;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Key Word";
+            this.columnHeader3.Width = 100;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "nevim co...";
+            this.columnHeader4.Width = 100;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "nevim co 2...";
+            this.columnHeader5.Width = 100;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,10 +336,12 @@
             this.splitContainer_Tree_MainContent.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).EndInit();
             this.splitContainer_Tree_MainContent.ResumeLayout(false);
+            this.panel_TreeChanals.ResumeLayout(false);
             this.splitContainer_Feeds_FeedDetails.Panel1.ResumeLayout(false);
             this.splitContainer_Feeds_FeedDetails.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Feeds_FeedDetails)).EndInit();
             this.splitContainer_Feeds_FeedDetails.ResumeLayout(false);
+            this.panel_Feeds.ResumeLayout(false);
             this.toolStrip_ToolMenu.ResumeLayout(false);
             this.toolStrip_ToolMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -247,6 +365,13 @@
         private System.Windows.Forms.SplitContainer splitContainer_Feeds_FeedDetails;
         private System.Windows.Forms.Panel panel_Feeds;
         private System.Windows.Forms.Panel panel_FeedDetails;
+        private System.Windows.Forms.TreeView treeView_Chanels;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }
 

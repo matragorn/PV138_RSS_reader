@@ -9,14 +9,14 @@ namespace PV138_RSS_Reader
     /// <summary>
     /// reprezentuje jednotlivý feed ziskaný z rss, mel by obsahovat plno datovych polozek jako nazev, tatum, kanal atd...
     /// </summary>
-    interface IFeed
+    public interface IFeed
     {
         /// <summary>
         /// pro potřeby seznamu feedů v hlavním oknu, v listview, jednotlivé pole uvadi stringovou reprezentaci co se má pro daný feed 
         /// vypisovat ve sloupci, např. "datum", "název",...
         /// </summary>
         /// <returns></returns>
-        public string[] toArray();
+        string[] ToArray();
 
 
 

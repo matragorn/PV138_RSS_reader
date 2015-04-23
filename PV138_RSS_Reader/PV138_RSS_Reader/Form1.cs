@@ -12,6 +12,11 @@ namespace PV138_RSS_Reader
 {
     public partial class MainWindow : Form
     {
+        private const int TREE_PANEL_MAX_WIDTH = 250;
+        private const int TREE_PANEL_MIN_WIDTH = 150;
+        private const int FEEDS_PANEL_MAX_WIDTH = 400;
+        private const int FEEDS_PANEL_MIN_WIDTH = 150;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -32,6 +37,19 @@ namespace PV138_RSS_Reader
         {
             //odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
             panel_FeedDetails.Focus(); 
+        }
+
+        private void splitContainer_Tree_MainContent_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+            splitContainer_Tree_MainContent.SplitterDistance = Math.Max(splitContainer_Tree_MainContent.Panel1.Width, TREE_PANEL_MIN_WIDTH);
+            splitContainer_Tree_MainContent.SplitterDistance = Math.Min(splitContainer_Tree_MainContent.Panel1.Width, TREE_PANEL_MAX_WIDTH);
+        }
+
+        private void splitContainer_Feeds_FeedDetails_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+            splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Max(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MIN_WIDTH);
+            splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Min(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
         }
     }
 }

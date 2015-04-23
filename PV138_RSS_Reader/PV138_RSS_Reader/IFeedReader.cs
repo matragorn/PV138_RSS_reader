@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PV138_RSS_Reader
 {
 
-    interface IFeedReader
+    public interface IFeedReader
     {
         /// <summary>
         /// precte feedy ze zadane URI
@@ -15,6 +15,6 @@ namespace PV138_RSS_Reader
         /// <param name="uri">adresa RSS/ATOM zdroje</param>
         /// <returns>kolekce Feedů</returns>
         /// <remarks>muzeme to klidne predela na List aby to nebylo tak obecny...</remarks>
-        public IEnumerable<IFeed> readFeeds(string uri);
+        IEnumerable<IFeed> ReadFeeds(string uri);
     }
 }

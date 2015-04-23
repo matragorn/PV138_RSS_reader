@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
-    class Feed : IFeed
+    public class Feed : IFeed
     {
-        public string[] toArray()
+        public string[] ToArray()
         {
             throw new NotImplementedException();
         }

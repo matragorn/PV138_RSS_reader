@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
-    class RssReader :IFeedReader
+    public class RssReader :IFeedReader
     {
-        public IEnumerable<IFeed> readFeeds(string uri)
+        public IEnumerable<IFeed> ReadFeeds(string uri)
         {
             throw new NotImplementedException();
         }
