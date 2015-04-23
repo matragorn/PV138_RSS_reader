@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PV138_RSS_Reader")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("RSS Reader")]
+[assembly: AssemblyDescription("This app was created as a project to PV138 on Masaryk University")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PV138_RSS_Reader")]
+[assembly: AssemblyCompany("Michael Rádl, Jirka Vrbka, Jakub Matuška")]
+[assembly: AssemblyProduct("RSS Reader")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
