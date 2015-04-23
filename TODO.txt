@@ -1,0 +1,12 @@
+TODO List
+
+1. Implementovat třídu Feed (doplnit atributy, vlastnosti, atd)
+
+2. Implementovat třídu RssReader
+
+3. Implementovat třídu AtomReader
+
+4. Vytvořit Contol pro zobrazování jednotlivých Feedů
+
+5. Vytvořit strukturu menu, tj. co uzivateli dovolit (přidat kanal, ulozit nastaveni, spravovat kanaly, muzeme se inspirovat nejakou existjici cteckou)
+
