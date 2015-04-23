@@ -1,0 +1,8 @@
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe.config
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.pdb
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csprojResolveAssemblyReference.cache
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.Properties.Resources.resources
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.exe
+J:\PB138-XML\Projekt_pokus2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.pdb
