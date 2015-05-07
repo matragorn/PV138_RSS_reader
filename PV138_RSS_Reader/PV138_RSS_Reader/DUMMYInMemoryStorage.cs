@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
+    /// <summary>
+    /// Docasny storage, ktory nikam zmeny neuklada
+    /// </summary>
     class DUMMYInMemoryStorage : IStorageManager
     {
         private Dictionary<IFeed, List<IArticle>> data;
@@ -46,5 +49,32 @@ namespace PV138_RSS_Reader
 
         }
 
+        public void SetStarred(IArticle article, bool setTo)
+        {
+            var articleComparer = new ArticleComparer();
+
+            foreach (var feed in GetFeeds())
+            {
+                var articles = GetArticles(feed);
+                if (articles.Contains(article))
+                {
+                    articles[articles.IndexOf(article)].Starred = setTo;
+                }
+            }
+        }
+
+        public void SetRead(IArticle article, bool setTo)
+        {
+            var articleComparer = new ArticleComparer();
+
+            foreach (var feed in GetFeeds())
+            {
+                var articles = GetArticles(feed);
+                if (articles.Contains(article))
+                {
+                    articles[articles.IndexOf(article)].Read = setTo;
+                }
+            }
+        }
     }
 }

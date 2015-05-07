@@ -18,6 +18,7 @@ namespace PV138_RSS_Reader
             
             var manager = new FeedManager(new DUMMYInMemoryStorage());
             manager.SubscribeToURL("http://deoxy.org/koans?rss=1"); // Vzdy je tam ina random vec
+
             var feeds = manager.GetFeeds();
             for (int i = 0; i < 2; i++)
             {
@@ -25,6 +26,7 @@ namespace PV138_RSS_Reader
                 {
                     var articles = manager.GetArticles(feed); // Breakpoint sem; potom step over, articles ma 1 clanok.
                                                               // Continue, step over a articles ma 2 clanky
+
                 }
                 manager.UpdateAllFeeds();
             }
