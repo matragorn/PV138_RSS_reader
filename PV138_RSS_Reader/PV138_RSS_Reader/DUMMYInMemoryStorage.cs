@@ -41,17 +41,13 @@ namespace PV138_RSS_Reader
 
         public void AddArticles(IEnumerable<IArticle> articles, IFeed feed)
         {
-            List<IArticle> art = new List<IArticle>(data[feed]);
-            data.Remove(feed);
 
-            feed.LastBuildDate = DateTime.Now;
-
-            data.Add(feed, art);
             foreach (var article in articles)
             {
                 data[feed].Add(article);
             }
 
         }
+
     }
 }

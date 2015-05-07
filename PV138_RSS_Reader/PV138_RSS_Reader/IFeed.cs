@@ -6,16 +6,25 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
+    public class FeedComparer : IEqualityComparer<IFeed>
+    {
+        public bool Equals(IFeed x, IFeed y)
+        {
+            return x.GetHashCode() == y.GetHashCode();
+        }
+
+        public int GetHashCode(IFeed obj)
+        {
+            return obj.FeedURL.GetHashCode();
+        }
+    }
+
+
     /// <summary>
     /// reprezentuje jednotlivý feed ziskaný z rss, mel by obsahovat plno datovych polozek jako nazev, tatum, kanal atd...
     /// </summary>
     public interface IFeed
     {
-        /// <summary>
-        /// Unikatne ID feedu
-        /// </summary>
-        string ID { get; }
-
         /// <summary>
         /// Nadpis feedu
         /// </summary>
@@ -24,22 +33,17 @@ namespace PV138_RSS_Reader
         /// <summary>
         /// Url hlavnej stranky
         /// </summary>
-        string WebLink { get; }
+        string MainPageLink { get; }
 
         /// <summary>
         /// Url nacitavania feedu
         /// </summary>
-        string URL { get; }
+        string FeedURL { get; }
 
         /// <summary>
         /// Popis feedu
         /// </summary>
         string Description { get; }
-
-        /// <summary>
-        /// Kedy bol feed naposledy zmeneny
-        /// </summary>
-        DateTime LastBuildDate { get; set; }
 
         /// <summary>
         /// pro potřeby seznamu feedů v hlavním oknu, v listview, jednotlivé pole uvadi stringovou reprezentaci co se má pro daný feed 
