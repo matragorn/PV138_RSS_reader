@@ -12,12 +12,31 @@ namespace PV138_RSS_Reader
     public interface IFeed
     {
         /// <summary>
+        /// Nadpis feedu
+        /// </summary>
+        string Title { get; }
+
+        /// <summary>
+        /// Url feedu
+        /// </summary>
+        string URL { get; }
+
+        /// <summary>
+        /// Popis feedu
+        /// </summary>
+        string Description { get; }
+
+        /// <summary>
+        /// Posledny datum, kedy bol feed obnoveny
+        /// </summary>
+        DateTime LastBuildDate { get; set; }
+
+        /// <summary>
         /// pro potřeby seznamu feedů v hlavním oknu, v listview, jednotlivé pole uvadi stringovou reprezentaci co se má pro daný feed 
         /// vypisovat ve sloupci, např. "datum", "název",...
         /// </summary>
         /// <returns></returns>
         string[] ToArray();
-
 
 
     }
