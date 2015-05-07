@@ -1,17 +1,17 @@
 TODO List
 
-1. Implementovat třídu Feed (doplnit atributy, vlastnosti, atd)
+* Implementovat třídu AtomParser, specs na http://www.atomenabled.org/developers/syndication/
 
-2. Implementovat třídu RssReader
+* Implementovat IStorageManager pre pracu s databazou
+    [Jakub] - Je dost skoda, ze musime pouzit externu xml databazu a nestaci pouzit XDocument ako databazu.
+        To je vseobecne sice zle riesenie, ale na male data by nam to stacilo
+        a bolo by to embedded a jednoduche na naprogramovanie.
+        Celkovo je situacia s XML databazami v C# celkom zla.
 
-3. Implementovat třídu AtomReader
+* Internacionalizacia EN/CZ/SK, alebo sa dohodnut na anglictine
 
-4. Vytvořit Contol pro zobrazování jednotlivých Feedů
+* Vytvořit Control pro zobrazování jednotlivých Feedů
 
-5. Vytvořit strukturu menu, tj. co uzivateli dovolit (přidat kanal, ulozit nastaveni, spravovat kanaly, muzeme se inspirovat nejakou existjici cteckou)
-
-6. Pokračovat v GUI 
+* Pokračovat v GUI 
     [Michael] - to si zatim vemu ja, ale budu rad pokud bude mit pripominky jak by to mohlo vypadat
     
-7. Vytvořit nejakou třídu na udrzování nastavení (co me zatim napada je udrzovaní seznamu kanálů, přečtené nepřečtené feedy, ale to by spiš mohla být vlastnost daného feedu)
-    [Michael] - zkusim nacrtnout nejakou tridu...
