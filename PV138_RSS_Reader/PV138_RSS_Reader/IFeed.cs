@@ -12,12 +12,22 @@ namespace PV138_RSS_Reader
     public interface IFeed
     {
         /// <summary>
+        /// Unikatne ID feedu
+        /// </summary>
+        string ID { get; }
+
+        /// <summary>
         /// Nadpis feedu
         /// </summary>
         string Title { get; }
 
         /// <summary>
-        /// Url feedu
+        /// Url hlavnej stranky
+        /// </summary>
+        string WebLink { get; }
+
+        /// <summary>
+        /// Url nacitavania feedu
         /// </summary>
         string URL { get; }
 
@@ -27,7 +37,7 @@ namespace PV138_RSS_Reader
         string Description { get; }
 
         /// <summary>
-        /// Posledny datum, kedy bol feed obnoveny
+        /// Kedy bol feed naposledy zmeneny
         /// </summary>
         DateTime LastBuildDate { get; set; }
 

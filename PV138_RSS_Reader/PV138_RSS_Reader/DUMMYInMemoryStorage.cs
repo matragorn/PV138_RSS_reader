@@ -10,10 +10,14 @@ namespace PV138_RSS_Reader
     {
         private Dictionary<IFeed, List<IArticle>> data;
 
+        public DateTime LastUpdate { get; private set; }
+
+
         public DUMMYInMemoryStorage()
         {
             data = new Dictionary<IFeed, List<IArticle>>();
         }
+
 
         public List<IFeed> GetFeeds()
         {
@@ -37,10 +41,17 @@ namespace PV138_RSS_Reader
 
         public void AddArticles(IEnumerable<IArticle> articles, IFeed feed)
         {
+            List<IArticle> art = new List<IArticle>(data[feed]);
+            data.Remove(feed);
+
+            feed.LastBuildDate = DateTime.Now;
+
+            data.Add(feed, art);
             foreach (var article in articles)
             {
                 data[feed].Add(article);
             }
+
         }
     }
 }

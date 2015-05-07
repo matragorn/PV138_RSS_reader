@@ -8,7 +8,11 @@ namespace PV138_RSS_Reader
 {
     public class Feed : IFeed
     {
+        public string ID { get; private set; }
+
         public string Title { get; set; }
+
+        public string WebLink { get; set; }
 
         public string URL { get; set; }
 
@@ -17,22 +21,32 @@ namespace PV138_RSS_Reader
         public DateTime LastBuildDate { get; set; }
 
 
-        public Feed (string title, string url, string description, DateTime lastBuildDate)
+        public Feed (string id, string title, string url, string description)
         {
-            if (title == null || url == null || description == null)
+            if (id == null || title == null || url == null || description == null)
             {
-                throw new ArgumentException("Couldn't create new feed; title, url and description are required");
+                throw new ArgumentException("Couldn't create new feed; id, title, url and description are required");
             }
 
+            this.ID = id;
             this.Title = title;
-            this.URL = url;
+            this.WebLink = url;
             this.Description = description;
-            this.LastBuildDate = lastBuildDate;
         }
 
         public string[] ToArray()
         {
             throw new NotImplementedException();
+        }
+
+        public override bool Equals (object obj)
+        {
+            return obj is IFeed && ((IFeed)obj).ID == this.ID;
+        }
+    
+        public override int GetHashCode()
+        {
+            return ID.GetHashCode();
         }
 
     }
