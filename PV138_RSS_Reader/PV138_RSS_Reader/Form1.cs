@@ -51,5 +51,15 @@ namespace PV138_RSS_Reader
             splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Max(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MIN_WIDTH);
             splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Min(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
         }
+
+        private void treeView_Chanels_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

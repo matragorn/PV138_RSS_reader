@@ -21,7 +21,7 @@ namespace PV138_RSS_Reader
         {
             if (url == null || title == null || mainLink == null || description == null)
             {
-                throw new ArgumentException("Nepodarilo sa vytvorit novy feed, ");
+                throw new ArgumentException("Nepodarilo sa vytvorit novy feed");
             }
 
             this.FeedURL = url;

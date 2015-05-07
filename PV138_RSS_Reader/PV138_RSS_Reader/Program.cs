@@ -15,7 +15,7 @@ namespace PV138_RSS_Reader
         static void Main()
         {
             // testovaci kod, v debuggeri vidno hodnoty 
-            /*
+            
             var manager = new FeedManager(new DUMMYInMemoryStorage());
             manager.SubscribeToURL("http://deoxy.org/koans?rss=1"); // Vzdy je tam ina random vec
             var feeds = manager.GetFeeds();
@@ -28,7 +28,17 @@ namespace PV138_RSS_Reader
                 }
                 manager.UpdateAllFeeds();
             }
-            */
+
+            feeds = manager.GetFeeds();
+            foreach (var feed in feeds)
+            {
+                manager.Unsubscribe(feed);
+            }
+            feeds = manager.GetFeeds();
+            
+
+
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainWindow());
