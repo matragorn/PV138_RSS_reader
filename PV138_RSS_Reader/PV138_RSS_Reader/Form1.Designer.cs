@@ -28,50 +28,50 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
-            treeNode1});
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
-            treeNode7});
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
+            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
+            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
+            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
+            treeNode14,
+            treeNode15});
+            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
+            treeNode16});
+            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
+            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
+            treeNode18});
+            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
+            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
+            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
+            treeNode20,
+            treeNode21});
             this.panel_MainContent = new System.Windows.Forms.Panel();
             this.splitContainer_Tree_MainContent = new System.Windows.Forms.SplitContainer();
-            this.panel_TreeChanals = new System.Windows.Forms.Panel();
-            this.treeView_Chanels = new System.Windows.Forms.TreeView();
-            this.splitContainer_Feeds_FeedDetails = new System.Windows.Forms.SplitContainer();
-            this.panel_Feeds = new System.Windows.Forms.Panel();
+            this.panel_TreeFilters = new System.Windows.Forms.Panel();
+            this.treeView_Filters = new System.Windows.Forms.TreeView();
+            this.splitContainer_FilterView_ArticleView = new System.Windows.Forms.SplitContainer();
+            this.panel_FilterView = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.panel_FeedDetails = new System.Windows.Forms.Panel();
             this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
             this.splitContainer_Tree_MainContent.Panel2.SuspendLayout();
             this.splitContainer_Tree_MainContent.SuspendLayout();
-            this.panel_TreeChanals.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Feeds_FeedDetails)).BeginInit();
-            this.splitContainer_Feeds_FeedDetails.Panel1.SuspendLayout();
-            this.splitContainer_Feeds_FeedDetails.Panel2.SuspendLayout();
-            this.splitContainer_Feeds_FeedDetails.SuspendLayout();
-            this.panel_Feeds.SuspendLayout();
+            this.panel_TreeFilters.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_FilterView_ArticleView)).BeginInit();
+            this.splitContainer_FilterView_ArticleView.Panel1.SuspendLayout();
+            this.splitContainer_FilterView_ArticleView.Panel2.SuspendLayout();
+            this.splitContainer_FilterView_ArticleView.SuspendLayout();
+            this.panel_FilterView.SuspendLayout();
             this.toolStrip_ToolMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +83,7 @@
             this.panel_MainContent.Controls.Add(this.splitContainer_Tree_MainContent);
             this.panel_MainContent.Location = new System.Drawing.Point(0, 28);
             this.panel_MainContent.Name = "panel_MainContent";
-            this.panel_MainContent.Size = new System.Drawing.Size(963, 568);
+            this.panel_MainContent.Size = new System.Drawing.Size(1135, 570);
             this.panel_MainContent.TabIndex = 2;
             // 
             // splitContainer_Tree_MainContent
@@ -95,95 +95,95 @@
             // 
             // splitContainer_Tree_MainContent.Panel1
             // 
-            this.splitContainer_Tree_MainContent.Panel1.Controls.Add(this.panel_TreeChanals);
+            this.splitContainer_Tree_MainContent.Panel1.Controls.Add(this.panel_TreeFilters);
             // 
             // splitContainer_Tree_MainContent.Panel2
             // 
-            this.splitContainer_Tree_MainContent.Panel2.Controls.Add(this.splitContainer_Feeds_FeedDetails);
-            this.splitContainer_Tree_MainContent.Size = new System.Drawing.Size(963, 568);
-            this.splitContainer_Tree_MainContent.SplitterDistance = 250;
+            this.splitContainer_Tree_MainContent.Panel2.Controls.Add(this.splitContainer_FilterView_ArticleView);
+            this.splitContainer_Tree_MainContent.Size = new System.Drawing.Size(1135, 570);
+            this.splitContainer_Tree_MainContent.SplitterDistance = 301;
             this.splitContainer_Tree_MainContent.TabIndex = 4;
             this.splitContainer_Tree_MainContent.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_Tree_MainContent_SplitterMoved);
             this.splitContainer_Tree_MainContent.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_Feeds_FeedDetails_MouseUp);
             // 
-            // panel_TreeChanals
+            // panel_TreeFilters
             // 
-            this.panel_TreeChanals.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel_TreeChanals.Controls.Add(this.treeView_Chanels);
-            this.panel_TreeChanals.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_TreeChanals.Location = new System.Drawing.Point(0, 0);
-            this.panel_TreeChanals.Name = "panel_TreeChanals";
-            this.panel_TreeChanals.Size = new System.Drawing.Size(246, 564);
-            this.panel_TreeChanals.TabIndex = 0;
+            this.panel_TreeFilters.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_TreeFilters.Controls.Add(this.treeView_Filters);
+            this.panel_TreeFilters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_TreeFilters.Location = new System.Drawing.Point(0, 0);
+            this.panel_TreeFilters.Name = "panel_TreeFilters";
+            this.panel_TreeFilters.Size = new System.Drawing.Size(297, 566);
+            this.panel_TreeFilters.TabIndex = 0;
             // 
-            // treeView_Chanels
+            // treeView_Filters
             // 
-            this.treeView_Chanels.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView_Chanels.HideSelection = false;
-            this.treeView_Chanels.Location = new System.Drawing.Point(0, 0);
-            this.treeView_Chanels.Name = "treeView_Chanels";
-            treeNode1.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode1.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode2.Name = "Unread";
-            treeNode2.Text = "Unread";
-            treeNode3.Name = "Vypisane vsetky feedy v kategorii";
-            treeNode3.Text = "Vypisane vsetky feedy v kategorii";
-            treeNode4.Name = "Jeden feed moze byt vo viac kategoriach";
-            treeNode4.Text = "Jeden feed moze byt vo viac kategoriach";
-            treeNode5.Name = "Vypisane vsetky kategorie";
-            treeNode5.Text = "Vypisane vsetky kategorie";
-            treeNode6.Name = "Categories";
-            treeNode6.Text = "Categories";
-            treeNode7.Name = "Vypisane vsetky feedy";
-            treeNode7.Text = "Vypisane vsetky feedy";
-            treeNode8.Name = "All feeds";
-            treeNode8.Text = "All feeds";
-            treeNode9.Name = "Vypisane vsetky feedy,";
-            treeNode9.Text = "Vypisane vsetky feedy,";
-            treeNode10.Name = "kde ma nejaky clanok hviezdicku";
-            treeNode10.Text = "kde ma nejaky clanok hviezdicku";
-            treeNode11.Name = "Starred";
-            treeNode11.Text = "Starred";
-            this.treeView_Chanels.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode2,
-            treeNode6,
-            treeNode8,
-            treeNode11});
-            this.treeView_Chanels.ShowLines = false;
-            this.treeView_Chanels.Size = new System.Drawing.Size(246, 564);
-            this.treeView_Chanels.TabIndex = 0;
-            this.treeView_Chanels.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Chanels_AfterSelect);
+            this.treeView_Filters.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView_Filters.HideSelection = false;
+            this.treeView_Filters.Location = new System.Drawing.Point(0, 0);
+            this.treeView_Filters.Name = "treeView_Filters";
+            treeNode12.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode12.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode13.Name = "Unread";
+            treeNode13.Text = "Unread";
+            treeNode14.Name = "Vypisane vsetky feedy v kategorii";
+            treeNode14.Text = "Vypisane vsetky feedy v kategorii";
+            treeNode15.Name = "Jeden feed moze byt vo viac kategoriach";
+            treeNode15.Text = "Jeden feed moze byt vo viac kategoriach";
+            treeNode16.Name = "Vypisane vsetky kategorie";
+            treeNode16.Text = "Vypisane vsetky kategorie";
+            treeNode17.Name = "Categories";
+            treeNode17.Text = "Categories";
+            treeNode18.Name = "Vypisane vsetky feedy";
+            treeNode18.Text = "Vypisane vsetky feedy";
+            treeNode19.Name = "All feeds";
+            treeNode19.Text = "All feeds";
+            treeNode20.Name = "Vypisane vsetky feedy,";
+            treeNode20.Text = "Vypisane vsetky feedy,";
+            treeNode21.Name = "kde ma nejaky clanok hviezdicku";
+            treeNode21.Text = "kde ma nejaky clanok hviezdicku";
+            treeNode22.Name = "Starred";
+            treeNode22.Text = "Starred";
+            this.treeView_Filters.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode13,
+            treeNode17,
+            treeNode19,
+            treeNode22});
+            this.treeView_Filters.ShowLines = false;
+            this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
+            this.treeView_Filters.TabIndex = 0;
+            this.treeView_Filters.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Chanels_AfterSelect);
             // 
-            // splitContainer_Feeds_FeedDetails
+            // splitContainer_FilterView_ArticleView
             // 
-            this.splitContainer_Feeds_FeedDetails.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.splitContainer_Feeds_FeedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer_Feeds_FeedDetails.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer_Feeds_FeedDetails.Name = "splitContainer_Feeds_FeedDetails";
-            this.splitContainer_Feeds_FeedDetails.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainer_FilterView_ArticleView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.splitContainer_FilterView_ArticleView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_FilterView_ArticleView.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer_FilterView_ArticleView.Name = "splitContainer_FilterView_ArticleView";
+            this.splitContainer_FilterView_ArticleView.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer_Feeds_FeedDetails.Panel1
+            // splitContainer_FilterView_ArticleView.Panel1
             // 
-            this.splitContainer_Feeds_FeedDetails.Panel1.Controls.Add(this.panel_Feeds);
+            this.splitContainer_FilterView_ArticleView.Panel1.Controls.Add(this.panel_FilterView);
             // 
-            // splitContainer_Feeds_FeedDetails.Panel2
+            // splitContainer_FilterView_ArticleView.Panel2
             // 
-            this.splitContainer_Feeds_FeedDetails.Panel2.Controls.Add(this.panel_FeedDetails);
-            this.splitContainer_Feeds_FeedDetails.Size = new System.Drawing.Size(709, 568);
-            this.splitContainer_Feeds_FeedDetails.SplitterDistance = 274;
-            this.splitContainer_Feeds_FeedDetails.TabIndex = 0;
-            this.splitContainer_Feeds_FeedDetails.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_Feeds_FeedDetails_SplitterMoved);
-            this.splitContainer_Feeds_FeedDetails.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_Feeds_FeedDetails_MouseUp);
+            this.splitContainer_FilterView_ArticleView.Panel2.Controls.Add(this.webBrowser1);
+            this.splitContainer_FilterView_ArticleView.Size = new System.Drawing.Size(830, 570);
+            this.splitContainer_FilterView_ArticleView.SplitterDistance = 275;
+            this.splitContainer_FilterView_ArticleView.TabIndex = 0;
+            this.splitContainer_FilterView_ArticleView.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.splitContainer_Feeds_FeedDetails_SplitterMoved);
+            this.splitContainer_FilterView_ArticleView.MouseUp += new System.Windows.Forms.MouseEventHandler(this.splitContainer_Feeds_FeedDetails_MouseUp);
             // 
-            // panel_Feeds
+            // panel_FilterView
             // 
-            this.panel_Feeds.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel_Feeds.Controls.Add(this.listView1);
-            this.panel_Feeds.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_Feeds.Location = new System.Drawing.Point(0, 0);
-            this.panel_Feeds.Name = "panel_Feeds";
-            this.panel_Feeds.Size = new System.Drawing.Size(705, 270);
-            this.panel_Feeds.TabIndex = 0;
+            this.panel_FilterView.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panel_FilterView.Controls.Add(this.listView1);
+            this.panel_FilterView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel_FilterView.Location = new System.Drawing.Point(0, 0);
+            this.panel_FilterView.Name = "panel_FilterView";
+            this.panel_FilterView.Size = new System.Drawing.Size(826, 271);
+            this.panel_FilterView.TabIndex = 0;
             // 
             // listView1
             // 
@@ -195,7 +195,7 @@
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(705, 270);
+            this.listView1.Size = new System.Drawing.Size(826, 271);
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -220,16 +220,7 @@
             // columnHeader3
             // 
             this.columnHeader3.Text = "Title";
-            this.columnHeader3.Width = 100;
-            // 
-            // panel_FeedDetails
-            // 
-            this.panel_FeedDetails.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel_FeedDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel_FeedDetails.Location = new System.Drawing.Point(0, 0);
-            this.panel_FeedDetails.Name = "panel_FeedDetails";
-            this.panel_FeedDetails.Size = new System.Drawing.Size(705, 286);
-            this.panel_FeedDetails.TabIndex = 0;
+            this.columnHeader3.Width = 592;
             // 
             // toolStrip_ToolMenu
             // 
@@ -238,7 +229,7 @@
             this.toolStripButton2});
             this.toolStrip_ToolMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStrip_ToolMenu.Name = "toolStrip_ToolMenu";
-            this.toolStrip_ToolMenu.Size = new System.Drawing.Size(963, 25);
+            this.toolStrip_ToolMenu.Size = new System.Drawing.Size(1135, 25);
             this.toolStrip_ToolMenu.Stretch = true;
             this.toolStrip_ToolMenu.TabIndex = 3;
             this.toolStrip_ToolMenu.Text = "toolStrip1";
@@ -259,26 +250,37 @@
             this.toolStripButton2.Size = new System.Drawing.Size(115, 22);
             this.toolStripButton2.Text = "Spravovat kategorie";
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(826, 287);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(963, 597);
+            this.ClientSize = new System.Drawing.Size(1135, 599);
             this.Controls.Add(this.toolStrip_ToolMenu);
             this.Controls.Add(this.panel_MainContent);
             this.Name = "MainWindow";
             this.Text = "RSS Reader";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.panel_MainContent.ResumeLayout(false);
             this.splitContainer_Tree_MainContent.Panel1.ResumeLayout(false);
             this.splitContainer_Tree_MainContent.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).EndInit();
             this.splitContainer_Tree_MainContent.ResumeLayout(false);
-            this.panel_TreeChanals.ResumeLayout(false);
-            this.splitContainer_Feeds_FeedDetails.Panel1.ResumeLayout(false);
-            this.splitContainer_Feeds_FeedDetails.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Feeds_FeedDetails)).EndInit();
-            this.splitContainer_Feeds_FeedDetails.ResumeLayout(false);
-            this.panel_Feeds.ResumeLayout(false);
+            this.panel_TreeFilters.ResumeLayout(false);
+            this.splitContainer_FilterView_ArticleView.Panel1.ResumeLayout(false);
+            this.splitContainer_FilterView_ArticleView.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_FilterView_ArticleView)).EndInit();
+            this.splitContainer_FilterView_ArticleView.ResumeLayout(false);
+            this.panel_FilterView.ResumeLayout(false);
             this.toolStrip_ToolMenu.ResumeLayout(false);
             this.toolStrip_ToolMenu.PerformLayout();
             this.ResumeLayout(false);
@@ -291,11 +293,10 @@
         private System.Windows.Forms.Panel panel_MainContent;
         private System.Windows.Forms.SplitContainer splitContainer_Tree_MainContent;
         private System.Windows.Forms.ToolStrip toolStrip_ToolMenu;
-        private System.Windows.Forms.Panel panel_TreeChanals;
-        private System.Windows.Forms.SplitContainer splitContainer_Feeds_FeedDetails;
-        private System.Windows.Forms.Panel panel_Feeds;
-        private System.Windows.Forms.Panel panel_FeedDetails;
-        private System.Windows.Forms.TreeView treeView_Chanels;
+        private System.Windows.Forms.Panel panel_TreeFilters;
+        private System.Windows.Forms.SplitContainer splitContainer_FilterView_ArticleView;
+        private System.Windows.Forms.Panel panel_FilterView;
+        private System.Windows.Forms.TreeView treeView_Filters;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
@@ -303,6 +304,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }
 

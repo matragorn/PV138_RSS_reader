@@ -36,7 +36,7 @@ namespace PV138_RSS_Reader
         private void splitContainer_Feeds_FeedDetails_MouseUp(object sender, MouseEventArgs e)
         {
             //odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
-            panel_FeedDetails.Focus(); 
+            //panel_ArticleView.Focus(); 
         }
 
         private void splitContainer_Tree_MainContent_SplitterMoved(object sender, SplitterEventArgs e)
@@ -48,8 +48,8 @@ namespace PV138_RSS_Reader
         private void splitContainer_Feeds_FeedDetails_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
-            splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Max(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MIN_WIDTH);
-            splitContainer_Feeds_FeedDetails.SplitterDistance = Math.Min(splitContainer_Feeds_FeedDetails.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
+            splitContainer_FilterView_ArticleView.SplitterDistance = Math.Max(splitContainer_FilterView_ArticleView.Panel1.Height, FEEDS_PANEL_MIN_WIDTH);
+            splitContainer_FilterView_ArticleView.SplitterDistance = Math.Min(splitContainer_FilterView_ArticleView.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
         }
 
         private void treeView_Chanels_AfterSelect(object sender, TreeViewEventArgs e)
@@ -60,6 +60,12 @@ namespace PV138_RSS_Reader
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            treeView_Filters.ExpandAll();
+            webBrowser1.DocumentText = @"<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1 style=''>Nadpis clanku</h1><p>Text clanku</p></body>";
         }
     }
 }

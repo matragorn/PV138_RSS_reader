@@ -10,9 +10,6 @@ namespace PV138_RSS_Reader
     {
         private Dictionary<IFeed, List<IArticle>> data;
 
-        public DateTime LastUpdate { get; private set; }
-
-
         public DUMMYInMemoryStorage()
         {
             data = new Dictionary<IFeed, List<IArticle>>();
