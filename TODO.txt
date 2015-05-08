@@ -9,9 +9,9 @@ TODO List
 * Pridat do IStorageManager / FeedManager:
     List<IFeed> GetFeedsFromCategory(ICategory category)
     List<ICategory> GetCategories()
-    void AddCategory(ICategory category)
+    ICategory AddCategory(string name)
     void AddFeedToCategory(IFeed feed, ICategory category)
-    void UpdateCategory(ICategory category) // Nastavi kategorii v databaze s ID == category.ID
+    void UpdateCategory(ICategory category) // Nastavi kategorii v storage s ID == category.ID
                                             // hodnoty podla ostatnych poli category
 
 * Implementovat IStorageManager pre pracu s databazou
