@@ -24,6 +24,22 @@ namespace PV138_RSS_Reader
             return data.Keys.ToList();
         }
 
+        public IArticle GetArticleByTitle(string title)
+        {
+            foreach (var feed in GetFeeds())
+            {
+                foreach (var article in GetArticles(feed))
+                {
+                    if (article.Title == title)
+                    {
+                        return article;
+                    }
+                }
+            }
+
+            throw new KeyNotFoundException("Neexistuje clanok s nadpisom " + title);
+        }
+
         public List<IArticle> GetArticles(IFeed feed)
         {
             return data[feed];

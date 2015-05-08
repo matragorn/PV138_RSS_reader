@@ -15,30 +15,30 @@ namespace PV138_RSS_Reader
         static void Main()
         {
             // testovaci kod, v debuggeri vidno hodnoty 
-            
+            /*
             var manager = new FeedManager(new DUMMYInMemoryStorage());
             manager.SubscribeToURL("http://deoxy.org/koans?rss=1"); // Vzdy je tam ina random vec
             manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
 
-            var feeds = manager.GetFeeds();
+            var feeds = manager.Feeds;
             for (int i = 0; i < 2; i++)
             {
                 foreach (var feed in feeds)
                 {
-                    var articles = manager.GetArticles(feed); // Breakpoint sem; potom step over, articles ma 1 clanok.
+                    var articles = manager.Articles(feed); // Breakpoint sem; potom step over, articles ma 1 clanok.
                                                               // Continue, step over a articles ma 2 clanky
 
                 }
                 manager.UpdateAllFeeds();
             }
 
-            feeds = manager.GetFeeds();
+            feeds = manager.Feeds;
             foreach (var feed in feeds)
             {
                 manager.Unsubscribe(feed);
             }
-            feeds = manager.GetFeeds();
-            
+            feeds = manager.Feeds;
+            */
 
 
 

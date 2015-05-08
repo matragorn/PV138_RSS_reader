@@ -17,9 +17,17 @@ namespace PV138_RSS_Reader
         private const int FEEDS_PANEL_MAX_WIDTH = 400;
         private const int FEEDS_PANEL_MIN_WIDTH = 150;
 
+        // TESTY
+        private FeedManager manager;
+        // /TESTY
+
         public MainWindow()
         {
             InitializeComponent();
+
+            manager = new FeedManager(new DUMMYInMemoryStorage());
+            //manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
+            manager.SubscribeToURL("http://xkcd.com/rss.xml");
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -65,7 +73,41 @@ namespace PV138_RSS_Reader
         private void MainWindow_Load(object sender, EventArgs e)
         {
             treeView_Filters.ExpandAll();
-            webBrowser1.DocumentText = @"<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1 style=''>Nadpis clanku</h1><p>Text clanku</p></body>";
+            
+            RefreshView();
+        }
+
+        private void RefreshButton_Click(object sender, EventArgs e)
+        {
+            manager.UpdateAllFeeds();
+            RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            listView1.Items.Clear();
+            foreach (var article in manager.Articles(manager.Feeds.First()))
+            {
+                ListViewItem item = new ListViewItem(new string[] { article.Read.ToString(), article.Starred.ToString(), article.PubDate.ToString(), article.Title });
+                listView1.Items.Add(item);
+                listView1.Columns[3].Width = -2;
+            }
+        }
+
+        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
+        {
+        }
+
+        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            IArticle article = manager.ArticleByTitle(e.Item.SubItems[3].Text);
+            if (e.Item.SubItems[0].Text == false.ToString())
+            {
+                manager.SetRead(article, true);
+                e.Item.SubItems[0].Text = true.ToString();
+            }
+
+            webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>"+article.Description+"</body>";
         }
     }
 }

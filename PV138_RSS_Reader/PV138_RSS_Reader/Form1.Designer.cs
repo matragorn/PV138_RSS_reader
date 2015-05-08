@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
-            System.Windows.Forms.TreeNode treeNode13 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
-            treeNode12});
-            System.Windows.Forms.TreeNode treeNode14 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
-            System.Windows.Forms.TreeNode treeNode15 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
-            System.Windows.Forms.TreeNode treeNode16 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
-            treeNode14,
-            treeNode15});
-            System.Windows.Forms.TreeNode treeNode17 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
-            treeNode16});
-            System.Windows.Forms.TreeNode treeNode18 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
-            treeNode18});
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
-            treeNode20,
-            treeNode21});
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
+            treeNode67});
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
+            treeNode69,
+            treeNode70});
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
+            treeNode71});
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
+            treeNode73});
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
+            treeNode75,
+            treeNode76});
             this.panel_MainContent = new System.Windows.Forms.Panel();
             this.splitContainer_Tree_MainContent = new System.Windows.Forms.SplitContainer();
             this.panel_TreeFilters = new System.Windows.Forms.Panel();
@@ -53,14 +53,15 @@
             this.splitContainer_FilterView_ArticleView = new System.Windows.Forms.SplitContainer();
             this.panel_FilterView = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Read = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Starred = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
@@ -122,33 +123,33 @@
             this.treeView_Filters.HideSelection = false;
             this.treeView_Filters.Location = new System.Drawing.Point(0, 0);
             this.treeView_Filters.Name = "treeView_Filters";
-            treeNode12.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode12.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode13.Name = "Unread";
-            treeNode13.Text = "Unread";
-            treeNode14.Name = "Vypisane vsetky feedy v kategorii";
-            treeNode14.Text = "Vypisane vsetky feedy v kategorii";
-            treeNode15.Name = "Jeden feed moze byt vo viac kategoriach";
-            treeNode15.Text = "Jeden feed moze byt vo viac kategoriach";
-            treeNode16.Name = "Vypisane vsetky kategorie";
-            treeNode16.Text = "Vypisane vsetky kategorie";
-            treeNode17.Name = "Categories";
-            treeNode17.Text = "Categories";
-            treeNode18.Name = "Vypisane vsetky feedy";
-            treeNode18.Text = "Vypisane vsetky feedy";
-            treeNode19.Name = "All feeds";
-            treeNode19.Text = "All feeds";
-            treeNode20.Name = "Vypisane vsetky feedy,";
-            treeNode20.Text = "Vypisane vsetky feedy,";
-            treeNode21.Name = "kde ma nejaky clanok hviezdicku";
-            treeNode21.Text = "kde ma nejaky clanok hviezdicku";
-            treeNode22.Name = "Starred";
-            treeNode22.Text = "Starred";
+            treeNode67.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode67.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode68.Name = "Unread";
+            treeNode68.Text = "Unread";
+            treeNode69.Name = "Vypisane vsetky feedy v kategorii";
+            treeNode69.Text = "Vypisane vsetky feedy v kategorii";
+            treeNode70.Name = "Jeden feed moze byt vo viac kategoriach";
+            treeNode70.Text = "Jeden feed moze byt vo viac kategoriach";
+            treeNode71.Name = "Vypisane vsetky kategorie";
+            treeNode71.Text = "Vypisane vsetky kategorie";
+            treeNode72.Name = "Categories";
+            treeNode72.Text = "Categories";
+            treeNode73.Name = "Vypisane vsetky feedy";
+            treeNode73.Text = "Vypisane vsetky feedy";
+            treeNode74.Name = "All feeds";
+            treeNode74.Text = "All feeds";
+            treeNode75.Name = "Vypisane vsetky feedy,";
+            treeNode75.Text = "Vypisane vsetky feedy,";
+            treeNode76.Name = "kde ma nejaky clanok hviezdicku";
+            treeNode76.Text = "kde ma nejaky clanok hviezdicku";
+            treeNode77.Name = "Starred";
+            treeNode77.Text = "Starred";
             this.treeView_Filters.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode13,
-            treeNode17,
-            treeNode19,
-            treeNode22});
+            treeNode68,
+            treeNode72,
+            treeNode74,
+            treeNode77});
             this.treeView_Filters.ShowLines = false;
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
@@ -188,67 +189,42 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader4,
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3});
+            this.Read,
+            this.Starred,
+            this.Date,
+            this.Title});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listView1.FullRowSelect = true;
+            this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(826, 271);
+            this.listView1.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
+            this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
             this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
-            // columnHeader4
+            // Read
             // 
-            this.columnHeader4.Text = "Read";
+            this.Read.Text = "Read";
             // 
-            // columnHeader1
+            // Date
             // 
-            this.columnHeader1.DisplayIndex = 2;
-            this.columnHeader1.Text = "Date";
-            this.columnHeader1.Width = 115;
+            this.Date.Text = "Date";
+            this.Date.Width = 115;
             // 
-            // columnHeader2
+            // Starred
             // 
-            this.columnHeader2.DisplayIndex = 1;
-            this.columnHeader2.Text = "Starred";
-            this.columnHeader2.Width = 55;
+            this.Starred.Text = "Starred";
+            this.Starred.Width = 55;
             // 
-            // columnHeader3
+            // Title
             // 
-            this.columnHeader3.Text = "Title";
-            this.columnHeader3.Width = 592;
-            // 
-            // toolStrip_ToolMenu
-            // 
-            this.toolStrip_ToolMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
-            this.toolStrip_ToolMenu.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip_ToolMenu.Name = "toolStrip_ToolMenu";
-            this.toolStrip_ToolMenu.Size = new System.Drawing.Size(1135, 25);
-            this.toolStrip_ToolMenu.Stretch = true;
-            this.toolStrip_ToolMenu.TabIndex = 3;
-            this.toolStrip_ToolMenu.Text = "toolStrip1";
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(116, 22);
-            this.toolStripButton1.Text = "Prihlasit novy odber";
-            // 
-            // toolStripButton2
-            // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(115, 22);
-            this.toolStripButton2.Text = "Spravovat kategorie";
+            this.Title.Text = "Title";
+            this.Title.Width = 592;
             // 
             // webBrowser1
             // 
@@ -259,6 +235,46 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(826, 287);
             this.webBrowser1.TabIndex = 0;
+            // 
+            // toolStrip_ToolMenu
+            // 
+            this.toolStrip_ToolMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.RefreshButton});
+            this.toolStrip_ToolMenu.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip_ToolMenu.Name = "toolStrip_ToolMenu";
+            this.toolStrip_ToolMenu.Size = new System.Drawing.Size(1135, 25);
+            this.toolStrip_ToolMenu.Stretch = true;
+            this.toolStrip_ToolMenu.TabIndex = 3;
+            this.toolStrip_ToolMenu.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(116, 22);
+            this.toolStripButton1.Text = "Prihlasit novy odber";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButton2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(115, 22);
+            this.toolStripButton2.Text = "Spravovat kategorie";
+            // 
+            // RefreshButton
+            // 
+            this.RefreshButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.RefreshButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.RefreshButton.Name = "RefreshButton";
+            this.RefreshButton.Size = new System.Drawing.Size(50, 22);
+            this.RefreshButton.Text = "Refresh";
+            this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
             // MainWindow
             // 
@@ -298,13 +314,14 @@
         private System.Windows.Forms.Panel panel_FilterView;
         private System.Windows.Forms.TreeView treeView_Filters;
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader Date;
+        private System.Windows.Forms.ColumnHeader Starred;
+        private System.Windows.Forms.ColumnHeader Title;
+        private System.Windows.Forms.ColumnHeader Read;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ToolStripButton RefreshButton;
     }
 }
 
