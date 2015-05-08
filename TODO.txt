@@ -11,6 +11,8 @@ TODO List
     List<ICategory> GetCategories()
     void AddCategory(ICategory category)
     void AddFeedToCategory(IFeed feed, ICategory category)
+    void UpdateCategory(ICategory category) // Nastavi kategorii v databaze s ID == category.ID
+                                            // hodnoty podla ostatnych poli category
 
 * Implementovat IStorageManager pre pracu s databazou
     - bolo by fajn cacheovat si stav databazy v pamati, koli rychlosti GETov.
