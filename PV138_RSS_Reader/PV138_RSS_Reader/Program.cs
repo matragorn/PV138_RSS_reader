@@ -18,6 +18,7 @@ namespace PV138_RSS_Reader
             
             var manager = new FeedManager(new DUMMYInMemoryStorage());
             manager.SubscribeToURL("http://deoxy.org/koans?rss=1"); // Vzdy je tam ina random vec
+            manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
 
             var feeds = manager.GetFeeds();
             for (int i = 0; i < 2; i++)
