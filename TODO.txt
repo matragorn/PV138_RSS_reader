@@ -1,8 +1,21 @@
 TODO List
 
-* Implementovat třídu AtomParser, specs na http://www.atomenabled.org/developers/syndication/
+* Vytvorit testy
+
+* Vytvorit databazu
+
+* Vytvorit Category, ktora uklada informacie o kategorii. Staci asi ID a nazov.
+
+* Pridat do IStorageManager / FeedManager:
+    List<IFeed> GetFeedsFromCategory(ICategory category)
+    List<ICategory> GetCategories()
+    void AddCategory(ICategory category)
+    void AddFeedToCategory(IFeed feed, ICategory category)
 
 * Implementovat IStorageManager pre pracu s databazou
+    - bolo by fajn cacheovat si stav databazy v pamati, koli rychlosti GETov.
+      Na to by sa mohlo upravit DUMMYInMemoryStorage - ako obal pre dalsi IStorageManager, ktory pracuje s databazou
+      
     [Jakub] - Je dost skoda, ze musime pouzit externu xml databazu a nestaci pouzit XDocument ako databazu.
         To je vseobecne sice zle riesenie, ale na male data by nam to stacilo
         a bolo by to embedded a jednoduche na naprogramovanie.
