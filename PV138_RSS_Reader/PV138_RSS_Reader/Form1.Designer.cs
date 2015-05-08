@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
-            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
-            treeNode67});
-            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
-            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
-            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
-            treeNode69,
-            treeNode70});
-            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
-            treeNode71});
-            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
-            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
-            treeNode73});
-            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
-            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
-            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
-            treeNode75,
-            treeNode76});
+            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
+            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
+            treeNode100});
+            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
+            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
+            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
+            treeNode102,
+            treeNode103});
+            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
+            treeNode104});
+            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
+            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
+            treeNode106});
+            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
+            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
+            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
+            treeNode108,
+            treeNode109});
             this.panel_MainContent = new System.Windows.Forms.Panel();
             this.splitContainer_Tree_MainContent = new System.Windows.Forms.SplitContainer();
             this.panel_TreeFilters = new System.Windows.Forms.Panel();
@@ -123,33 +123,33 @@
             this.treeView_Filters.HideSelection = false;
             this.treeView_Filters.Location = new System.Drawing.Point(0, 0);
             this.treeView_Filters.Name = "treeView_Filters";
-            treeNode67.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode67.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode68.Name = "Unread";
-            treeNode68.Text = "Unread";
-            treeNode69.Name = "Vypisane vsetky feedy v kategorii";
-            treeNode69.Text = "Vypisane vsetky feedy v kategorii";
-            treeNode70.Name = "Jeden feed moze byt vo viac kategoriach";
-            treeNode70.Text = "Jeden feed moze byt vo viac kategoriach";
-            treeNode71.Name = "Vypisane vsetky kategorie";
-            treeNode71.Text = "Vypisane vsetky kategorie";
-            treeNode72.Name = "Categories";
-            treeNode72.Text = "Categories";
-            treeNode73.Name = "Vypisane vsetky feedy";
-            treeNode73.Text = "Vypisane vsetky feedy";
-            treeNode74.Name = "All feeds";
-            treeNode74.Text = "All feeds";
-            treeNode75.Name = "Vypisane vsetky feedy,";
-            treeNode75.Text = "Vypisane vsetky feedy,";
-            treeNode76.Name = "kde ma nejaky clanok hviezdicku";
-            treeNode76.Text = "kde ma nejaky clanok hviezdicku";
-            treeNode77.Name = "Starred";
-            treeNode77.Text = "Starred";
+            treeNode100.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode100.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode101.Name = "Unread";
+            treeNode101.Text = "Unread";
+            treeNode102.Name = "Vypisane vsetky feedy v kategorii";
+            treeNode102.Text = "Vypisane vsetky feedy v kategorii";
+            treeNode103.Name = "Jeden feed moze byt vo viac kategoriach";
+            treeNode103.Text = "Jeden feed moze byt vo viac kategoriach";
+            treeNode104.Name = "Vypisane vsetky kategorie";
+            treeNode104.Text = "Vypisane vsetky kategorie";
+            treeNode105.Name = "Categories";
+            treeNode105.Text = "Categories";
+            treeNode106.Name = "Vypisane vsetky feedy";
+            treeNode106.Text = "Vypisane vsetky feedy";
+            treeNode107.Name = "All feeds";
+            treeNode107.Text = "All feeds";
+            treeNode108.Name = "Vypisane vsetky feedy,";
+            treeNode108.Text = "Vypisane vsetky feedy,";
+            treeNode109.Name = "kde ma nejaky clanok hviezdicku";
+            treeNode109.Text = "kde ma nejaky clanok hviezdicku";
+            treeNode110.Name = "Starred";
+            treeNode110.Text = "Starred";
             this.treeView_Filters.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode68,
-            treeNode72,
-            treeNode74,
-            treeNode77});
+            treeNode101,
+            treeNode105,
+            treeNode107,
+            treeNode110});
             this.treeView_Filters.ShowLines = false;
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
@@ -228,13 +228,17 @@
             // 
             // webBrowser1
             // 
+            this.webBrowser1.AllowWebBrowserDrop = false;
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.webBrowser1.IsWebBrowserContextMenuEnabled = false;
             this.webBrowser1.Location = new System.Drawing.Point(0, 0);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
             this.webBrowser1.Size = new System.Drawing.Size(826, 287);
             this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.WebBrowserShortcutsEnabled = false;
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.webBrowser1_Navigating);
             // 
             // toolStrip_ToolMenu
             // 

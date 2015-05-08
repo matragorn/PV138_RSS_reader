@@ -27,7 +27,9 @@ namespace PV138_RSS_Reader
 
             manager = new FeedManager(new DUMMYInMemoryStorage());
             //manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
-            manager.SubscribeToURL("http://xkcd.com/rss.xml");
+            //manager.SubscribeToURL("http://xkcd.com/rss.xml");
+            //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
+            manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,8 +108,17 @@ namespace PV138_RSS_Reader
                 manager.SetRead(article, true);
                 e.Item.SubItems[0].Text = true.ToString();
             }
-
+            
             webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>"+article.Description+"</body>";
+        }
+
+        private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            if (e.Url.ToString() != "about:blank")
+            {
+                System.Diagnostics.Process.Start(e.Url.ToString());
+                e.Cancel = true;
+            }
         }
     }
 }
