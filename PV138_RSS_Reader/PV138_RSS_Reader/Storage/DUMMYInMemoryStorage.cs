@@ -12,12 +12,19 @@ namespace PV138_RSS_Reader
     class DUMMYInMemoryStorage : IStorageManager
     {
         private Dictionary<IFeed, List<IArticle>> data;
+        private List<Category> categories;
 
         public DUMMYInMemoryStorage()
         {
             data = new Dictionary<IFeed, List<IArticle>>();
+            //pro testovací účely, až bude databaze načte se z databaze
+            categories = new List<Category> { new Category { Name = "Zprávy" }, new Category { Name = "Blbosti" }, new Category { Name = "Ostatni" } };
         }
 
+        public List<Category> GetCategories()
+        {
+            return categories;
+        }
 
         public List<IFeed> GetFeeds()
         {
@@ -53,6 +60,16 @@ namespace PV138_RSS_Reader
         public void RemoveFeed(IFeed feed)
         {
             data.Remove(feed);
+        }
+
+        public void AddCategory(Category category)
+        {
+            categories.Add(category);
+        }
+
+        public void RemoveCategory(Category category)
+        {
+            categories.Remove(category);
         }
 
         public void AddArticles(IEnumerable<IArticle> articles, IFeed feed)

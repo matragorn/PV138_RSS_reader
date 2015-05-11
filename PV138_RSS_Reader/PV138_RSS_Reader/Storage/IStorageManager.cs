@@ -45,5 +45,10 @@ namespace PV138_RSS_Reader
         void SetStarred(IArticle article, bool setTo);
 
         void SetRead(IArticle article, bool setTo);
+
+        List<Category> GetCategories();
+        void AddCategory(Category category);
+
+        void RemoveCategory(Category category);
     }
 }

@@ -16,6 +16,7 @@ namespace PV138_RSS_Reader
         private const int TREE_PANEL_MIN_WIDTH = 150;
         private const int FEEDS_PANEL_MAX_WIDTH = 400;
         private const int FEEDS_PANEL_MIN_WIDTH = 150;
+        private const int MAX_SHOWN_ARTICLES = 20; //TODO je to potreba? budeme listovat articles? nebo jich tam zobrazime milion... strasne dlouho se refresuje listview
 
         // TESTY
         private FeedManager manager;
@@ -26,11 +27,11 @@ namespace PV138_RSS_Reader
             InitializeComponent();
 
             manager = new FeedManager(new DUMMYInMemoryStorage());
-            manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
-            //manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
+            //manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
+            manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
             //manager.SubscribeToURL("http://xkcd.com/rss.xml");
             //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
-            //manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
+            manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -47,7 +48,7 @@ namespace PV138_RSS_Reader
         private void splitContainer_Feeds_FeedDetails_MouseUp(object sender, MouseEventArgs e)
         {
             //odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
-            //panel_ArticleView.Focus(); 
+            panel_FilterView.Focus(); 
         }
 
         private void splitContainer_Tree_MainContent_SplitterMoved(object sender, SplitterEventArgs e)
@@ -90,8 +91,9 @@ namespace PV138_RSS_Reader
 
         private void RefreshView()
         {
+            listView1.SuspendLayout();
             listView1.Items.Clear();
-            foreach (var article in manager.Articles(manager.Feeds.First()))
+            foreach (var article in manager.Articles(manager.Feeds.First()).Take(MAX_SHOWN_ARTICLES))
             {
                 ListViewItem item = new ListViewItem(article.ToArray());
                 item.Tag = article;
@@ -99,6 +101,7 @@ namespace PV138_RSS_Reader
                 listView1.Columns[3].Width = -1;
                 listView1.Columns[4].Width = -2;
             }
+            listView1.ResumeLayout();
         }
 
 
@@ -110,6 +113,12 @@ namespace PV138_RSS_Reader
                 System.Diagnostics.Process.Start(e.Url.ToString());
                 e.Cancel = true;
             }
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            CategoryManager cm = new CategoryManager(manager.Storage.GetCategories());
+            cm.ShowDialog();
         }
     }
 }

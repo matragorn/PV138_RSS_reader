@@ -66,7 +66,20 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Article.cs" />
+    <Compile Include="Category.cs" />
+    <Compile Include="CategoryManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CategoryManager.Designer.cs">
+      <DependentUpon>CategoryManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parsers\AtomParser.cs" />
+    <Compile Include="RenameBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RenameBox.Designer.cs">
+      <DependentUpon>RenameBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Storage\DUMMYInMemoryStorage.cs" />
     <Compile Include="Feed.cs" />
     <Compile Include="FeedManager.cs" />
@@ -87,6 +100,9 @@
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CategoryManager.resx">
+      <DependentUpon>CategoryManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,6 +115,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="RenameBox.resx">
+      <DependentUpon>RenameBox.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

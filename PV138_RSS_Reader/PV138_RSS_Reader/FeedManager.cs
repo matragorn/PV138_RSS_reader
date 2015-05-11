@@ -14,7 +14,7 @@ namespace PV138_RSS_Reader
     /// </summary>
     class FeedManager
     {
-        private IStorageManager Storage { get; set; }
+        public IStorageManager Storage { get; set; }
 
         /// <summary>
         /// Vrati List vsetkych prihlasenych feedov
@@ -187,7 +187,7 @@ namespace PV138_RSS_Reader
     {
         public static string DownloadStringAwareOfEncoding(this WebClient webClient, string uri)
         {
-            var rawData = webClient.DownloadData(uri);
+            var rawData = webClient.DownloadData(uri); //TODO: Web Exception was unhandled
             var encoding = WebUtils.GetEncodingFrom(webClient.ResponseHeaders, Encoding.UTF8);
             return encoding.GetString(rawData);
         }

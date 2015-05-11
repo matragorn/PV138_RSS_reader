@@ -57,12 +57,12 @@
             this.Starred = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeaderFeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.RefreshButton = new System.Windows.Forms.ToolStripButton();
-            this.columnHeaderFeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
@@ -225,6 +225,11 @@
             this.Title.Text = "Title";
             this.Title.Width = 400;
             // 
+            // columnHeaderFeed
+            // 
+            this.columnHeaderFeed.Text = "Feed";
+            this.columnHeaderFeed.Width = 200;
+            // 
             // webBrowser1
             // 
             this.webBrowser1.AllowWebBrowserDrop = false;
@@ -269,6 +274,7 @@
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(115, 22);
             this.toolStripButton2.Text = "Spravovat kategorie";
+            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // RefreshButton
             // 
@@ -278,11 +284,6 @@
             this.RefreshButton.Size = new System.Drawing.Size(50, 22);
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
-            // 
-            // columnHeaderFeed
-            // 
-            this.columnHeaderFeed.Text = "Feed";
-            this.columnHeaderFeed.Width = 200;
             // 
             // MainWindow
             // 
