@@ -48,7 +48,7 @@ namespace PV138_RSS_Reader
 
         public string[] ToArray()
         {
-            throw new NotImplementedException();
+           return new string[] { Read.ToString(), Starred.ToString(), PubDate.ToString(), Title, (ParentFeed==null)?"null":ParentFeed.ToString() };
         }
 
 

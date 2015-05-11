@@ -63,16 +63,18 @@ namespace PV138_RSS_Reader
             splitContainer_FilterView_ArticleView.SplitterDistance = Math.Min(splitContainer_FilterView_ArticleView.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
         }
 
-        private void treeView_Chanels_AfterSelect(object sender, TreeViewEventArgs e)
+        private void listView1_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
+            IArticle article = (IArticle)e.Item.Tag;
+            if (e.Item.SubItems[0].Text == false.ToString())
+            {
+                manager.SetRead(article, true);
+                e.Item.SubItems[0].Text = true.ToString();
+            }
+
+            webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>" + article.Description + "</body>";
 
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void MainWindow_Load(object sender, EventArgs e)
         {
             treeView_Filters.ExpandAll();
@@ -91,28 +93,15 @@ namespace PV138_RSS_Reader
             listView1.Items.Clear();
             foreach (var article in manager.Articles(manager.Feeds.First()))
             {
-                ListViewItem item = new ListViewItem(new string[] { article.Read.ToString(), article.Starred.ToString(), article.PubDate.ToString(), article.Title });
+                ListViewItem item = new ListViewItem(article.ToArray());
                 item.Tag = article;
                 listView1.Items.Add(item);
-                listView1.Columns[3].Width = -2;
+                listView1.Columns[3].Width = -1;
+                listView1.Columns[4].Width = -2;
             }
         }
 
-        private void listView1_ItemChecked(object sender, ItemCheckedEventArgs e)
-        {
-        }
 
-        private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            IArticle article = (IArticle)e.Item.Tag;
-            if (e.Item.SubItems[0].Text == false.ToString())
-            {
-                manager.SetRead(article, true);
-                e.Item.SubItems[0].Text = true.ToString();
-            }
-            
-            webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>"+article.Description+"</body>";
-        }
 
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {

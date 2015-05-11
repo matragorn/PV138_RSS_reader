@@ -37,7 +37,11 @@ namespace PV138_RSS_Reader
             this.Description = description;
         }
 
-
+        public override string ToString()
+        {
+            //TODO:
+            return "TODO in Feed.cs";
+        }
         public override bool Equals (object obj)
         {
             return obj is IFeed && ((IFeed)obj).FeedURL == this.FeedURL;

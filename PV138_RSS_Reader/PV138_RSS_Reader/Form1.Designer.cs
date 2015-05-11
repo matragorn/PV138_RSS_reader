@@ -62,6 +62,7 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.RefreshButton = new System.Windows.Forms.ToolStripButton();
+            this.columnHeaderFeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
@@ -153,7 +154,6 @@
             this.treeView_Filters.ShowLines = false;
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
-            this.treeView_Filters.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Chanels_AfterSelect);
             // 
             // splitContainer_FilterView_ArticleView
             // 
@@ -192,7 +192,8 @@
             this.Read,
             this.Starred,
             this.Date,
-            this.Title});
+            this.Title,
+            this.columnHeaderFeed});
             this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.listView1.FullRowSelect = true;
             this.listView1.HideSelection = false;
@@ -203,9 +204,7 @@
             this.listView1.TabIndex = 4;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            this.listView1.ItemChecked += new System.Windows.Forms.ItemCheckedEventHandler(this.listView1_ItemChecked);
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // Read
             // 
@@ -224,7 +223,7 @@
             // Title
             // 
             this.Title.Text = "Title";
-            this.Title.Width = 592;
+            this.Title.Width = 400;
             // 
             // webBrowser1
             // 
@@ -280,6 +279,11 @@
             this.RefreshButton.Text = "Refresh";
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
+            // columnHeaderFeed
+            // 
+            this.columnHeaderFeed.Text = "Feed";
+            this.columnHeaderFeed.Width = 200;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,6 +312,7 @@
 
         }
 
+
         #endregion
 
         private System.Windows.Forms.Panel panel_MainContent;
@@ -326,6 +331,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ToolStripButton RefreshButton;
+        private System.Windows.Forms.ColumnHeader columnHeaderFeed;
     }
 }
 

@@ -57,14 +57,7 @@ namespace PV138_RSS_Reader
 
         public void AddArticles(IEnumerable<IArticle> articles, IFeed feed)
         {
-
-            foreach (var article in articles)
-            {
-                data[feed].Add(article);
-            }
-            // co takhle celou tuto metodu nahoře nahradit řádkem:
-            // data[feed].AddRange(articles); [Michael]
-
+            data[feed].InsertRange(0,articles);
         }
 
         public void SetStarred(IArticle article, bool setTo)
