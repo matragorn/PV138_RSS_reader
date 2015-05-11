@@ -30,7 +30,12 @@ namespace PV138_RSS_Reader
             get { return this.Title + this.URL + this.Description; }
             set { /*nelze nastavit*/}
         }
-
+        
+       
+        public Article(string title, string url, string description, DateTime pubDate, IFeed feed):this(title,url,description,pubDate)
+        {
+            ParentFeed = feed;
+        }
         public Article(string title, string url, string description, DateTime pubDate)
         {
             Read = false;
