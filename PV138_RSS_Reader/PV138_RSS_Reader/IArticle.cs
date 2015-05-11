@@ -50,5 +50,15 @@ namespace PV138_RSS_Reader
         /// Ma clanok hviezdicku?
         /// </summary>
         bool Starred { get; set; }
+
+        /// <summary>
+        /// Vraci identifikator articlu pro porovnavani
+        /// </summary>
+        string Iedntificator { get; set; }
+
+        /// <summary>
+        /// Feed ze ktereho članek pochazí
+        /// </summary>
+        IFeed ParentFeed { get; set; }
     }
 }

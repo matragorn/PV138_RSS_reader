@@ -21,7 +21,8 @@ namespace PV138_RSS_Reader
 
 
     /// <summary>
-    /// reprezentuje jednotlivý feed ziskaný z rss, mel by obsahovat plno datovych polozek jako nazev, tatum, kanal atd...
+    /// reprezentuje jednotlivý feed ziskaný z rss, mel by obsahovat
+    /// plno datovych polozek jako nazev, tatum, kanal atd...
     /// </summary>
     public interface IFeed
     {

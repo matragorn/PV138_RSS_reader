@@ -18,7 +18,18 @@ namespace PV138_RSS_Reader
 
         public bool Read { get; set; }
 
+        public IFeed ParentFeed { get; set; }
+
         public bool Starred { get; set; }
+
+        /// <summary>
+        /// vraci identifikator articlu pro porovnavani v metode equals
+        /// </summary>
+        public string Identificator
+        {
+            private get { return this.Title + this.URL + this.Description; }
+            private set { /*nelze nastavit*/}
+        }
 
         public Article(string title, string url, string description, DateTime pubDate)
         {
@@ -28,6 +39,11 @@ namespace PV138_RSS_Reader
             PubDate = pubDate;
             Title = title;
             URL = url;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is IArticle && ((IArticle)obj).Iedntificator == this.Identificator;
         }
     }
 }

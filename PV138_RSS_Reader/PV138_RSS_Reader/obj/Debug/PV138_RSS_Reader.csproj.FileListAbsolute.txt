@@ -26,3 +26,13 @@ C:\Users\Admin\Source\Repos\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\o
 C:\Users\Admin\Source\Repos\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache
 C:\Users\Admin\Source\Repos\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe
 C:\Users\Admin\Source\Repos\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe.config
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.exe
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csprojResolveAssemblyReference.cache
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.AboutBox.resources
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.MainWindow.resources
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.Properties.Resources.resources
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache

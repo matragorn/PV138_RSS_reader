@@ -28,24 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
-            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
-            treeNode100});
-            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
-            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
-            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
-            treeNode102,
-            treeNode103});
-            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
-            treeNode104});
-            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
-            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
-            treeNode106});
-            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
-            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
-            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
-            treeNode108,
-            treeNode109});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy s neprecitanymi clankami");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Unread", new System.Windows.Forms.TreeNode[] {
+            treeNode1});
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy v kategorii");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Jeden feed moze byt vo viac kategoriach");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Vypisane vsetky kategorie", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Categories", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("All feeds", new System.Windows.Forms.TreeNode[] {
+            treeNode7});
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Vypisane vsetky feedy,");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("kde ma nejaky clanok hviezdicku");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Starred", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10});
             this.panel_MainContent = new System.Windows.Forms.Panel();
             this.splitContainer_Tree_MainContent = new System.Windows.Forms.SplitContainer();
             this.panel_TreeFilters = new System.Windows.Forms.Panel();
@@ -54,8 +54,8 @@
             this.panel_FilterView = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Read = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Starred = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
@@ -123,33 +123,33 @@
             this.treeView_Filters.HideSelection = false;
             this.treeView_Filters.Location = new System.Drawing.Point(0, 0);
             this.treeView_Filters.Name = "treeView_Filters";
-            treeNode100.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode100.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
-            treeNode101.Name = "Unread";
-            treeNode101.Text = "Unread";
-            treeNode102.Name = "Vypisane vsetky feedy v kategorii";
-            treeNode102.Text = "Vypisane vsetky feedy v kategorii";
-            treeNode103.Name = "Jeden feed moze byt vo viac kategoriach";
-            treeNode103.Text = "Jeden feed moze byt vo viac kategoriach";
-            treeNode104.Name = "Vypisane vsetky kategorie";
-            treeNode104.Text = "Vypisane vsetky kategorie";
-            treeNode105.Name = "Categories";
-            treeNode105.Text = "Categories";
-            treeNode106.Name = "Vypisane vsetky feedy";
-            treeNode106.Text = "Vypisane vsetky feedy";
-            treeNode107.Name = "All feeds";
-            treeNode107.Text = "All feeds";
-            treeNode108.Name = "Vypisane vsetky feedy,";
-            treeNode108.Text = "Vypisane vsetky feedy,";
-            treeNode109.Name = "kde ma nejaky clanok hviezdicku";
-            treeNode109.Text = "kde ma nejaky clanok hviezdicku";
-            treeNode110.Name = "Starred";
-            treeNode110.Text = "Starred";
+            treeNode1.Name = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode1.Text = "Vypisane vsetky feedy s neprecitanymi clankami";
+            treeNode2.Name = "Unread";
+            treeNode2.Text = "Unread";
+            treeNode3.Name = "Vypisane vsetky feedy v kategorii";
+            treeNode3.Text = "Vypisane vsetky feedy v kategorii";
+            treeNode4.Name = "Jeden feed moze byt vo viac kategoriach";
+            treeNode4.Text = "Jeden feed moze byt vo viac kategoriach";
+            treeNode5.Name = "Vypisane vsetky kategorie";
+            treeNode5.Text = "Vypisane vsetky kategorie";
+            treeNode6.Name = "Categories";
+            treeNode6.Text = "Categories";
+            treeNode7.Name = "Vypisane vsetky feedy";
+            treeNode7.Text = "Vypisane vsetky feedy";
+            treeNode8.Name = "All feeds";
+            treeNode8.Text = "All feeds";
+            treeNode9.Name = "Vypisane vsetky feedy,";
+            treeNode9.Text = "Vypisane vsetky feedy,";
+            treeNode10.Name = "kde ma nejaky clanok hviezdicku";
+            treeNode10.Text = "kde ma nejaky clanok hviezdicku";
+            treeNode11.Name = "Starred";
+            treeNode11.Text = "Starred";
             this.treeView_Filters.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode101,
-            treeNode105,
-            treeNode107,
-            treeNode110});
+            treeNode2,
+            treeNode6,
+            treeNode8,
+            treeNode11});
             this.treeView_Filters.ShowLines = false;
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
@@ -211,15 +211,15 @@
             // 
             this.Read.Text = "Read";
             // 
-            // Date
-            // 
-            this.Date.Text = "Date";
-            this.Date.Width = 115;
-            // 
             // Starred
             // 
             this.Starred.Text = "Starred";
             this.Starred.Width = 55;
+            // 
+            // Date
+            // 
+            this.Date.Text = "Date";
+            this.Date.Width = 115;
             // 
             // Title
             // 
