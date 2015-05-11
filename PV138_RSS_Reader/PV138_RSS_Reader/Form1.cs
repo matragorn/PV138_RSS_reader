@@ -26,10 +26,11 @@ namespace PV138_RSS_Reader
             InitializeComponent();
 
             manager = new FeedManager(new DUMMYInMemoryStorage());
+            manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
             //manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
             //manager.SubscribeToURL("http://xkcd.com/rss.xml");
             //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
-            manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
+            //manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,6 +92,7 @@ namespace PV138_RSS_Reader
             foreach (var article in manager.Articles(manager.Feeds.First()))
             {
                 ListViewItem item = new ListViewItem(new string[] { article.Read.ToString(), article.Starred.ToString(), article.PubDate.ToString(), article.Title });
+                item.Tag = article;
                 listView1.Items.Add(item);
                 listView1.Columns[3].Width = -2;
             }
@@ -102,7 +104,7 @@ namespace PV138_RSS_Reader
 
         private void listView1_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            IArticle article = manager.ArticleByTitle(e.Item.SubItems[3].Text);
+            IArticle article = (IArticle)e.Item.Tag;
             if (e.Item.SubItems[0].Text == false.ToString())
             {
                 manager.SetRead(article, true);
