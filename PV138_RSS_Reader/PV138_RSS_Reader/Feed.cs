@@ -37,10 +37,6 @@ namespace PV138_RSS_Reader
             this.Description = description;
         }
 
-        public string[] ToArray()
-        {
-            throw new NotImplementedException();
-        }
 
         public override bool Equals (object obj)
         {

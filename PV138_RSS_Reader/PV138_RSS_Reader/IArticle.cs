@@ -54,11 +54,19 @@ namespace PV138_RSS_Reader
         /// <summary>
         /// Vraci identifikator articlu pro porovnavani
         /// </summary>
-        string Iedntificator { get; set; }
+        string Identificator { get; set; }
 
         /// <summary>
         /// Feed ze ktereho članek pochazí
         /// </summary>
         IFeed ParentFeed { get; set; }
+
+        /// <summary>
+        /// pro potřeby seznamu articlů v hlavním oknu, v listview, jednotlivé pole uvadi stringovou reprezentaci co se má pro daný feed 
+        /// vypisovat ve sloupci, např. "datum", "název",...
+        /// </summary>
+        /// <returns></returns>
+        string[] ToArray();
+
     }
 }

@@ -46,12 +46,6 @@ namespace PV138_RSS_Reader
         /// </summary>
         string Description { get; }
 
-        /// <summary>
-        /// pro potřeby seznamu feedů v hlavním oknu, v listview, jednotlivé pole uvadi stringovou reprezentaci co se má pro daný feed 
-        /// vypisovat ve sloupci, např. "datum", "název",...
-        /// </summary>
-        /// <returns></returns>
-        string[] ToArray();
 
 
     }

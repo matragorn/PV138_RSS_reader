@@ -27,8 +27,8 @@ namespace PV138_RSS_Reader
         /// </summary>
         public string Identificator
         {
-            private get { return this.Title + this.URL + this.Description; }
-            private set { /*nelze nastavit*/}
+            get { return this.Title + this.URL + this.Description; }
+            set { /*nelze nastavit*/}
         }
 
         public Article(string title, string url, string description, DateTime pubDate)
@@ -41,9 +41,15 @@ namespace PV138_RSS_Reader
             URL = url;
         }
 
+        public string[] ToArray()
+        {
+            throw new NotImplementedException();
+        }
+
+
         public override bool Equals(object obj)
         {
-            return obj is IArticle && ((IArticle)obj).Iedntificator == this.Identificator;
+            return obj is IArticle && ((IArticle)obj).Identificator == this.Identificator;
         }
     }
 }
