@@ -62,6 +62,8 @@ namespace PV138_RSS_Reader
             {
                 data[feed].Add(article);
             }
+            // co takhle celou tuto metodu nahoře nahradit řádkem:
+            // data[feed].AddRange(articles); [Michael]
 
         }
 
@@ -77,6 +79,10 @@ namespace PV138_RSS_Reader
                     articles[articles.IndexOf(article)].Starred = setTo;
                 }
             }
+
+
+            // co takhle celou tuto metodu nahoře nahradit řádkem:
+            // article.Starred = setTo; [Michael]
         }
 
         public void SetRead(IArticle article, bool setTo)
@@ -91,6 +97,10 @@ namespace PV138_RSS_Reader
                     articles[articles.IndexOf(article)].Read = setTo;
                 }
             }
+
+            // co takhle celou tuto metodu nahoře nahradit řádkem:
+            // article.Read = setTo; [Michael]
+
         }
     }
 }

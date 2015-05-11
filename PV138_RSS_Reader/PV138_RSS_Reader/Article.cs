@@ -51,5 +51,10 @@ namespace PV138_RSS_Reader
         {
             return obj is IArticle && ((IArticle)obj).Identificator == this.Identificator;
         }
+
+        public override int GetHashCode()
+        {
+            return this.Identificator.GetHashCode();
+        }
     }
 }
