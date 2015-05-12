@@ -38,3 +38,4 @@ C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.CategoryManager.resources
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.RenameBox.resources
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.ChooseFeedBox.resources

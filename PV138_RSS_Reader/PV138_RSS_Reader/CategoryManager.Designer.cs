@@ -36,7 +36,6 @@
             this.button_AddFeed = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.button_RenameCategory = new System.Windows.Forms.Button();
-            this.button_RenameFeed = new System.Windows.Forms.Button();
             this.button_deleteFeed = new System.Windows.Forms.Button();
             this.button_deleteCategory = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -93,7 +92,7 @@
             // 
             // button_AddFeed
             // 
-            this.button_AddFeed.Location = new System.Drawing.Point(182, 258);
+            this.button_AddFeed.Location = new System.Drawing.Point(181, 230);
             this.button_AddFeed.Name = "button_AddFeed";
             this.button_AddFeed.Size = new System.Drawing.Size(164, 23);
             this.button_AddFeed.TabIndex = 6;
@@ -123,35 +122,27 @@
             this.button_RenameCategory.UseVisualStyleBackColor = true;
             this.button_RenameCategory.Click += new System.EventHandler(this.button_RenameCategory_Click);
             // 
-            // button_RenameFeed
-            // 
-            this.button_RenameFeed.Location = new System.Drawing.Point(182, 229);
-            this.button_RenameFeed.Name = "button_RenameFeed";
-            this.button_RenameFeed.Size = new System.Drawing.Size(164, 23);
-            this.button_RenameFeed.TabIndex = 11;
-            this.button_RenameFeed.Text = "Přejmenovat Kanál";
-            this.button_RenameFeed.UseVisualStyleBackColor = true;
-            this.button_RenameFeed.Visible = false;
-            this.button_RenameFeed.Click += new System.EventHandler(this.button_RenameFeed_Click);
-            // 
             // button_deleteFeed
             // 
-            this.button_deleteFeed.Location = new System.Drawing.Point(182, 286);
+            this.button_deleteFeed.Location = new System.Drawing.Point(181, 259);
             this.button_deleteFeed.Name = "button_deleteFeed";
             this.button_deleteFeed.Size = new System.Drawing.Size(164, 23);
             this.button_deleteFeed.TabIndex = 13;
-            this.button_deleteFeed.Text = "Smazat Kanál";
+            this.button_deleteFeed.Text = "Odebrat Kanál";
             this.button_deleteFeed.UseVisualStyleBackColor = true;
             this.button_deleteFeed.Visible = false;
+            this.button_deleteFeed.Click += new System.EventHandler(this.button_deleteFeed_Click);
             // 
             // button_deleteCategory
             // 
+            this.button_deleteCategory.Enabled = false;
             this.button_deleteCategory.Location = new System.Drawing.Point(12, 286);
             this.button_deleteCategory.Name = "button_deleteCategory";
             this.button_deleteCategory.Size = new System.Drawing.Size(164, 23);
             this.button_deleteCategory.TabIndex = 12;
             this.button_deleteCategory.Text = "Smazat Kategorii";
             this.button_deleteCategory.UseVisualStyleBackColor = true;
+            this.button_deleteCategory.Click += new System.EventHandler(this.button_deleteCategory_Click);
             // 
             // CategoryManager
             // 
@@ -161,7 +152,6 @@
             this.ControlBox = false;
             this.Controls.Add(this.button_deleteFeed);
             this.Controls.Add(this.button_deleteCategory);
-            this.Controls.Add(this.button_RenameFeed);
             this.Controls.Add(this.button_RenameCategory);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.label_feeds);
@@ -188,7 +178,6 @@
         private System.Windows.Forms.Button button_AddFeed;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button button_RenameCategory;
-        private System.Windows.Forms.Button button_RenameFeed;
         private System.Windows.Forms.Button button_deleteFeed;
         private System.Windows.Forms.Button button_deleteCategory;
     }

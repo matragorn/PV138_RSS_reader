@@ -12,7 +12,7 @@ namespace PV138_RSS_Reader
     /// <summary>
     /// Hlavny spravca logiky programu
     /// </summary>
-    class FeedManager
+    public class FeedManager
     {
         public IStorageManager Storage { get; set; }
 

@@ -73,6 +73,12 @@
     <Compile Include="CategoryManager.Designer.cs">
       <DependentUpon>CategoryManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChooseFeedBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseFeedBox.Designer.cs">
+      <DependentUpon>ChooseFeedBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Parsers\AtomParser.cs" />
     <Compile Include="RenameBox.cs">
       <SubType>Form</SubType>
@@ -102,6 +108,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CategoryManager.resx">
       <DependentUpon>CategoryManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChooseFeedBox.resx">
+      <DependentUpon>ChooseFeedBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

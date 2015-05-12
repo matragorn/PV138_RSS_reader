@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
-    interface IStorageManager
+    public interface IStorageManager
     {
         /// <summary>
         /// Vrati zoznam vsetkych feedov

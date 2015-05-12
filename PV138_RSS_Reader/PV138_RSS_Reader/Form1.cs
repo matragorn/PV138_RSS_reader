@@ -117,7 +117,7 @@ namespace PV138_RSS_Reader
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            CategoryManager cm = new CategoryManager(manager.Storage.GetCategories());
+            CategoryManager cm = new CategoryManager(manager);
             cm.ShowDialog();
         }
     }
