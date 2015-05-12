@@ -18,6 +18,12 @@ namespace PV138_RSS_Reader
         private const int FEEDS_PANEL_MIN_WIDTH = 150;
         private const int MAX_SHOWN_ARTICLES = 20; //TODO je to potreba? budeme listovat articles? nebo jich tam zobrazime milion... strasne dlouho se refresuje listview
 
+        private TreeNode unreadFeeds;
+        private TreeNode categories;
+        private TreeNode allFeeds;
+        private TreeNode starredFeeds;
+
+
         // TESTY
         private FeedManager manager;
         // /TESTY
@@ -26,12 +32,18 @@ namespace PV138_RSS_Reader
         {
             InitializeComponent();
 
+            unreadFeeds = treeView_Filters.Nodes[0];
+            categories = treeView_Filters.Nodes[1];
+            allFeeds = treeView_Filters.Nodes[2];
+            starredFeeds = treeView_Filters.Nodes[3];
+
             manager = new FeedManager(new DUMMYInMemoryStorage());
             //manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
             manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
             //manager.SubscribeToURL("http://xkcd.com/rss.xml");
             //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
             manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
+            UpdateTreeView();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -119,6 +131,15 @@ namespace PV138_RSS_Reader
         {
             CategoryManager cm = new CategoryManager(manager);
             cm.ShowDialog();
+            UpdateTreeView();
+        }
+
+        private void UpdateTreeView()
+        {
+            List<IFeed> unread = manager.getUnreadFeeds();
+            List<IFeed> starred = manager.getStarredFeeds();
+
+            throw new NotImplementedException();
         }
     }
 }

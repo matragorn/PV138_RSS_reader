@@ -13,11 +13,11 @@ namespace PV138_RSS_Reader
     public partial class CategoryManager : Form
     {
         private List<Category> _categories;
-        private FeedManager manager;
+        private FeedManager _feedManager;
 
         public CategoryManager(FeedManager manager)
         {
-            this.manager = manager;
+            this._feedManager = manager;
             _categories = manager.Storage.GetCategories();
             InitializeComponent();
             listBoxCategory.Items.AddRange(_categories.ToArray());
@@ -40,12 +40,12 @@ namespace PV138_RSS_Reader
 
         private void button_AddFeed_Click(object sender, EventArgs e)
         {
-            if (manager.Feeds.Count < 1)
+            if (_feedManager.Feeds.Count < 1)
             {
                 MessageBox.Show("Nejste přihlašen k žádným odběrům!","Nelze přidat kanál do kategorie",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            ChooseFeedBox cfb = new ChooseFeedBox(manager.Feeds);
+            ChooseFeedBox cfb = new ChooseFeedBox(_feedManager.Feeds);
             if (cfb.ShowDialog() == DialogResult.OK)
             {
                 Category selectedCategory = ((Category)(listBoxCategory.SelectedItem));

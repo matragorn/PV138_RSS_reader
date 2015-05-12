@@ -125,7 +125,23 @@ namespace PV138_RSS_Reader
             return Storage.GetArticleByTitle(title);
         }
 
-        
+        /// <summary>
+        /// vrátí všechny feedy kde je alespon jeden clane neprecteny
+        /// </summary>
+        /// <returns></returns>
+        internal List<IFeed> getUnreadFeeds()
+        {
+            return Feeds.Where(x => Storage.GetArticles(x).Exists(y => y.Read == false)).ToList();
+        }
+
+        /// <summary>
+        /// vrati vsechny feedy kde je alespon jeden clanek s hvězdickou
+        /// </summary>
+        /// <returns></returns>
+        internal List<IFeed> getStarredFeeds()
+        {
+            return Feeds.Where(x => Storage.GetArticles(x).Exists(y => y.Starred)).ToList();
+        }
     }
 
     
