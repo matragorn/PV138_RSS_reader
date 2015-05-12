@@ -16,12 +16,11 @@ namespace PV138_RSS_Reader
 
         public string Description { get; private set; }
 
-      
-
+        private int randomInt = new Random().Next(33);
 
         public Feed (string url, string title, string mainLink, string description)
         {
-
+             
             if (url == null)
             {
                 throw new ArgumentNullException("url", "Nepodarilo sa vytvorit novy feed");
@@ -40,7 +39,7 @@ namespace PV138_RSS_Reader
         public override string ToString()
         {
             //TODO:
-            return "TODO in Feed.cs";
+            return "TODO in Feed.cs + random: "+randomInt;
         }
         public override bool Equals (object obj)
         {

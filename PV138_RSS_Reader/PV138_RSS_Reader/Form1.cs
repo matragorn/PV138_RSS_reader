@@ -136,10 +136,57 @@ namespace PV138_RSS_Reader
 
         private void UpdateTreeView()
         {
+
+            //DEBUG
             List<IFeed> unread = manager.getUnreadFeeds();
             List<IFeed> starred = manager.getStarredFeeds();
+            //END_DEBUG
 
-            throw new NotImplementedException();
+
+            unreadFeeds.Nodes.Clear();
+            unreadFeeds.Nodes.AddRange(NodesFromFeeds(manager.getUnreadFeeds()));
+
+            allFeeds.Nodes.Clear();
+            allFeeds.Nodes.AddRange(NodesFromFeeds(manager.Feeds));
+
+            starredFeeds.Nodes.Clear();
+            starredFeeds.Nodes.AddRange(NodesFromFeeds(manager.getStarredFeeds()));
+
+            categories.Nodes.Clear();
+            categories.Nodes.AddRange(CategoryNodes(manager.Storage.GetCategories()));
+
+        }
+
+        private TreeNode[] CategoryNodes(List<Category> categories)
+        {
+            TreeNode[] nodes = new TreeNode[categories.Count];
+
+            for (int i = 0; i < categories.Count; i++)
+            {
+                TreeNode node = new TreeNode(categories[i].ToString());
+                node.Nodes.Clear();
+                node.Nodes.AddRange(NodesFromFeeds(categories[i].Feeds));
+                nodes[i] = node;
+            }
+            return nodes;
+        }
+
+        private TreeNode[] NodesFromFeeds(List<IFeed> unread)
+        {
+            TreeNode[] nodes = new TreeNode[unread.Count];
+            int index = 0;
+            foreach (Feed item in unread)
+            {
+                TreeNode node = new TreeNode(item.ToString());
+                node.Tag = item;
+                nodes[index] = node;
+                index++;
+            }
+            if (nodes.Length < 1)
+            {
+                return new TreeNode[] { new TreeNode() { Text = "ŽÁDNÉ FEEDY", Tag = null } };
+            }
+            return nodes;
         }
     }
 }
