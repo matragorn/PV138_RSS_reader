@@ -39,3 +39,13 @@ C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.CategoryManager.resources
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.RenameBox.resources
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.ChooseFeedBox.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe.config
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.exe
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.pdb
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csprojResolveAssemblyReference.cache
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.AboutBox.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.ChooseFeedBox.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.MainWindow.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.Properties.Resources.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.RenameBox.resources
+C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache
