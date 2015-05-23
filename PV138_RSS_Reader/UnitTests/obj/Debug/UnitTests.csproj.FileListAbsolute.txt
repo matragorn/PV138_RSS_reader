@@ -5,3 +5,10 @@ C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\Unit
 C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\Lukáš Findura\Documents\GitHub\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\bin\Debug\PV138_RSS_Reader.exe
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\bin\Debug\PV138_RSS_Reader.pdb
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.pdb

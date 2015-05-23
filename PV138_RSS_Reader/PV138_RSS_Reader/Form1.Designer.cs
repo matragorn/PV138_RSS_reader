@@ -53,8 +53,6 @@
             this.splitContainer_FilterView_ArticleView = new System.Windows.Forms.SplitContainer();
             this.panel_FilterView = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
-            this.Read = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Starred = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderFeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -154,6 +152,7 @@
             this.treeView_Filters.ShowLines = false;
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
+            this.treeView_Filters.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Filters_AfterSelect);
             // 
             // splitContainer_FilterView_ArticleView
             // 
@@ -189,8 +188,6 @@
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Read,
-            this.Starred,
             this.Date,
             this.Title,
             this.columnHeaderFeed});
@@ -205,19 +202,12 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
-            // 
-            // Read
-            // 
-            this.Read.Text = "Read";
-            // 
-            // Starred
-            // 
-            this.Starred.Text = "Starred";
-            this.Starred.Width = 55;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // Date
             // 
-            this.Date.Text = "Date";
+            this.Date.Text = "      Date";
             this.Date.Width = 115;
             // 
             // Title
@@ -325,9 +315,7 @@
         private System.Windows.Forms.TreeView treeView_Filters;
         private System.Windows.Forms.ListView listView1;
         private System.Windows.Forms.ColumnHeader Date;
-        private System.Windows.Forms.ColumnHeader Starred;
         private System.Windows.Forms.ColumnHeader Title;
-        private System.Windows.Forms.ColumnHeader Read;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton2;
         private System.Windows.Forms.WebBrowser webBrowser1;

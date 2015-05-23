@@ -23,6 +23,15 @@ namespace PV138_RSS_Reader
         private TreeNode allFeeds;
         private TreeNode starredFeeds;
 
+        private IEnumerable<IArticle> actualyShowingArticles = new List<IArticle>();
+
+        private const int TIME_TO_READ = 3;
+        /// <summary>
+        /// clanek se oznaci za precteny pokud bude zobrazen alespon TIME_TO_READ sekund 
+        /// TODO: umožnit nastavení této konstanty uživatelovi? a ukladat do XML?
+        /// </summary>
+        Timer readTimer = new Timer();
+
 
         // TESTY
         private FeedManager manager;
@@ -32,6 +41,8 @@ namespace PV138_RSS_Reader
         {
             InitializeComponent();
 
+            readTimer.Tick += readTimer_Tick;
+            readTimer.Interval = 1000 * TIME_TO_READ;
             unreadFeeds = treeView_Filters.Nodes[0];
             categories = treeView_Filters.Nodes[1];
             allFeeds = treeView_Filters.Nodes[2];
@@ -44,6 +55,16 @@ namespace PV138_RSS_Reader
             //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
             manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
             UpdateTreeView();
+
+            ListViewImageInit();
+        }
+
+        private void ListViewImageInit()
+        {
+            listView1.SmallImageList = new ImageList();
+            listView1.SmallImageList.Images.Add(Properties.Resources.noStar);
+            listView1.SmallImageList.Images.Add(Properties.Resources.Star);
+
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -60,7 +81,7 @@ namespace PV138_RSS_Reader
         private void splitContainer_Feeds_FeedDetails_MouseUp(object sender, MouseEventArgs e)
         {
             //odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
-            panel_FilterView.Focus(); 
+            panel_FilterView.Focus();
         }
 
         private void splitContainer_Tree_MainContent_SplitterMoved(object sender, SplitterEventArgs e)
@@ -79,11 +100,7 @@ namespace PV138_RSS_Reader
         private void listView1_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
             IArticle article = (IArticle)e.Item.Tag;
-            if (e.Item.SubItems[0].Text == false.ToString())
-            {
-                manager.SetRead(article, true);
-                e.Item.SubItems[0].Text = true.ToString();
-            }
+            if (!article.Read) { readTimer.Start(); }
 
             webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>" + article.Description + "</body>";
 
@@ -91,7 +108,7 @@ namespace PV138_RSS_Reader
         private void MainWindow_Load(object sender, EventArgs e)
         {
             treeView_Filters.ExpandAll();
-            
+            actualyShowingArticles = manager.Articles(manager.Feeds.First()).Take(MAX_SHOWN_ARTICLES);
             RefreshView();
         }
 
@@ -99,20 +116,30 @@ namespace PV138_RSS_Reader
         {
             manager.UpdateAllFeeds();
             RefreshView();
+            UpdateTreeView();
         }
 
         private void RefreshView()
         {
             listView1.SuspendLayout();
+            listView1.Visible = false;
             listView1.Items.Clear();
-            foreach (var article in manager.Articles(manager.Feeds.First()).Take(MAX_SHOWN_ARTICLES))
+
+            foreach (var article in actualyShowingArticles)
             {
                 ListViewItem item = new ListViewItem(article.ToArray());
+                item.ImageIndex = article.Starred ? 1 : 0;
+                item.Font = new System.Drawing.Font(item.Font, article.Read ? FontStyle.Regular : FontStyle.Bold);
                 item.Tag = article;
                 listView1.Items.Add(item);
-                listView1.Columns[3].Width = -1;
-                listView1.Columns[4].Width = -2;
+                listView1.Columns[0].Width = -1;
+                listView1.Columns[0].Width += 10;
+                listView1.Columns[1].Width = -1;
+                listView1.Columns[1].Width += 10;
+                listView1.Columns[2].Width = -2;
             }
+
+            listView1.Visible = true;
             listView1.ResumeLayout();
         }
 
@@ -187,6 +214,105 @@ namespace PV138_RSS_Reader
                 return new TreeNode[] { new TreeNode() { Text = "ŽÁDNÉ FEEDY", Tag = null } };
             }
             return nodes;
+        }
+
+        private void listView1_MouseClick(object sender, MouseEventArgs e)
+        {
+
+
+            if (listView1.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            ListViewItem item = listView1.SelectedItems[0];
+            var index = listView1.SelectedIndices[0];
+
+
+            int xMin = item.Position.X; ;
+            int xMax = xMin + 15;
+            if (e.X >= xMin && e.X <= xMax)
+            {
+                manager.SetStarred(((IArticle)item.Tag), !((IArticle)item.Tag).Starred);
+                RefreshView();
+                listView1.Items[index].Selected = true;
+                UpdateTreeView();
+            }
+        }
+
+        void readTimer_Tick(object sender, EventArgs e)
+        {
+
+            readTimer.Stop();
+            readTimer.Interval = 1000 * TIME_TO_READ;
+            if (listView1.SelectedItems.Count < 1)
+            {
+                return;
+            }
+            ListViewItem item = listView1.SelectedItems[0];
+            if (((IArticle)item.Tag).Read) { return; }
+            var index = listView1.SelectedIndices[0];
+
+            manager.SetRead((IArticle)item.Tag, true);
+
+            RefreshView();
+            if (listView1.Items.Count > index)
+            {
+                listView1.Items[index].Selected = true;
+            }
+            UpdateTreeView();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+        /// <summary>
+        /// ROZPRACOVÁNO
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void treeView_Filters_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+            //*************************************
+            //****  ROZPRACOVÁNO ******************
+            //*************************************
+            if (e.Node.Parent == unreadFeeds)
+            {
+                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read);
+            }
+            else if (e.Node.Parent == categories)
+            {
+
+            }
+            else if (e.Node.Parent == allFeeds)
+            {
+                actualyShowingArticles = manager.Articles((Feed)e.Node.Tag);
+            }
+            else if (e.Node.Parent == starredFeeds)
+            {
+                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred);
+            }
+
+            else if (e.Node == starredFeeds)
+            {
+                var list = new List<IArticle>();
+                foreach (TreeNode node in e.Node.Nodes)
+                {
+                    list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => x.Starred));
+                }
+            }
+            else if (e.Node == unreadFeeds)
+            {
+                var list = new List<IArticle>();
+                foreach (TreeNode node in e.Node.Nodes)
+                {
+                    list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => !x.Read));
+                }
+            }
+            RefreshView();
         }
     }
 }
