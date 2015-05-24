@@ -49,6 +49,10 @@ namespace PV138_RSS_Reader
 
         public List<IArticle> GetArticles(IFeed feed)
         {
+            if (feed == null)
+            {
+                return new List<IArticle>();
+            }
             return data[feed];
         }
 

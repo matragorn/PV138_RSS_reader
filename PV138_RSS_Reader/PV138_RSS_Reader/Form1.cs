@@ -99,6 +99,8 @@ namespace PV138_RSS_Reader
 
         private void listView1_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
+            readTimer.Stop();
+            readTimer.Interval = 1000 * TIME_TO_READ;
             IArticle article = (IArticle)e.Item.Tag;
             if (!article.Read) { readTimer.Start(); }
 
@@ -122,6 +124,7 @@ namespace PV138_RSS_Reader
         private void RefreshView()
         {
             listView1.SuspendLayout();
+            listView1.BeginUpdate();
             listView1.Visible = false;
             listView1.Items.Clear();
 
@@ -140,6 +143,7 @@ namespace PV138_RSS_Reader
             }
 
             listView1.Visible = true;
+            listView1.EndUpdate();
             listView1.ResumeLayout();
         }
 
@@ -168,7 +172,7 @@ namespace PV138_RSS_Reader
             List<IFeed> unread = manager.getUnreadFeeds();
             List<IFeed> starred = manager.getStarredFeeds();
             //END_DEBUG
-
+            var selectedNode = treeView_Filters.SelectedNode;
 
             unreadFeeds.Nodes.Clear();
             unreadFeeds.Nodes.AddRange(NodesFromFeeds(manager.getUnreadFeeds()));
@@ -181,6 +185,8 @@ namespace PV138_RSS_Reader
 
             categories.Nodes.Clear();
             categories.Nodes.AddRange(CategoryNodes(manager.Storage.GetCategories()));
+            
+            treeView_Filters.SelectedNode = selectedNode;
 
         }
 
@@ -233,7 +239,9 @@ namespace PV138_RSS_Reader
             if (e.X >= xMin && e.X <= xMax)
             {
                 manager.SetStarred(((IArticle)item.Tag), !((IArticle)item.Tag).Starred);
-                RefreshView();
+                //RefreshView();
+                item.ImageIndex = ((IArticle)item.Tag).Starred ? 1 : 0;
+
                 listView1.Items[index].Selected = true;
                 UpdateTreeView();
             }
@@ -254,7 +262,9 @@ namespace PV138_RSS_Reader
 
             manager.SetRead((IArticle)item.Tag, true);
 
-            RefreshView();
+            //RefreshView();
+            item.Font = new System.Drawing.Font(item.Font, FontStyle.Regular);
+
             if (listView1.Items.Count > index)
             {
                 listView1.Items[index].Selected = true;
@@ -269,31 +279,41 @@ namespace PV138_RSS_Reader
 
 
         /// <summary>
-        /// ROZPRACOVÁNO
+        /// po kliknuti a vybrani kategorie feedu ci articku z leveho menu nastavi kolekci zbrazovanyh clanku
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void treeView_Filters_AfterSelect(object sender, TreeViewEventArgs e)
         {
-
-            //*************************************
-            //****  ROZPRACOVÁNO ******************
-            //*************************************
             if (e.Node.Parent == unreadFeeds)
             {
-                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read);
+                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
             }
             else if (e.Node.Parent == categories)
             {
-
+                var list = new List<IArticle>();
+                foreach (TreeNode node in e.Node.Nodes)
+                {
+                    if (node.Tag is IFeed)
+                    {
+                        list.AddRange((manager.Articles((Feed)node.Tag)));
+                    }
+                }
+                actualyShowingArticles = list;
+            }
+            else if (e.Node.Parent != null && e.Node.Parent.Parent == categories)
+            {
+                var list = new List<IArticle>();
+                list.AddRange((manager.Articles((Feed)e.Node.Tag)));
+                actualyShowingArticles = list;
             }
             else if (e.Node.Parent == allFeeds)
             {
-                actualyShowingArticles = manager.Articles((Feed)e.Node.Tag);
+                actualyShowingArticles = manager.Articles((Feed)e.Node.Tag).ToList();
             }
             else if (e.Node.Parent == starredFeeds)
             {
-                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred);
+                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred).ToList();
             }
 
             else if (e.Node == starredFeeds)
@@ -303,6 +323,7 @@ namespace PV138_RSS_Reader
                 {
                     list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => x.Starred));
                 }
+                actualyShowingArticles = list;
             }
             else if (e.Node == unreadFeeds)
             {
@@ -311,6 +332,35 @@ namespace PV138_RSS_Reader
                 {
                     list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => !x.Read));
                 }
+                actualyShowingArticles = list;
+            }
+            else if (e.Node == allFeeds)
+            {
+                var list = new List<IArticle>();
+                foreach (TreeNode node in e.Node.Nodes)
+                {
+                    list.AddRange((manager.Articles((Feed)node.Tag)));
+                }
+                actualyShowingArticles = list;
+            }
+            else if (e.Node == categories)
+            {
+                 
+                var set = new HashSet<IArticle>();
+                foreach (TreeNode nodes in e.Node.Nodes)
+                {
+                    foreach (TreeNode node in nodes.Nodes)
+                    {
+                        if (node.Tag is IFeed)
+                        {
+                            foreach (var item in ((manager.Articles((Feed)node.Tag))))
+                            {
+                                set.Add(item);
+                            }
+                        }
+                    }
+                }
+                actualyShowingArticles = set;
             }
             RefreshView();
         }
