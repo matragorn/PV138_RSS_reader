@@ -133,9 +133,12 @@ namespace PV138_RSS_Reader.Storage
 
         public void AddCategory(Category category)
         {
-            int useId = Doc.Descendants("category").Max(oneCategory => Convert.ToInt32(oneCategory.Attribute("id").Value)) + 1;
+            int useId = 0;
 
-            Doc.Add
+            if (Doc.Descendants("category").Count() > 0)
+                useId = Doc.Descendants("category").Max(oneCategory => Convert.ToInt32(oneCategory.Attribute("id").Value)) + 1;
+
+            Doc.Root.Add
             (
                 new XElement
                 (

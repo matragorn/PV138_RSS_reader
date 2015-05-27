@@ -59,6 +59,7 @@ namespace PV138_RSS_Reader
                 //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
                 //manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
             }
+
             manager.UpdateAllFeeds();
 
             UpdateTreeView();

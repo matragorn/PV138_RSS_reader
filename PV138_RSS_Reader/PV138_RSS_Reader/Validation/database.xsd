@@ -6,7 +6,7 @@
   <xs:element name="reader-database">
     <xs:complexType>
       <xs:sequence>
-        <xs:choice>
+        <xs:choice maxOccurs="unbounded">
           <xs:element name="feed" type="feed" minOccurs="0" maxOccurs="unbounded" />
           <xs:element name="category" type="category" minOccurs="0" maxOccurs="unbounded" />
         </xs:choice>
@@ -40,7 +40,13 @@
       <xs:element name="name" type="xs:string" />
       <xs:element name="feeds">
         <xs:complexType>
-          <xs:attribute name="url" type="xs:anyURI" use="required" />
+          <xs:sequence>
+            <xs:element name="feed" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="url" type="xs:anyURI" use="required" />
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
         </xs:complexType>
       </xs:element>
     </xs:all>

@@ -142,6 +142,21 @@ namespace PV138_RSS_Reader
         {
             return Feeds.Where(x => Storage.GetArticles(x).Exists(y => y.Starred)).ToList();
         }
+
+        public List<Category> GetCategories()
+        {
+            return Storage.GetCategories();
+        }
+
+        public void AddCategory(Category category)
+        {
+            Storage.AddCategory(category);
+        }
+
+        void RemoveCategory(Category category)
+        {
+            Storage.RemoveCategory(category);
+        }
     }
 
     
