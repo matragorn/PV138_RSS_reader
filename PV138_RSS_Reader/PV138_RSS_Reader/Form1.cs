@@ -24,7 +24,7 @@ namespace PV138_RSS_Reader
         private TreeNode allFeeds;
         private TreeNode starredFeeds;
 
-        private IEnumerable<IArticle> actualyShowingArticles = new List<IArticle>();
+        private IEnumerable<IArticle> actuallyShowingArticles = new List<IArticle>();
 
         private const int TIME_TO_READ = 1;
         /// <summary>
@@ -117,7 +117,7 @@ namespace PV138_RSS_Reader
         private void MainWindow_Load(object sender, EventArgs e)
         {
             treeView_Filters.ExpandAll();
-            actualyShowingArticles = manager.Articles(manager.Feeds.First()).Take(MAX_SHOWN_ARTICLES);
+            actuallyShowingArticles = manager.Articles(manager.Feeds.First()).Take(MAX_SHOWN_ARTICLES);
             RefreshView();
         }
 
@@ -135,7 +135,7 @@ namespace PV138_RSS_Reader
             listView1.Visible = false;
             listView1.Items.Clear();
 
-            foreach (var article in actualyShowingArticles)
+            foreach (var article in actuallyShowingArticles)
             {
                 ListViewItem item = new ListViewItem(article.ToArray());
                 item.ImageIndex = article.Starred ? 1 : 0;
@@ -294,7 +294,7 @@ namespace PV138_RSS_Reader
         {
             if (e.Node.Parent == unreadFeeds)
             {
-                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
+                actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
             }
             else if (e.Node.Parent == categories)
             {
@@ -306,21 +306,21 @@ namespace PV138_RSS_Reader
                         list.AddRange((manager.Articles((Feed)node.Tag)));
                     }
                 }
-                actualyShowingArticles = list;
+                actuallyShowingArticles = list;
             }
             else if (e.Node.Parent != null && e.Node.Parent.Parent == categories)
             {
                 var list = new List<IArticle>();
                 list.AddRange((manager.Articles((Feed)e.Node.Tag)));
-                actualyShowingArticles = list;
+                actuallyShowingArticles = list;
             }
             else if (e.Node.Parent == allFeeds)
             {
-                actualyShowingArticles = manager.Articles((Feed)e.Node.Tag).ToList();
+                actuallyShowingArticles = manager.Articles((Feed)e.Node.Tag).ToList();
             }
             else if (e.Node.Parent == starredFeeds)
             {
-                actualyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred).ToList();
+                actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred).ToList();
             }
 
             else if (e.Node == starredFeeds)
@@ -330,7 +330,7 @@ namespace PV138_RSS_Reader
                 {
                     list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => x.Starred));
                 }
-                actualyShowingArticles = list;
+                actuallyShowingArticles = list;
             }
             else if (e.Node == unreadFeeds)
             {
@@ -339,7 +339,7 @@ namespace PV138_RSS_Reader
                 {
                     list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => !x.Read));
                 }
-                actualyShowingArticles = list;
+                actuallyShowingArticles = list;
             }
             else if (e.Node == allFeeds)
             {
@@ -348,7 +348,7 @@ namespace PV138_RSS_Reader
                 {
                     list.AddRange((manager.Articles((Feed)node.Tag)));
                 }
-                actualyShowingArticles = list;
+                actuallyShowingArticles = list;
             }
             else if (e.Node == categories)
             {
@@ -367,7 +367,7 @@ namespace PV138_RSS_Reader
                         }
                     }
                 }
-                actualyShowingArticles = set;
+                actuallyShowingArticles = set;
             }
             RefreshView();
         }
