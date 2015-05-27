@@ -39,7 +39,7 @@ namespace PV138_RSS_Reader
         public override string ToString()
         {
             //TODO:
-            return "TODO in Feed.cs + random: "+randomInt;
+            return Title;
         }
         public override bool Equals (object obj)
         {

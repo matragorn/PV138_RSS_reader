@@ -130,4 +130,10 @@
   <data name="RSS_XSD" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Validation\rss-2_0.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
   </data>
+  <data name="DATABASE_XSD" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Validation\database.xsd;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="BLANK_DATABASE_XML" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\BlankDatabase.xml;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
 </root>

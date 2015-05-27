@@ -62,19 +62,58 @@ namespace PV138_RSS_Reader.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
-        ///&lt;xs:schema targetNamespace=&quot;http://www.w3.org/2005/Atom&quot; elementFormDefault=&quot;qualified&quot;
+        ///&lt;xs:schema elementFormDefault=&quot;qualified&quot;
         ///	attributeFormDefault=&quot;unqualified&quot;
+        ///  targetNamespace=&quot;http://www.w3.org/2005/Atom&quot;
         ///	xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; 
         ///	xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
         ///	xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;&gt;
         ///	&lt;xs:annotation&gt;
         ///		&lt;xs:documentation&gt;
         ///			This version of the Atom schema is based on version 1.0 of the format specifications,
-        ///			found here http://www.atomenabled.org/developers/syndication/atom-form [rest of string was truncated]&quot;;.
+        ///			found here http://www.atomenabled.org/developers/syndication/atom-f [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ATOM_XSD {
             get {
                 return ResourceManager.GetString("ATOM_XSD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///
+        ///&lt;reader-database&gt;
+        ///  
+        ///&lt;/reader-database&gt;.
+        /// </summary>
+        internal static string BLANK_DATABASE_XML {
+            get {
+                return ResourceManager.GetString("BLANK_DATABASE_XML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;xs:schema id=&quot;XMLSchema1&quot;
+        ///    xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///&gt;
+        ///
+        ///  &lt;xs:element name=&quot;reader-database&quot;&gt;
+        ///    &lt;xs:complexType&gt;
+        ///      &lt;xs:sequence&gt;
+        ///        &lt;xs:choice&gt;
+        ///          &lt;xs:element name=&quot;feed&quot; type=&quot;feed&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+        ///          &lt;xs:element name=&quot;category&quot; type=&quot;category&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
+        ///        &lt;/xs:choice&gt;
+        ///      &lt;/xs:sequence&gt;
+        ///    &lt;/xs:complexType&gt;
+        ///  &lt;/xs:element&gt;
+        ///
+        ///  &lt;xs:complexType nam [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string DATABASE_XSD {
+            get {
+                return ResourceManager.GetString("DATABASE_XSD", resourceCulture);
             }
         }
         

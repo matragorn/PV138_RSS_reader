@@ -86,7 +86,7 @@
     <Compile Include="RenameBox.Designer.cs">
       <DependentUpon>RenameBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Storage\DUMMYInMemoryStorage.cs" />
+    <Compile Include="Storage\InMemoryStorage.cs" />
     <Compile Include="Feed.cs" />
     <Compile Include="FeedManager.cs" />
     <Compile Include="FeedReader.cs" />
@@ -103,6 +103,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Parsers\RssParser.cs" />
+    <Compile Include="Storage\XMLStorage.cs" />
     <Compile Include="Validation\StringXSDExtension.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
@@ -145,6 +146,9 @@
     <None Include="Validation\rss-2_0.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Validation\database.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -171,6 +175,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Star.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BlankDatabase.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

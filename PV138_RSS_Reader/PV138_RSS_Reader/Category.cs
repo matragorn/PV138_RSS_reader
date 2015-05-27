@@ -8,6 +8,7 @@ namespace PV138_RSS_Reader
 {
     public class Category
     {
+        public int ID { get; set; }
         public string Name { get; set; }
         public List<IFeed> Feeds { get; set; }
 
@@ -19,6 +20,10 @@ namespace PV138_RSS_Reader
         public Category(List<IFeed> feeds)
         {
             Feeds = feeds;
+        }
+        public Category(List<IFeed> feeds, int id) : this(feeds)
+        {
+            ID = id;
         }
 
         public void AddFeed(IFeed feed)
