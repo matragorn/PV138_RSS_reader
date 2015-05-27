@@ -61,12 +61,54 @@ namespace PV138_RSS_Reader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+        ///&lt;xs:schema targetNamespace=&quot;http://www.w3.org/2005/Atom&quot; elementFormDefault=&quot;qualified&quot;
+        ///	attributeFormDefault=&quot;unqualified&quot;
+        ///	xmlns:atom=&quot;http://www.w3.org/2005/Atom&quot; 
+        ///	xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot;
+        ///	xmlns:xml=&quot;http://www.w3.org/XML/1998/namespace&quot;&gt;
+        ///	&lt;xs:annotation&gt;
+        ///		&lt;xs:documentation&gt;
+        ///			This version of the Atom schema is based on version 1.0 of the format specifications,
+        ///			found here http://www.atomenabled.org/developers/syndication/atom-form [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ATOM_XSD {
+            get {
+                return ResourceManager.GetString("ATOM_XSD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap noStar {
             get {
                 object obj = ResourceManager.GetObject("noStar", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;!--
+        ///    XML Schema for RSS v2.0
+        ///    Copyright (C) 2003-2008  Jorgen Thelin
+        ///
+        ///Microsoft Public License (Ms-PL)
+        ///
+        ///This license governs use of the accompanying software. 
+        ///If you use the software, you accept this license. 
+        ///If you do not accept the license, do not use the software.
+        ///
+        ///1. Definitions
+        ///
+        ///The terms &quot;reproduce,&quot; &quot;reproduction,&quot; &quot;derivative works,&quot; and &quot;distribution&quot; have the same meaning here as under U.S. copyright law.
+        ///
+        ///    A &quot;contribution&quot; is the o [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RSS_XSD {
+            get {
+                return ResourceManager.GetString("RSS_XSD", resourceCulture);
             }
         }
         

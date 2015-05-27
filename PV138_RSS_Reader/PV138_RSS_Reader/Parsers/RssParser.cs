@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
+using PV138_RSS_Reader.Validation;
 
 namespace PV138_RSS_Reader
 {
@@ -14,8 +13,7 @@ namespace PV138_RSS_Reader
     {
         public bool IsDocThis(XDocument doc)
         {
-            // TODO: pouzit sablonu
-            return doc.Root.Name.LocalName.ToLower() == "rss";
+            return doc.ValidateStringXSD(Properties.Resources.RSS_XSD);
         }
 
         public IFeed CreateFeed(XDocument doc, string url)

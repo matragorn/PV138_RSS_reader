@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
+using PV138_RSS_Reader.Validation;
+
 namespace PV138_RSS_Reader
 {
     /// <summary>
@@ -14,7 +16,7 @@ namespace PV138_RSS_Reader
     {
         public bool IsDocThis(XDocument doc)
         {
-            return doc.Root.Name.LocalName.ToLower() == "feed";
+            return doc.ValidateStringXSD(Properties.Resources.ATOM_XSD);
         }
 
         public IFeed CreateFeed(XDocument doc, string url)

@@ -49,11 +49,11 @@ namespace PV138_RSS_Reader
             starredFeeds = treeView_Filters.Nodes[3];
 
             manager = new FeedManager(new DUMMYInMemoryStorage());
-            //manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
-            manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
+            manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
+            //manager.SubscribeToURL("http://deoxy.org/koans?rss=1");
             //manager.SubscribeToURL("http://xkcd.com/rss.xml");
             //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
-            manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
+            //manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
             UpdateTreeView();
 
             ListViewImageInit();
