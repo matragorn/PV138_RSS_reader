@@ -8,7 +8,7 @@ namespace PV138_RSS_Reader
 {
     public class Category
     {
-        public int ID { get; set; }
+        public int? ID { get; set; }
         public string Name { get; set; }
         public List<IFeed> Feeds { get; set; }
 
