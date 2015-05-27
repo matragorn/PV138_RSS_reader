@@ -41,7 +41,7 @@
       <xs:element name="feeds">
         <xs:complexType>
           <xs:sequence>
-            <xs:element name="feed" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="feed-link" minOccurs="0" maxOccurs="unbounded">
               <xs:complexType>
                 <xs:attribute name="url" type="xs:anyURI" use="required" />
               </xs:complexType>

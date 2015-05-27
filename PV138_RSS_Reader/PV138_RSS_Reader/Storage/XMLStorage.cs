@@ -36,7 +36,7 @@ namespace PV138_RSS_Reader.Storage
 
         public List<IFeed> GetFeeds()
         {
-            return Doc.Descendants("feed").Select(CreateFeed).ToList<IFeed>();
+            return Doc.Root.Descendants("feed").Select(CreateFeed).ToList<IFeed>();
         }
 
         public List<IArticle> GetArticles(IFeed feed)
@@ -113,7 +113,7 @@ namespace PV138_RSS_Reader.Storage
             {
                 var feedUrls = category
                     .Descendants("feeds")
-                    .Descendants("feed")
+                    .Descendants("feed-link")
                     .Select(feed => feed.Attribute("url").Value)
                     .ToList();
 
@@ -151,7 +151,7 @@ namespace PV138_RSS_Reader.Storage
 
                         category.Feeds.Select
                         (
-                            feed => new XElement("feed", new XAttribute("url", feed.FeedURL))
+                            feed => new XElement("feed-link", new XAttribute("url", feed.FeedURL))
                         )
                     ),
 
