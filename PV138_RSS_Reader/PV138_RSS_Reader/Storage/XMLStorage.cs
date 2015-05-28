@@ -220,7 +220,7 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">feed</param>
         public void AddFeedToCategory(Category category, IFeed feed)
         {
-            GetCategoryInXML(category).Add(new XElement("feed-link", new XAttribute("url", feed.FeedURL)));
+            GetCategoryInXML(category).Descendants("feeds").First().Add(new XElement("feed-link", new XAttribute("url", feed.FeedURL)));
         }
 
         /// <summary>
@@ -230,7 +230,7 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">Feed</param>
         public void RemoveFeedFromCategory(Category category, IFeed feed)
         {
-            GetCategoryInXML(category).Elements().First(feedlink => feedlink.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
+            GetCategoryInXML(category).Descendants("feeds").Elements().First(feedlink => feedlink.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
         }
 
         /// <summary>
