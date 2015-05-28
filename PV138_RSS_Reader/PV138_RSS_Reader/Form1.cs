@@ -27,12 +27,14 @@ namespace PV138_RSS_Reader
         private IEnumerable<IArticle> actuallyShowingArticles = new List<IArticle>();
 
         private const float TIME_TO_READ = 0.5f;
+        private const int SEARCH_INTERVAL = 500; //ms
         /// <summary>
         /// clanek se oznaci za precteny pokud bude zobrazen alespon TIME_TO_READ sekund 
         /// TODO: umožnit nastavení této konstanty uživatelovi? a ukladat do XML?
         /// </summary>
         Timer readTimer = new Timer();
-
+        Timer searchTimer = new Timer();
+        private bool _canSearch = false;
 
         // TESTY
         private FeedManager manager;
@@ -44,6 +46,9 @@ namespace PV138_RSS_Reader
 
             readTimer.Tick += readTimer_Tick;
             readTimer.Interval = (int)(1000 * TIME_TO_READ);
+            searchTimer.Interval = SEARCH_INTERVAL;
+            searchTimer.Tick += searchTimer_Tick;
+
             unreadFeeds = treeView_Filters.Nodes[0];
             categories = treeView_Filters.Nodes[1];
             allFeeds = treeView_Filters.Nodes[2];
@@ -65,6 +70,13 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
 
             ListViewImageInit();
+        }
+
+        void searchTimer_Tick(object sender, EventArgs e)
+        {
+            searchTimer.Stop();
+            searchTimer.Interval = SEARCH_INTERVAL;
+            search();
         }
 
         private void ListViewImageInit()
@@ -467,15 +479,15 @@ namespace PV138_RSS_Reader
 
         }
 
-        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        private void search()
         {
-            string text = (sender as ToolStripTextBox).Text;
+            string text = toolStripTextBox1.Text;
             actuallyShowingArticles = manager.Search(text);
             if (actuallyShowingArticles.Count() < 1)
             {
                 listView1.Items.Clear();
-                actuallyShowingArticles = new List<IArticle>(){new Article("Nenalezeny žádné feedy","","",DateTime.Now)};
-                
+                actuallyShowingArticles = new List<IArticle>() { new Article("Nenalezeny žádné feedy", "", "", DateTime.Now) };
+
                 treeView_Filters.SelectedNode = null;
                 RefreshView();
                 UpdateTreeView();
@@ -493,6 +505,14 @@ namespace PV138_RSS_Reader
             //}
             //actuallyShowingArticles = manager.Articles(feed);
             RefreshView();
+        }
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            _canSearch = false;
+            searchTimer.Stop();
+            searchTimer.Interval = SEARCH_INTERVAL;
+            searchTimer.Start();
+            
         }
 
         private void odhlásitToolStripMenuItem_Click(object sender, EventArgs e)
