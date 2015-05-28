@@ -112,8 +112,13 @@ namespace PV138_RSS_Reader
             IArticle article = (IArticle)e.Item.Tag;
             if (!article.Read) { readTimer.Start(); }
 
-            webBrowser1.DocumentText = "<body style='font: 13px Microsoft Sans Serif, sans-serif'><h1>" + article.Title + "</h1>" + article.Description + "</body>";
+            webBrowser1.DocumentText = "<html><head><style>"+Properties.Resources.ARTICLE_CSS+"</style></head><body>" +
 
+                    "<a href='"+article.URL+"'><h1>" + article.Title + "</h1></a>" +
+
+                    article.Description +
+
+                "</body></html>";
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -371,6 +376,14 @@ namespace PV138_RSS_Reader
                 actuallyShowingArticles = set;
             }
             RefreshView();
+        }
+
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listView1.SelectedItems.Count == 1)
+            {
+                System.Diagnostics.Process.Start(((IArticle)(listView1.SelectedItems[0].Tag)).URL);
+            }
         }
     }
 }

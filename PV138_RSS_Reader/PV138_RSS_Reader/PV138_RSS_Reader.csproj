@@ -176,6 +176,7 @@
     <None Include="Resources\Star.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ArticleStyles.css" />
     <Content Include="BlankDatabase.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

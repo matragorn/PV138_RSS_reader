@@ -61,6 +61,24 @@ namespace PV138_RSS_Reader.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to body
+        ///{
+        ///    font: 13px Microsoft Sans Serif, sans-serif;
+        ///}
+        ///
+        ///a h1
+        ///{
+        ///    color: black;
+        ///    text-decoration: none;
+        ///}.
+        /// </summary>
+        internal static string ARTICLE_CSS {
+            get {
+                return ResourceManager.GetString("ARTICLE_CSS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
         ///&lt;xs:schema elementFormDefault=&quot;qualified&quot;
         ///	attributeFormDefault=&quot;unqualified&quot;
@@ -101,15 +119,14 @@ namespace PV138_RSS_Reader.Properties {
         ///  &lt;xs:element name=&quot;reader-database&quot;&gt;
         ///    &lt;xs:complexType&gt;
         ///      &lt;xs:sequence&gt;
-        ///        &lt;xs:choice&gt;
+        ///        &lt;xs:choice maxOccurs=&quot;unbounded&quot;&gt;
         ///          &lt;xs:element name=&quot;feed&quot; type=&quot;feed&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
         ///          &lt;xs:element name=&quot;category&quot; type=&quot;category&quot; minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot; /&gt;
         ///        &lt;/xs:choice&gt;
         ///      &lt;/xs:sequence&gt;
         ///    &lt;/xs:complexType&gt;
         ///  &lt;/xs:element&gt;
-        ///
-        ///  &lt;xs:complexType nam [rest of string was truncated]&quot;;.
+        ///        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DATABASE_XSD {
             get {
