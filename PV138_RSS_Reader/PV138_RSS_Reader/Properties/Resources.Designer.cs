@@ -137,7 +137,8 @@ namespace PV138_RSS_Reader.Properties {
         ///      &lt;/xs:sequence&gt;
         ///    &lt;/xs:complexType&gt;
         ///  &lt;/xs:element&gt;
-        ///        /// [rest of string was truncated]&quot;;.
+        ///
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DATABASE_XSD {
             get {

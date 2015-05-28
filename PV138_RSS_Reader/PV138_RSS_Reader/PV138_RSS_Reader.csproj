@@ -178,6 +178,8 @@
   <ItemGroup>
     <Content Include="Resources\ArticleStyles.css" />
     <Content Include="Resources\BlankDatabase.xml" />
+    <Content Include="Resources\noStar.png" />
+    <Content Include="Resources\Star.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
