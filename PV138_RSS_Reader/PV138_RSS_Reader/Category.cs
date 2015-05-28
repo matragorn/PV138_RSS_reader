@@ -41,8 +41,9 @@ namespace PV138_RSS_Reader
         /// </summary>
         /// <param name="feeds">Zoznam feedov v kategorii</param>
         /// <param name="id">ID kategorie</param>
-        public Category(List<IFeed> feeds, int id) : this(feeds)
+        public Category(List<IFeed> feeds, string name, int id) : this(feeds)
         {
+            Name = name;
             ID = id;
         }
 

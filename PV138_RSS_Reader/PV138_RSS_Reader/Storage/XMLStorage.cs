@@ -164,6 +164,7 @@ namespace PV138_RSS_Reader.Storage
                     )
                     .Select(CreateFeed).ToList(),
 
+                    category.Descendants("name").First().Value,
                     Convert.ToInt32(category.Attribute("id").Value)
                 );
             }).ToList<Category>();

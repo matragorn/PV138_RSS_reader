@@ -86,7 +86,6 @@
     <Compile Include="RenameBox.Designer.cs">
       <DependentUpon>RenameBox.cs</DependentUpon>
     </Compile>
-    <Compile Include="Storage\Deprecated___InMemoryStorage.cs" />
     <Compile Include="Feed.cs" />
     <Compile Include="FeedManager.cs" />
     <Compile Include="FeedReader.cs" />
