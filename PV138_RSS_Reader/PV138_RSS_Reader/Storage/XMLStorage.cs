@@ -202,6 +202,8 @@ namespace PV138_RSS_Reader.Storage
                     new XAttribute("id", useId)
                 )
             );
+
+            category.ID = useId;
         }
 
         /// <summary>
