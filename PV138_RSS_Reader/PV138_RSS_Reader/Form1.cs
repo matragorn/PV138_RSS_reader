@@ -13,9 +13,9 @@ namespace PV138_RSS_Reader
 {
     public partial class MainWindow : Form
     {
-        private const int TREE_PANEL_MAX_WIDTH = 250;
+        private const int TREE_PANEL_MAX_WIDTH = 1000;
         private const int TREE_PANEL_MIN_WIDTH = 150;
-        private const int FEEDS_PANEL_MAX_WIDTH = 400;
+        private const int FEEDS_PANEL_MAX_WIDTH = 1000;
         private const int FEEDS_PANEL_MIN_WIDTH = 150;
         private const int MAX_SHOWN_ARTICLES = 20; //TODO je to potreba? budeme listovat articles? nebo jich tam zobrazime milion... strasne dlouho se refresuje listview
 
@@ -524,12 +524,20 @@ namespace PV138_RSS_Reader
             }
             Feed feed = (Feed)treeView_Filters.SelectedNode.Tag;
             manager.Unsubscribe(feed);
+            
             UpdateTreeView();
+            treeView_Filters.SelectedNode = unreadFeeds;
+
         }
 
         private void treeView_Filters_MouseDown(object sender, MouseEventArgs e)
         {
             //contextMenuStrip2.Items[0].Enabled = (treeView_Filters.SelectedNode.Tag is IFeed);
+        }
+
+        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
+        {
+
         }
     }
 }

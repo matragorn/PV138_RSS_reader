@@ -51,40 +51,40 @@
             this.splitContainer_Tree_MainContent = new System.Windows.Forms.SplitContainer();
             this.panel_TreeFilters = new System.Windows.Forms.Panel();
             this.treeView_Filters = new System.Windows.Forms.TreeView();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.odhlásitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer_FilterView_ArticleView = new System.Windows.Forms.SplitContainer();
             this.panel_FilterView = new System.Windows.Forms.Panel();
             this.listView1 = new System.Windows.Forms.ListView();
             this.Date = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Title = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderFeed = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.označPřečtenéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.označNepřečtenéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oblíbenéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.neoblíbenéToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.toolStrip_ToolMenu = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.RefreshButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.odhlásitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.panel_MainContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).BeginInit();
             this.splitContainer_Tree_MainContent.Panel1.SuspendLayout();
             this.splitContainer_Tree_MainContent.Panel2.SuspendLayout();
             this.splitContainer_Tree_MainContent.SuspendLayout();
             this.panel_TreeFilters.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_FilterView_ArticleView)).BeginInit();
             this.splitContainer_FilterView_ArticleView.Panel1.SuspendLayout();
             this.splitContainer_FilterView_ArticleView.Panel2.SuspendLayout();
             this.splitContainer_FilterView_ArticleView.SuspendLayout();
             this.panel_FilterView.SuspendLayout();
-            this.toolStrip_ToolMenu.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.contextMenuStrip2.SuspendLayout();
+            this.toolStrip_ToolMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_MainContent
@@ -168,6 +168,21 @@
             this.treeView_Filters.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Filters_AfterSelect);
             this.treeView_Filters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView_Filters_MouseDown);
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.odhlásitToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+            // 
+            // odhlásitToolStripMenuItem
+            // 
+            this.odhlásitToolStripMenuItem.Name = "odhlásitToolStripMenuItem";
+            this.odhlásitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.odhlásitToolStripMenuItem.Text = "Odhlásit";
+            this.odhlásitToolStripMenuItem.Click += new System.EventHandler(this.odhlásitToolStripMenuItem_Click);
+            // 
             // splitContainer_FilterView_ArticleView
             // 
             this.splitContainer_FilterView_ArticleView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -235,6 +250,44 @@
             this.columnHeaderFeed.Text = "Feed";
             this.columnHeaderFeed.Width = 200;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.označPřečtenéToolStripMenuItem,
+            this.označNepřečtenéToolStripMenuItem,
+            this.oblíbenéToolStripMenuItem,
+            this.neoblíbenéToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 92);
+            // 
+            // označPřečtenéToolStripMenuItem
+            // 
+            this.označPřečtenéToolStripMenuItem.Name = "označPřečtenéToolStripMenuItem";
+            this.označPřečtenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.označPřečtenéToolStripMenuItem.Text = "Označ Přečtené";
+            this.označPřečtenéToolStripMenuItem.Click += new System.EventHandler(this.označPřečtenéToolStripMenuItem_Click);
+            // 
+            // označNepřečtenéToolStripMenuItem
+            // 
+            this.označNepřečtenéToolStripMenuItem.Name = "označNepřečtenéToolStripMenuItem";
+            this.označNepřečtenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.označNepřečtenéToolStripMenuItem.Text = "Označ Nepřečtené";
+            this.označNepřečtenéToolStripMenuItem.Click += new System.EventHandler(this.označNepřečtenéToolStripMenuItem_Click);
+            // 
+            // oblíbenéToolStripMenuItem
+            // 
+            this.oblíbenéToolStripMenuItem.Name = "oblíbenéToolStripMenuItem";
+            this.oblíbenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.oblíbenéToolStripMenuItem.Text = "Označ Oblíbené";
+            this.oblíbenéToolStripMenuItem.Click += new System.EventHandler(this.oblíbenéToolStripMenuItem_Click);
+            // 
+            // neoblíbenéToolStripMenuItem
+            // 
+            this.neoblíbenéToolStripMenuItem.Name = "neoblíbenéToolStripMenuItem";
+            this.neoblíbenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
+            this.neoblíbenéToolStripMenuItem.Text = "Označ Neoblíbené";
+            this.neoblíbenéToolStripMenuItem.Click += new System.EventHandler(this.neoblíbenéToolStripMenuItem_Click);
+            // 
             // webBrowser1
             // 
             this.webBrowser1.AllowWebBrowserDrop = false;
@@ -293,51 +346,6 @@
             this.RefreshButton.Text = "Aktualizovat";
             this.RefreshButton.Click += new System.EventHandler(this.RefreshButton_Click);
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.označPřečtenéToolStripMenuItem,
-            this.označNepřečtenéToolStripMenuItem,
-            this.oblíbenéToolStripMenuItem,
-            this.neoblíbenéToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(172, 92);
-            // 
-            // označPřečtenéToolStripMenuItem
-            // 
-            this.označPřečtenéToolStripMenuItem.Name = "označPřečtenéToolStripMenuItem";
-            this.označPřečtenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.označPřečtenéToolStripMenuItem.Text = "Označ Přečtené";
-            this.označPřečtenéToolStripMenuItem.Click += new System.EventHandler(this.označPřečtenéToolStripMenuItem_Click);
-            // 
-            // označNepřečtenéToolStripMenuItem
-            // 
-            this.označNepřečtenéToolStripMenuItem.Name = "označNepřečtenéToolStripMenuItem";
-            this.označNepřečtenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.označNepřečtenéToolStripMenuItem.Text = "Označ Nepřečtené";
-            this.označNepřečtenéToolStripMenuItem.Click += new System.EventHandler(this.označNepřečtenéToolStripMenuItem_Click);
-            // 
-            // oblíbenéToolStripMenuItem
-            // 
-            this.oblíbenéToolStripMenuItem.Name = "oblíbenéToolStripMenuItem";
-            this.oblíbenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.oblíbenéToolStripMenuItem.Text = "Označ Oblíbené";
-            this.oblíbenéToolStripMenuItem.Click += new System.EventHandler(this.oblíbenéToolStripMenuItem_Click);
-            // 
-            // neoblíbenéToolStripMenuItem
-            // 
-            this.neoblíbenéToolStripMenuItem.Name = "neoblíbenéToolStripMenuItem";
-            this.neoblíbenéToolStripMenuItem.Size = new System.Drawing.Size(171, 22);
-            this.neoblíbenéToolStripMenuItem.Text = "Označ Neoblíbené";
-            this.neoblíbenéToolStripMenuItem.Click += new System.EventHandler(this.neoblíbenéToolStripMenuItem_Click);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(44, 23);
-            this.toolStripLabel1.Text = "Hledej:";
-            // 
             // toolStripTextBox1
             // 
             this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
@@ -348,19 +356,12 @@
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
-            // contextMenuStrip2
+            // toolStripLabel1
             // 
-            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.odhlásitToolStripMenuItem});
-            this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(119, 26);
-            // 
-            // odhlásitToolStripMenuItem
-            // 
-            this.odhlásitToolStripMenuItem.Name = "odhlásitToolStripMenuItem";
-            this.odhlásitToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.odhlásitToolStripMenuItem.Text = "Odhlásit";
-            this.odhlásitToolStripMenuItem.Click += new System.EventHandler(this.odhlásitToolStripMenuItem_Click);
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.toolStripLabel1.Name = "toolStripLabel1";
+            this.toolStripLabel1.Size = new System.Drawing.Size(44, 23);
+            this.toolStripLabel1.Text = "Hledej:";
             // 
             // MainWindow
             // 
@@ -378,15 +379,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Tree_MainContent)).EndInit();
             this.splitContainer_Tree_MainContent.ResumeLayout(false);
             this.panel_TreeFilters.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.splitContainer_FilterView_ArticleView.Panel1.ResumeLayout(false);
             this.splitContainer_FilterView_ArticleView.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer_FilterView_ArticleView)).EndInit();
             this.splitContainer_FilterView_ArticleView.ResumeLayout(false);
             this.panel_FilterView.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.toolStrip_ToolMenu.ResumeLayout(false);
             this.toolStrip_ToolMenu.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
