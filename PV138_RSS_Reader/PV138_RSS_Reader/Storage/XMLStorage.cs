@@ -213,6 +213,36 @@ namespace PV138_RSS_Reader.Storage
         }
 
         /// <summary>
+        /// Prida feed do kategorie
+        /// </summary>
+        /// <param name="category">kategoria</param>
+        /// <param name="feed">feed</param>
+        public void AddFeedToCategory(Category category, IFeed feed)
+        {
+            GetCategoryInXML(category).Add(new XElement("feed-link", new XAttribute("url", feed.FeedURL)));
+        }
+
+        /// <summary>
+        /// Odstrani feed z kategorie
+        /// </summary>
+        /// <param name="category">Kategoria</param>
+        /// <param name="feed">Feed</param>
+        public void RemoveFeedFromCategory(Category category, IFeed feed)
+        {
+            GetCategoryInXML(category).Elements().First(feedlink => feedlink.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
+        }
+
+        /// <summary>
+        /// Premenuje kategoriu
+        /// </summary>
+        /// <param name="category">kategoria</param>
+        /// <param name="name">nove meno</param>
+        public void RenameCategory(Category category, string name)
+        {
+            GetCategoryInXML(category).Descendants("name").First().Value = name;
+        }
+
+        /// <summary>
         /// Vyhlada clanky, ktore maju v nadpise alebo popise frazu <paramref name="phrase"/>
         /// </summary>
         /// <param name="phrase">Vyhladavana fraza</param>

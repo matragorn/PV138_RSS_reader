@@ -175,6 +175,40 @@ namespace PV138_RSS_Reader
         {
             Storage.RemoveCategory(category);
         }
+
+        /// <summary>
+        /// Prida feed do kategorie
+        /// </summary>
+        /// <param name="category">kategoria</param>
+        /// <param name="feed">feed</param>
+        public void AddFeedToCategory(Category category, IFeed feed)
+        {
+            Storage.AddFeedToCategory(category, feed);
+            category.Feeds.Add(feed);
+        }
+
+        /// <summary>
+        /// Odstrani feed z kategorie
+        /// </summary>
+        /// <param name="category">Kategoria</param>
+        /// <param name="feed">Feed</param>
+        public void RemoveFeedFromCategory(Category category, IFeed feed)
+        {
+            Storage.RemoveFeedFromCategory(category, feed);
+            category.Feeds.Remove(feed);
+        }
+
+        /// <summary>
+        /// Premenuje kategoriu
+        /// </summary>
+        /// <param name="category">kategoria</param>
+        /// <param name="name">nove meno</param>
+        public void RenameCategory(Category category, string name)
+        {
+            Storage.RenameCategory(category, name);
+            category.Name = name;
+        }
+
     }
 
     
