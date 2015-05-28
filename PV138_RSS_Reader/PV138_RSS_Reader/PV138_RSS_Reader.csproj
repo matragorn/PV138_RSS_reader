@@ -79,6 +79,7 @@
     <Compile Include="ChooseFeedBox.Designer.cs">
       <DependentUpon>ChooseFeedBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Exceptions\InformUserException.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Parsers\AtomParser.cs" />
     <Compile Include="RenameBox.cs">
@@ -176,6 +177,7 @@
     <Content Include="Resources\noStar.png" />
     <Content Include="Resources\Star.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

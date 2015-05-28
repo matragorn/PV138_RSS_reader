@@ -314,15 +314,7 @@ namespace PV138_RSS_Reader
         {
             try
             {
-                if (e.Node.Tag == null && e.Node.Parent != null)
-                {
-                    actuallyShowingArticles = new List<IArticle>();
-                }
-                else if (e.Node.Parent == unreadFeeds)
-                {
-                    actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
-                }
-                else if (e.Node.Parent == categories)
+                if (e.Node.Parent == categories)
                 {
                     var list = new List<IArticle>();
                     foreach (TreeNode node in e.Node.Nodes)
@@ -333,6 +325,14 @@ namespace PV138_RSS_Reader
                         }
                     }
                     actuallyShowingArticles = list;
+                }
+                else if (e.Node.Tag == null && e.Node.Parent != null)
+                {
+                    actuallyShowingArticles = new List<IArticle>();
+                }
+                else if (e.Node.Parent == unreadFeeds)
+                {
+                    actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
                 }
                 else if (e.Node.Parent != null && e.Node.Parent.Parent == categories)
                 {
