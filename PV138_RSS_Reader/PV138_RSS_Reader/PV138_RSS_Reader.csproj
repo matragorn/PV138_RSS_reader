@@ -79,6 +79,7 @@
     <Compile Include="ChooseFeedBox.Designer.cs">
       <DependentUpon>ChooseFeedBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Parsers\AtomParser.cs" />
     <Compile Include="RenameBox.cs">
       <SubType>Form</SubType>
@@ -103,7 +104,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Parsers\RssParser.cs" />
     <Compile Include="Storage\XMLStorage.cs" />
-    <Compile Include="Validation\StringXSDExtension.cs" />
+    <Compile Include="Extensions\ValidationExtension.cs" />
     <EmbeddedResource Include="AboutBox.resx">
       <DependentUpon>AboutBox.cs</DependentUpon>
     </EmbeddedResource>

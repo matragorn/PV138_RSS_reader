@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
-using PV138_RSS_Reader.Validation;
+using PV138_RSS_Reader.Extensions;
 using System.IO;
 
 namespace PV138_RSS_Reader.Storage
@@ -252,7 +252,7 @@ namespace PV138_RSS_Reader.Storage
         {
             return GetFeeds().SelectMany(feed =>
             {
-                return GetArticles(feed).Where(article => article.Identificator.Contains(phrase));
+                return GetArticles(feed).Where(article => article.Identificator.ToLower().RemoveDiacritics().Contains(phrase.ToLower().RemoveDiacritics()));
             }).ToList();
         }
 

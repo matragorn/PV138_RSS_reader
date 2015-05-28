@@ -44,7 +44,7 @@ namespace PV138_RSS_Reader
         /// <returns>Nacitany feed</returns>
         public IFeed SubscribeToURL(string url)
         {
-            XDocument doc = XDocument.Parse(new WebClient().DownloadStringAwareOfEncoding(url));
+            XDocument doc = XDocument.Parse(new WebClient().DownloadStringAwareOfEncoding(url).Trim());
 
             Feed feed = (Feed)FeedReader.CreateFeed(doc, url);
 
