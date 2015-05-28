@@ -419,5 +419,96 @@ namespace PV138_RSS_Reader
                 System.Diagnostics.Process.Start(((IArticle)(listView1.SelectedItems[0].Tag)).URL);
             }
         }
+
+        private void označPřečtenéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                manager.SetRead((IArticle)(item.Tag), true);
+                item.Font = new System.Drawing.Font(item.Font, FontStyle.Regular);
+            }
+            UpdateTreeView();
+        }
+
+        private void označNepřečtenéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                manager.SetRead((IArticle)(item.Tag), false);
+                item.Font = new System.Drawing.Font(item.Font, FontStyle.Bold);
+            }
+            UpdateTreeView();
+        }
+
+        private void oblíbenéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                manager.SetStarred((IArticle)(item.Tag), true);
+                ((IArticle)item.Tag).Starred = !true;
+                item.ImageIndex = 1;
+            }
+            UpdateTreeView();
+        }
+
+        private void neoblíbenéToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in listView1.SelectedItems)
+            {
+                manager.SetStarred((IArticle)(item.Tag), false); 
+                ((IArticle)item.Tag).Starred = false;
+                item.ImageIndex =  0;
+            }
+            UpdateTreeView();
+        }
+
+        private void toolStripTextBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            string text = (sender as ToolStripTextBox).Text;
+            actuallyShowingArticles = manager.Search(text);
+            if (actuallyShowingArticles.Count() < 1)
+            {
+                listView1.Items.Clear();
+                actuallyShowingArticles = new List<IArticle>(){new Article("Nenalezeny žádné feedy","","",DateTime.Now)};
+                
+                treeView_Filters.SelectedNode = null;
+                RefreshView();
+                UpdateTreeView();
+                listView1.Items[0].ForeColor = Color.Red;
+                listView1.Items[0].ImageIndex = -1;
+                return;
+            }
+            //Feed feed = (Feed)feeds.First();
+            //foreach (TreeNode item in allFeeds.Nodes)
+            //{
+            //    if (((Feed)(item.Tag)).ToString() == feed.ToString())
+            //    {
+            //        treeView_Filters.SelectedNode = item;
+            //    }
+            //}
+            //actuallyShowingArticles = manager.Articles(feed);
+            RefreshView();
+        }
+
+        private void odhlásitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!(treeView_Filters.SelectedNode.Tag is IFeed))
+            {
+                return;
+            }
+            Feed feed = (Feed)treeView_Filters.SelectedNode.Tag;
+            manager.Unsubscribe(feed);
+            UpdateTreeView();
+        }
+
+        private void treeView_Filters_MouseDown(object sender, MouseEventArgs e)
+        {
+            //contextMenuStrip2.Items[0].Enabled = (treeView_Filters.SelectedNode.Tag is IFeed);
+        }
     }
 }
