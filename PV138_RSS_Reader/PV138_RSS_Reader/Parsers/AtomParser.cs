@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-using PV138_RSS_Reader.Validation;
+using PV138_RSS_Reader.Extensions;
 
 namespace PV138_RSS_Reader
 {
