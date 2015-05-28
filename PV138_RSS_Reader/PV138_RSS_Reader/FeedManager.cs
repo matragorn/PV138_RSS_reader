@@ -99,8 +99,6 @@ namespace PV138_RSS_Reader
             var newArticles = FeedReader.GetArticles(doc).Except(Storage.GetArticles(feed), new ArticleComparer());
 
             Storage.AddArticles(newArticles, feed);
-
-            // TODO: Daj vediet GUIcku?
         }
 
         /// <summary>
