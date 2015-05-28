@@ -9,11 +9,18 @@ using System.IO;
 
 namespace PV138_RSS_Reader.Storage
 {
+    /// <summary>
+    /// XML suborove ulozisko dat
+    /// </summary>
     class XMLStorage : IStorageManager
     {
         private string Uri { get; set; }
         private XDocument Doc { get; set; }
-
+        
+        /// <summary>
+        /// Zkonstruuje XML Storage. Ak subor na uri neexistuje, pokusi sa ho vytvorit.
+        /// </summary>
+        /// <param name="uri">Uri XML suboru databazy</param>
         public XMLStorage(string uri)
         {
             Uri = uri;
@@ -34,11 +41,20 @@ namespace PV138_RSS_Reader.Storage
                 throw new FormatException("Database is corrupt!");
         }
 
+        /// <summary>
+        /// Vrati zoznam vsetkych prihlasenych feedov
+        /// </summary>
+        /// <returns>Zoznam feedov</returns>
         public List<IFeed> GetFeeds()
         {
             return Doc.Root.Descendants("feed").Select(CreateFeed).ToList<IFeed>();
         }
 
+        /// <summary>
+        /// Vrati zoznam vsetkych clankov pre dany feed
+        /// </summary>
+        /// <param name="feed">Feed</param>
+        /// <returns>Zoznam clankov vo feede</returns>
         public List<IArticle> GetArticles(IFeed feed)
         {
             return GetFeedInXML(feed)
@@ -48,6 +64,10 @@ namespace PV138_RSS_Reader.Storage
                 .ToList<IArticle>();
         }
 
+        /// <summary>
+        /// Prida novy feed
+        /// </summary>
+        /// <param name="feed">Feed</param>
         public void AddFeed(IFeed feed)
         {
             Doc.Root.Add
@@ -64,12 +84,21 @@ namespace PV138_RSS_Reader.Storage
                 )
             );
         }
-
+        
+        /// <summary>
+        /// Odstrani feed
+        /// </summary>
+        /// <param name="feed">Feed</param>
         public void RemoveFeed(IFeed feed)
         {
             GetFeedInXML(feed).Remove();
         }
 
+        /// <summary>
+        /// Prida vsetky clanky z kolekcie do feedu
+        /// </summary>
+        /// <param name="articles">Kolekcia clankov</param>
+        /// <param name="feed">Feed, ktoremu sa clanky maju priradit</param>
         public void AddArticles(IEnumerable<IArticle> articles, IFeed feed)
         {
             GetFeedInXML(feed).Descendants("articles").First().Add
@@ -92,21 +121,30 @@ namespace PV138_RSS_Reader.Storage
             );
         }
 
-        public IArticle GetArticleByTitle(string title)
-        {
-            throw new NotImplementedException();
-        }
-
+        /// <summary>
+        /// Zmeni ohviezdickovanost clanku
+        /// </summary>
+        /// <param name="article">Clanok</param>
+        /// <param name="setTo">Hodnota, na ktoru sa ma zmenit</param>
         public void SetStarred(IArticle article, bool setTo)
         {
             GetArticleInXML(article).Attribute("starred").Value = setTo.ToString().ToLower();
         }
 
+        /// <summary>
+        /// Zmeni precitanost clanku
+        /// </summary>
+        /// <param name="article">Clanok</param>
+        /// <param name="setTo">Hodnota, na ktoru sa ma zmenit</param>
         public void SetRead(IArticle article, bool setTo)
         {
             GetArticleInXML(article).Attribute("read").Value = setTo.ToString().ToLower();
         }
 
+        /// <summary>
+        /// Vrati zoznam vsetkych kategorii
+        /// </summary>
+        /// <returns>Zoznam kategorii</returns>
         public List<Category> GetCategories()
         {
             return Doc.Descendants("category").Select(category =>
@@ -131,6 +169,10 @@ namespace PV138_RSS_Reader.Storage
             }).ToList<Category>();
         }
 
+        /// <summary>
+        /// Prida novu kategoriu
+        /// </summary>
+        /// <param name="category">Kategoria</param>
         public void AddCategory(Category category)
         {
             int useId = 0;
@@ -160,12 +202,22 @@ namespace PV138_RSS_Reader.Storage
             );
         }
 
+        /// <summary>
+        /// Odstrani kategoriu
+        /// </summary>
+        /// <param name="category">Kategoria</param>
         public void RemoveCategory(Category category)
         {
             GetCategoryInXML(category).Remove();
         }
 
 
+        /// <summary>
+        /// Z XElementu pre clanok vytvori IArticle
+        /// </summary>
+        /// <param name="article">XElement clanku</param>
+        /// <param name="feed">Feed clanku</param>
+        /// <returns>IArticle</returns>
         private IArticle CreateArticle(XElement article, IFeed feed)
         {
             var ret = new Article
@@ -183,6 +235,11 @@ namespace PV138_RSS_Reader.Storage
             return ret;
         }
 
+        /// <summary>
+        /// Z XElementu pre feed vytvori IFeed
+        /// </summary>
+        /// <param name="feed">XElement feedu</param>
+        /// <returns>IFeed</returns>
         private IFeed CreateFeed(XElement feed)
         {
             return new Feed
@@ -194,12 +251,22 @@ namespace PV138_RSS_Reader.Storage
                 );
         }
 
+        /// <summary>
+        /// Najde a vrati XElement daneho feedu
+        /// </summary>
+        /// <param name="feed">Feed</param>
+        /// <returns>XElement feedu</returns>
         private XElement GetFeedInXML(IFeed feed)
         {
             return Doc.Descendants("feed")
                 .Where(oneFeed => oneFeed.Descendants("url").First().Value.Equals(feed.FeedURL)).First();
         }
 
+        /// <summary>
+        /// Najde a vrati XElement daneho clanku
+        /// </summary>
+        /// <param name="article">Clanok</param>
+        /// <returns>XElement clanku</returns>
         private XElement GetArticleInXML(IArticle article)
         {
             return Doc.Descendants("feed")
@@ -212,6 +279,11 @@ namespace PV138_RSS_Reader.Storage
                 ).First();
         }
 
+        /// <summary>
+        /// Najde a vrati XElement danej kategorie
+        /// </summary>
+        /// <param name="category">Kategoria</param>
+        /// <returns>XElement kategorie</returns>
         private XElement GetCategoryInXML(Category category)
         {
             if (category.ID == null)
@@ -223,11 +295,17 @@ namespace PV138_RSS_Reader.Storage
                 .First();
         }
 
+        /// <summary>
+        /// Ulozi databazu do suboru na disk. Tato funkcia je volana pri ukonceni aplikacie.
+        /// </summary>
         private void Save(object sender, EventArgs e)
         {
             Doc.Save(Uri);
         }
 
+        /// <summary>
+        /// Vytvori prazdnu databazu
+        /// </summary>
         private void CreateXML()
         {
             File.WriteAllText(Uri, Properties.Resources.BLANK_DATABASE_XML);

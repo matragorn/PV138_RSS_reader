@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
+    /// <summary>
+    /// Feed
+    /// </summary>
     public class Feed : IFeed
     {
         public string Title { get; private set; }
@@ -16,11 +19,15 @@ namespace PV138_RSS_Reader
 
         public string Description { get; private set; }
 
-        private int randomInt = new Random().Next(33);
-
+        /// <summary>
+        /// Vytvori novy feed
+        /// </summary>
+        /// <param name="url">URL feedu</param>
+        /// <param name="title">Nazov feedu</param>
+        /// <param name="mainLink">Link na hlavnu stranku</param>
+        /// <param name="description">Popis feedu</param>
         public Feed (string url, string title, string mainLink, string description)
         {
-             
             if (url == null)
             {
                 throw new ArgumentNullException("url", "Nepodarilo sa vytvorit novy feed");
@@ -41,6 +48,7 @@ namespace PV138_RSS_Reader
             //TODO:
             return Title;
         }
+
         public override bool Equals (object obj)
         {
             return obj is IFeed && ((IFeed)obj).FeedURL == this.FeedURL;

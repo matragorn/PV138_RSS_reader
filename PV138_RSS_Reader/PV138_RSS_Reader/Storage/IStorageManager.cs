@@ -40,15 +40,36 @@ namespace PV138_RSS_Reader
         /// <param name="feed">Feed</param>
         void AddArticles(IEnumerable<IArticle> articles, IFeed feed);
 
-        IArticle GetArticleByTitle(string title);
-
+        /// <summary>
+        /// Nastavi clanku hodnotu ohviezdickovania
+        /// </summary>
+        /// <param name="article">Clanok</param>
+        /// <param name="setTo">Hodnota, na ktoru sa ma ohviezdickovanie nastavit</param>
         void SetStarred(IArticle article, bool setTo);
 
+        /// <summary>
+        /// Nastavi clanku hodnotu precitania
+        /// </summary>
+        /// <param name="article">Clanok</param>
+        /// <param name="setTo">Hodnota, na ktoru sa ma precitane nastavit</param>
         void SetRead(IArticle article, bool setTo);
 
+        /// <summary>
+        /// Vrati zoznam vsetkych kategorii
+        /// </summary>
+        /// <returns>Zoznam vsetkych kategorii</returns>
         List<Category> GetCategories();
+
+        /// <summary>
+        /// Prida novu kategoriu
+        /// </summary>
+        /// <param name="category">Kategoria</param>
         void AddCategory(Category category);
 
+        /// <summary>
+        /// Odstrani kategoriu
+        /// </summary>
+        /// <param name="category">Kategoria</param>
         void RemoveCategory(Category category);
     }
 }

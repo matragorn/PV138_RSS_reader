@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PV138_RSS_Reader
 {
+    /// <summary>
+    /// Clanok
+    /// </summary>
     class Article : IArticle
     {
         public string Title { get; private set; }
@@ -31,11 +34,26 @@ namespace PV138_RSS_Reader
             set { /*nelze nastavit*/}
         }
         
-       
+        /// <summary>
+        /// Vytvori novy clanok
+        /// </summary>
+        /// <param name="title">Nadpis</param>
+        /// <param name="url">URL</param>
+        /// <param name="description">Popis</param>
+        /// <param name="pubDate">Datum publikacie</param>
+        /// <param name="feed">Rodicovsky feed</param>
         public Article(string title, string url, string description, DateTime pubDate, IFeed feed):this(title,url,description,pubDate)
         {
             ParentFeed = feed;
         }
+
+        /// <summary>
+        /// Vytvori novy clanok
+        /// </summary>
+        /// <param name="title">Nadpis</param>
+        /// <param name="url">URL</param>
+        /// <param name="description">Popis</param>
+        /// <param name="pubDate">Datum publikacie</param>
         public Article(string title, string url, string description, DateTime pubDate)
         {
             Read = false;

@@ -14,11 +14,22 @@ namespace PV138_RSS_Reader
     /// </summary>
     public class AtomParser : IParser
     {
+        /// <summary>
+        /// Zisti, ci je XDokument validny voci ATOM formatu
+        /// </summary>
+        /// <param name="doc">Testovany XDocument</param>
+        /// <returns>True/False</returns>
         public bool IsDocThis(XDocument doc)
         {
             return doc.ValidateStringXSD(Properties.Resources.ATOM_XSD);
         }
 
+        /// <summary>
+        /// Z ATOM dokumentu vytvori IFeed
+        /// </summary>
+        /// <param name="doc">ATOM dokument</param>
+        /// <param name="url">URL feedu</param>
+        /// <returns>Novy IFeed</returns>
         public IFeed CreateFeed(XDocument doc, string url)
         {
             XNamespace ns = doc.Root.GetDefaultNamespace();
@@ -35,6 +46,11 @@ namespace PV138_RSS_Reader
             );
         }
 
+        /// <summary>
+        /// Vrati kolekciu vsetkych clankov v ATOM dokumente
+        /// </summary>
+        /// <param name="doc">ATOM dokument</param>
+        /// <returns>Kolekcia clankov</returns>
         public IEnumerable<IArticle> GetArticles(XDocument doc)
         {
             XNamespace ns = doc.Root.GetDefaultNamespace();
@@ -42,7 +58,12 @@ namespace PV138_RSS_Reader
             return doc.Descendants(ns + "entry").Select(article => ArticleFromItem(article, ns));
         }
 
-
+        /// <summary>
+        /// Z XElementu jednotliveho clanku v ATOM subore vytvori IArticle
+        /// </summary>
+        /// <param name="item">XElement clanku</param>
+        /// <param name="ns">Pouzita namespace</param>
+        /// <returns>Novy IArticle</returns>
         public IArticle ArticleFromItem(XElement item, XNamespace ns)
         {
             if (item.Name.LocalName != "entry")

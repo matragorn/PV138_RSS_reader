@@ -25,7 +25,10 @@ namespace PV138_RSS_Reader
             get { return Storage.GetFeeds(); }
         }
 
-
+        /// <summary>
+        /// Vytvori novy FeedManager
+        /// </summary>
+        /// <param name="storage">Ulozisko, ktore sa ma pouzit</param>
         public FeedManager(IStorageManager storage)
         {
             if (storage == null)
@@ -120,11 +123,6 @@ namespace PV138_RSS_Reader
             Storage.SetStarred(article, setTo);
         }
 
-        public IArticle ArticleByTitle(string title)
-        {
-            return Storage.GetArticleByTitle(title);
-        }
-
         /// <summary>
         /// vrátí všechny feedy kde je alespon jeden clane neprecteny
         /// </summary>
@@ -143,16 +141,28 @@ namespace PV138_RSS_Reader
             return Feeds.Where(x => Storage.GetArticles(x).Exists(y => y.Starred)).ToList();
         }
 
+        /// <summary>
+        /// Vrati zoznam vsetkych kategorii
+        /// </summary>
+        /// <returns></returns>
         public List<Category> GetCategories()
         {
             return Storage.GetCategories();
         }
 
+        /// <summary>
+        /// Prida kategoriu
+        /// </summary>
+        /// <param name="category"></param>
         public void AddCategory(Category category)
         {
             Storage.AddCategory(category);
         }
 
+        /// <summary>
+        /// Odstrani kategoriu
+        /// </summary>
+        /// <param name="category"></param>
         void RemoveCategory(Category category)
         {
             Storage.RemoveCategory(category);
@@ -166,8 +176,6 @@ namespace PV138_RSS_Reader
     /// zo http://stackoverflow.com/questions/4716470/webclient-downloadstring-returns-string-with-peculiar-characters
     /// 
     /// Nacita string z url v spravnom encodingu
-    /// 
-    /// TODO: Mozeme pouzivat kod zo stackoverflow?
     /// </summary>
     public static class WebUtils
     {
@@ -218,7 +226,7 @@ namespace PV138_RSS_Reader
     {
         public static string DownloadStringAwareOfEncoding(this WebClient webClient, string uri)
         {
-            var rawData = webClient.DownloadData(uri); //TODO: Web Exception was unhandled
+            var rawData = webClient.DownloadData(uri);
             var encoding = WebUtils.GetEncodingFrom(webClient.ResponseHeaders, Encoding.UTF8);
             return encoding.GetString(rawData);
         }

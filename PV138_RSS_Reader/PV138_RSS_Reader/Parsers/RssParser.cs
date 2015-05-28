@@ -7,15 +7,26 @@ using PV138_RSS_Reader.Validation;
 namespace PV138_RSS_Reader
 {
     /// <summary>
-    /// Parser pre rss format
+    /// Parser pre RSS format
     /// </summary>
     public class RssParser : IParser
     {
+        /// <summary>
+        /// Zisti, ci je XDokument validny voci RSS formatu
+        /// </summary>
+        /// <param name="doc">Testovany XDocument</param>
+        /// <returns>True/False</returns>
         public bool IsDocThis(XDocument doc)
         {
             return doc.ValidateStringXSD(Properties.Resources.RSS_XSD);
         }
 
+        /// <summary>
+        /// Z RSS dokumentu vytvori IFeed
+        /// </summary>
+        /// <param name="doc">RSS dokument</param>
+        /// <param name="url">URL feedu</param>
+        /// <returns>Novy IFeed</returns>
         public IFeed CreateFeed(XDocument doc, string url)
         {
             XNamespace ns = doc.Root.GetDefaultNamespace();
@@ -29,6 +40,12 @@ namespace PV138_RSS_Reader
             );
         }
 
+        /// <summary>
+        /// Z XElementu jednotliveho clanku v RSS subore vytvori IArticle
+        /// </summary>
+        /// <param name="item">XElement clanku</param>
+        /// <param name="ns">Pouzita namespace</param>
+        /// <returns>Novy IArticle</returns>
         public IArticle ArticleFromItem(XElement item, XNamespace ns)
         {
             if(item.Name.LocalName != "item")
@@ -46,7 +63,11 @@ namespace PV138_RSS_Reader
 
         }
 
-
+        /// <summary>
+        /// Vrati kolekciu vsetkych clankov v RSS dokumente
+        /// </summary>
+        /// <param name="doc">RSS dokument</param>
+        /// <returns>Kolekcia clankov</returns>
         public IEnumerable<IArticle> GetArticles(XDocument doc)
         {
             XNamespace ns = doc.Root.GetDefaultNamespace();

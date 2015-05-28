@@ -10,7 +10,7 @@ namespace PV138_RSS_Reader
     {
         public bool Equals(IFeed x, IFeed y)
         {
-            return x.GetHashCode() == y.GetHashCode();
+            return x.FeedURL == y.FeedURL;
         }
 
         public int GetHashCode(IFeed obj)
