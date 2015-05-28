@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
 using PV138_RSS_Reader.Extensions;
+using PV138_RSS_Reader.Exceptions;
 using System.IO;
 
 namespace PV138_RSS_Reader.Storage
@@ -69,6 +70,10 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">Feed</param>
         public void AddFeed(IFeed feed)
         {
+            // Test ci uz feed nie je ulozeny
+            if (Doc.Descendants("feed").Count(oneFeed => oneFeed.Descendants("url").First().Value == feed.FeedURL) > 0)
+                throw new InformUserException("Feed" + feed.Title + " již odeberáte");
+
             Doc.Root.Add
             (
                 new XElement
@@ -222,6 +227,14 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">feed</param>
         public void AddFeedToCategory(Category category, IFeed feed)
         {
+            if (Doc
+                .Descendants("category")
+                .Where(cat => cat.Attribute("id").Value.Equals(category.ID.ToString()))
+                .Descendants("feed-link")
+                .Count(feedlink => feedlink.Attribute("url").Value.Equals(feed.FeedURL)) > 0
+              )
+                throw new InformUserException("Feed "+ feed.Title +"se jiz nachazi v kategorii "+category.Name);
+
             GetCategoryInXML(category).Descendants("feeds").First().Add(new XElement("feed-link", new XAttribute("url", feed.FeedURL)));
         }
 
