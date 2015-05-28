@@ -176,8 +176,8 @@
     <None Include="Resources\Star.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ArticleStyles.css" />
-    <Content Include="BlankDatabase.xml" />
+    <Content Include="Resources\ArticleStyles.css" />
+    <Content Include="Resources\BlankDatabase.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

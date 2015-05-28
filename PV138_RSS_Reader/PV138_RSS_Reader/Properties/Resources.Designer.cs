@@ -66,6 +66,17 @@ namespace PV138_RSS_Reader.Properties {
         ///    font: 13px Microsoft Sans Serif, sans-serif;
         ///}
         ///
+        ///a
+        ///{
+        ///    text-decoration: underline;
+        ///    color: #1e5694;
+        ///}
+        ///
+        ///a:hover
+        ///{
+        ///    text-decoration: none;
+        ///}
+        ///
         ///a h1
         ///{
         ///    color: black;
