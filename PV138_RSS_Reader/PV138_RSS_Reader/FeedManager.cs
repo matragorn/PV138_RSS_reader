@@ -171,7 +171,7 @@ namespace PV138_RSS_Reader
         /// Odstrani kategoriu
         /// </summary>
         /// <param name="category"></param>
-        void RemoveCategory(Category category)
+        public void RemoveCategory(Category category)
         {
             Storage.RemoveCategory(category);
         }
@@ -208,6 +208,8 @@ namespace PV138_RSS_Reader
             Storage.RenameCategory(category, name);
             category.Name = name;
         }
+
+
 
     }
 

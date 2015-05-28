@@ -84,14 +84,14 @@ namespace PV138_RSS_Reader
         /// </summary>
         /// <param name="category">kategoria</param>
         /// <param name="feed">feed</param>
-        void AddFeedToCategory(Category category, IFeed feed)
+        void AddFeedToCategory(Category category, IFeed feed);
 
         /// <summary>
         /// Odstrani feed z kategorie
         /// </summary>
         /// <param name="category">Kategoria</param>
         /// <param name="feed">Feed</param>
-        void RemoveFeedFromCategory(Category category, IFeed feed)
+        void RemoveFeedFromCategory(Category category, IFeed feed);
 
         /// <summary>
         /// Premenuje kategoriu

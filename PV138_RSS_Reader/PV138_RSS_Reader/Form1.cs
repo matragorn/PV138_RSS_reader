@@ -26,7 +26,7 @@ namespace PV138_RSS_Reader
 
         private IEnumerable<IArticle> actuallyShowingArticles = new List<IArticle>();
 
-        private const int TIME_TO_READ = 1;
+        private const float TIME_TO_READ = 0.5f;
         /// <summary>
         /// clanek se oznaci za precteny pokud bude zobrazen alespon TIME_TO_READ sekund 
         /// TODO: umožnit nastavení této konstanty uživatelovi? a ukladat do XML?
@@ -43,14 +43,14 @@ namespace PV138_RSS_Reader
             InitializeComponent();
 
             readTimer.Tick += readTimer_Tick;
-            readTimer.Interval = 1000 * TIME_TO_READ;
+            readTimer.Interval = (int)(1000 * TIME_TO_READ);
             unreadFeeds = treeView_Filters.Nodes[0];
             categories = treeView_Filters.Nodes[1];
             allFeeds = treeView_Filters.Nodes[2];
             starredFeeds = treeView_Filters.Nodes[3];
 
             manager = new FeedManager(new XMLStorage("FeedRead.dat"));
-
+            
             if (manager.Feeds.Count == 0)
             {
                 //manager.SubscribeToURL("http://en.wikipedia.org/w/api.php?hidebots=1&days=7&limit=50&hidewikidata=1&action=feedrecentchanges&feedformat=atom");
@@ -59,7 +59,7 @@ namespace PV138_RSS_Reader
                 //manager.SubscribeToURL("http://rss.sme.sk/rss/rss.asp?id=frontpage");
                 //manager.SubscribeToURL("http://idnes.cz.feedsportal.com/c/34387/f/625936/index.rss");
             }
-            
+
             manager.UpdateAllFeeds();
 
             UpdateTreeView();
@@ -108,17 +108,18 @@ namespace PV138_RSS_Reader
         private void listView1_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
             readTimer.Stop();
-            readTimer.Interval = 1000 * TIME_TO_READ;
+            readTimer.Interval = (int)(1000 * TIME_TO_READ);
             IArticle article = (IArticle)e.Item.Tag;
             if (!article.Read) { readTimer.Start(); }
 
-            webBrowser1.DocumentText = "<html><head><style>"+Properties.Resources.ARTICLE_CSS+"</style></head><body>" +
+             webBrowser1.DocumentText = "<html><head><style>"+Properties.Resources.ARTICLE_CSS+"</style></head><body>" +
 
                     "<a href='"+article.URL+"'><h1>" + article.Title + "</h1></a>" +
 
                     article.Description +
 
                 "</body></html>";
+
         }
         private void MainWindow_Load(object sender, EventArgs e)
         {
@@ -176,6 +177,7 @@ namespace PV138_RSS_Reader
             CategoryManager cm = new CategoryManager(manager);
             cm.ShowDialog();
             UpdateTreeView();
+
         }
 
         private void UpdateTreeView()
@@ -198,7 +200,7 @@ namespace PV138_RSS_Reader
 
             categories.Nodes.Clear();
             categories.Nodes.AddRange(CategoryNodes(manager.Storage.GetCategories()));
-            
+
             treeView_Filters.SelectedNode = selectedNode;
 
         }
@@ -252,10 +254,10 @@ namespace PV138_RSS_Reader
             if (e.X >= xMin && e.X <= xMax)
             {
                 manager.SetStarred(((IArticle)item.Tag), !((IArticle)item.Tag).Starred);
-                //RefreshView();
+                ((IArticle)item.Tag).Starred = !((IArticle)item.Tag).Starred;
                 item.ImageIndex = ((IArticle)item.Tag).Starred ? 1 : 0;
-
-                listView1.Items[index].Selected = true;
+                Application.DoEvents();
+                //listView1.Items[index].Selected = true;
                 UpdateTreeView();
             }
         }
@@ -264,7 +266,7 @@ namespace PV138_RSS_Reader
         {
 
             readTimer.Stop();
-            readTimer.Interval = 1000 * TIME_TO_READ;
+            readTimer.Interval = (int)(1000 * TIME_TO_READ);
             if (listView1.SelectedItems.Count < 1)
             {
                 return;
@@ -298,87 +300,119 @@ namespace PV138_RSS_Reader
         /// <param name="e"></param>
         private void treeView_Filters_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            if (e.Node.Parent == unreadFeeds)
+            try
             {
-                actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
-            }
-            else if (e.Node.Parent == categories)
-            {
-                var list = new List<IArticle>();
-                foreach (TreeNode node in e.Node.Nodes)
+                if (e.Node.Tag == null && e.Node.Parent != null)
                 {
-                    if (node.Tag is IFeed)
-                    {
-                        list.AddRange((manager.Articles((Feed)node.Tag)));
-                    }
+                    actuallyShowingArticles = new List<IArticle>();
                 }
-                actuallyShowingArticles = list;
-            }
-            else if (e.Node.Parent != null && e.Node.Parent.Parent == categories)
-            {
-                var list = new List<IArticle>();
-                list.AddRange((manager.Articles((Feed)e.Node.Tag)));
-                actuallyShowingArticles = list;
-            }
-            else if (e.Node.Parent == allFeeds)
-            {
-                actuallyShowingArticles = manager.Articles((Feed)e.Node.Tag).ToList();
-            }
-            else if (e.Node.Parent == starredFeeds)
-            {
-                actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred).ToList();
-            }
-
-            else if (e.Node == starredFeeds)
-            {
-                var list = new List<IArticle>();
-                foreach (TreeNode node in e.Node.Nodes)
+                else if (e.Node.Parent == unreadFeeds)
                 {
-                    list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => x.Starred));
+                    actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => !x.Read).ToList();
                 }
-                actuallyShowingArticles = list;
-            }
-            else if (e.Node == unreadFeeds)
-            {
-                var list = new List<IArticle>();
-                foreach (TreeNode node in e.Node.Nodes)
+                else if (e.Node.Parent == categories)
                 {
-                    list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => !x.Read));
-                }
-                actuallyShowingArticles = list;
-            }
-            else if (e.Node == allFeeds)
-            {
-                var list = new List<IArticle>();
-                foreach (TreeNode node in e.Node.Nodes)
-                {
-                    list.AddRange((manager.Articles((Feed)node.Tag)));
-                }
-                actuallyShowingArticles = list;
-            }
-            else if (e.Node == categories)
-            {
-                 
-                var set = new HashSet<IArticle>();
-                foreach (TreeNode nodes in e.Node.Nodes)
-                {
-                    foreach (TreeNode node in nodes.Nodes)
+                    var list = new List<IArticle>();
+                    foreach (TreeNode node in e.Node.Nodes)
                     {
                         if (node.Tag is IFeed)
                         {
-                            foreach (var item in ((manager.Articles((Feed)node.Tag))))
+                            list.AddRange((manager.Articles((Feed)node.Tag)));
+                        }
+                    }
+                    actuallyShowingArticles = list;
+                }
+                else if (e.Node.Parent != null && e.Node.Parent.Parent == categories)
+                {
+                    var list = new List<IArticle>();
+                    list.AddRange((manager.Articles((Feed)e.Node.Tag)));
+                    actuallyShowingArticles = list;
+                }
+                else if (e.Node.Parent == allFeeds)
+                {
+                    actuallyShowingArticles = manager.Articles((Feed)e.Node.Tag).ToList();
+                }
+                else if (e.Node.Parent == starredFeeds)
+                {
+                    actuallyShowingArticles = (manager.Articles((Feed)e.Node.Tag)).Where(x => x.Starred).ToList();
+                }
+
+                else if (e.Node == starredFeeds)
+                {
+                    var list = new List<IArticle>();
+                    foreach (TreeNode node in e.Node.Nodes)
+                    {
+                        list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => x.Starred));
+                    }
+                    actuallyShowingArticles = list;
+                }
+                else if (e.Node == unreadFeeds)
+                {
+                    var list = new List<IArticle>();
+                    foreach (TreeNode node in e.Node.Nodes)
+                    {
+                        list.AddRange((manager.Articles((Feed)node.Tag)).Where(x => !x.Read));
+                    }
+                    actuallyShowingArticles = list;
+                }
+                else if (e.Node == allFeeds)
+                {
+                    var list = new List<IArticle>();
+                    foreach (TreeNode node in e.Node.Nodes)
+                    {
+                        list.AddRange((manager.Articles((Feed)node.Tag)));
+                    }
+                    actuallyShowingArticles = list;
+                }
+                else if (e.Node == categories)
+                {
+
+                    var set = new HashSet<IArticle>();
+                    foreach (TreeNode nodes in e.Node.Nodes)
+                    {
+                        foreach (TreeNode node in nodes.Nodes)
+                        {
+                            if (node.Tag is IFeed)
                             {
-                                set.Add(item);
+                                foreach (var item in ((manager.Articles((Feed)node.Tag))))
+                                {
+                                    set.Add(item);
+                                }
                             }
                         }
                     }
+                    actuallyShowingArticles = set;
                 }
-                actuallyShowingArticles = set;
+                RefreshView();
             }
-            RefreshView();
+            catch
+            {
+
+            }
         }
 
-        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            //znovu znasilnime RenameBox
+            RenameBox rnb = new RenameBox("Zadej URL:");
+            if (rnb.ShowDialog() == DialogResult.OK)
+            {
+                string url = rnb.NewName;
+                try
+                {
+                    manager.SubscribeToURL(url);
+                    UpdateTreeView();
+                }
+                catch
+                {
+                    MessageBox.Show("Neplatná adresa, zkuste prosim znovu.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    toolStripButton1_Click(sender, e);
+                }
+
+            };
+        }
+		
+		private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listView1.SelectedItems.Count == 1)
             {

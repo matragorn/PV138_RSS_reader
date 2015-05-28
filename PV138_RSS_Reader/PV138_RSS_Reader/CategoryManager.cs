@@ -31,7 +31,9 @@ namespace PV138_RSS_Reader
             RenameBox rb = new RenameBox("New Category:");
             if (rb.ShowDialog() == DialogResult.OK)
             {
-                _categories.Add(new Category() { Name = rb.NewName });
+                var c = new Category() { Name = rb.NewName, };
+                _categories.Add(c);
+                _feedManager.AddCategory(c);
             }
             listBoxCategory.Items.Clear();
             listBoxCategory.Items.AddRange(_categories.ToArray());
@@ -49,7 +51,8 @@ namespace PV138_RSS_Reader
             if (cfb.ShowDialog() == DialogResult.OK)
             {
                 Category selectedCategory = ((Category)(listBoxCategory.SelectedItem));
-                selectedCategory.AddFeed(cfb.SelectedFeed);
+                //selectedCategory.AddFeed(cfb.SelectedFeed);
+                _feedManager.AddFeedToCategory(selectedCategory, cfb.SelectedFeed);
                 listBoxCategory.SelectedIndex = -1;
                 listBoxCategory.SelectedItem = selectedCategory;
             }
@@ -93,6 +96,7 @@ namespace PV138_RSS_Reader
             if (rb.ShowDialog() == DialogResult.OK)
             {
                 selectedCategory.Name = rb.NewName;
+                _feedManager.RenameCategory(selectedCategory, rb.NewName);
             }
             listBoxCategory.Items.Clear();
             listBoxCategory.Items.AddRange(_categories.ToArray());
@@ -132,6 +136,7 @@ namespace PV138_RSS_Reader
                 return;
             }
             _categories.Remove(selectedCategory);
+            _feedManager.RemoveCategory(selectedCategory);
             listBoxCategory.SelectedIndex = -1;
             listBoxCategory.Items.Clear();
             listBoxCategory.Items.AddRange(_categories.ToArray());
@@ -144,7 +149,7 @@ namespace PV138_RSS_Reader
             {
                 return;
             }
-            selectedCategory.RemoveFeed(listBox_Feeds.SelectedItem as Feed);
+            _feedManager.RemoveFeedFromCategory(selectedCategory, (listBox_Feeds.SelectedItem as Feed));
             listBoxCategory.SelectedIndex = -1;
             listBoxCategory.SelectedItem = selectedCategory;
         }

@@ -35,8 +35,9 @@ namespace PV138_RSS_Reader.Storage
 
             AppDomain.CurrentDomain.ProcessExit += new EventHandler(Save);
 
-            if (!Doc.ValidateStringXSD(Properties.Resources.DATABASE_XSD))
+            if (!Doc.ValidateStringXSD(Properties.Resources.DATABASE_XSD)) {
                 throw new FormatException("Database is corrupt!");
+            }
         }
 
         /// <summary>
