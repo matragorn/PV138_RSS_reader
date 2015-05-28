@@ -499,6 +499,7 @@ namespace PV138_RSS_Reader
         {
             if (!(treeView_Filters.SelectedNode.Tag is IFeed))
             {
+                MessageBox.Show("Tak takhle to nejde!");
                 return;
             }
             Feed feed = (Feed)treeView_Filters.SelectedNode.Tag;

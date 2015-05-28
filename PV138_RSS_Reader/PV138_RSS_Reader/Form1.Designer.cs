@@ -255,8 +255,8 @@
             this.toolStripButton1,
             this.toolStripButton2,
             this.RefreshButton,
-            this.toolStripLabel1,
-            this.toolStripTextBox1});
+            this.toolStripTextBox1,
+            this.toolStripLabel1});
             this.toolStrip_ToolMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStrip_ToolMenu.Name = "toolStrip_ToolMenu";
             this.toolStrip_ToolMenu.Size = new System.Drawing.Size(1135, 26);
@@ -333,16 +333,18 @@
             // 
             // toolStripLabel1
             // 
+            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(44, 23);
             this.toolStripLabel1.Text = "Hledej:";
             // 
             // toolStripTextBox1
             // 
+            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolStripTextBox1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 0);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(190, 23);
+            this.toolStripTextBox1.Size = new System.Drawing.Size(300, 23);
             this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
