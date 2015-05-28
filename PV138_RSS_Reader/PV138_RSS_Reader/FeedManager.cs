@@ -124,6 +124,16 @@ namespace PV138_RSS_Reader
         }
 
         /// <summary>
+        /// Vyhlada clanky, ktore maju v nadpise alebo popise frazu <paramref name="phrase"/>
+        /// </summary>
+        /// <param name="phrase">Vyhladavana fraza</param>
+        /// <returns>Zoznam clankov</returns>
+        public List<IArticle> Search(string phrase)
+        {
+            return Storage.Search(phrase);
+        }
+
+        /// <summary>
         /// vrátí všechny feedy kde je alespon jeden clane neprecteny
         /// </summary>
         /// <returns></returns>

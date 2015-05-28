@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using PV138_RSS_Reader.Validation;
 using System.IO;
@@ -211,6 +209,19 @@ namespace PV138_RSS_Reader.Storage
         public void RemoveCategory(Category category)
         {
             GetCategoryInXML(category).Remove();
+        }
+
+        /// <summary>
+        /// Vyhlada clanky, ktore maju v nadpise alebo popise frazu <paramref name="phrase"/>
+        /// </summary>
+        /// <param name="phrase">Vyhladavana fraza</param>
+        /// <returns>Zoznam clankov</returns>
+        public List<IArticle> Search(string phrase)
+        {
+            return GetFeeds().SelectMany(feed =>
+            {
+                return GetArticles(feed).Where(article => article.Identificator.Contains(phrase));
+            }).ToList();
         }
 
 

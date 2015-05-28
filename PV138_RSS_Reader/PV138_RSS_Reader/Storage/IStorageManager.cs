@@ -71,5 +71,12 @@ namespace PV138_RSS_Reader
         /// </summary>
         /// <param name="category">Kategoria</param>
         void RemoveCategory(Category category);
+
+        /// <summary>
+        /// Vyhlada clanky, ktore maju v nadpise alebo popise frazu <paramref name="phrase"/>
+        /// </summary>
+        /// <param name="phrase">Vyhladavana fraza</param>
+        /// <returns>Zoznam clankov</returns>
+        List<IArticle> Search(string phrase);
     }
 }
