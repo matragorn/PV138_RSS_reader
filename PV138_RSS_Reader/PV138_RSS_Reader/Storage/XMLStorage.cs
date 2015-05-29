@@ -233,7 +233,7 @@ namespace PV138_RSS_Reader.Storage
                 .Descendants("feed-link")
                 .Count(feedlink => feedlink.Attribute("url").Value.Equals(feed.FeedURL)) > 0
               )
-                throw new InformUserException("Feed "+ feed.Title +"se jiz nachazi v kategorii "+category.Name);
+                throw new InformUserException("Feed "+ feed.Title +" se jiz nachazi v kategorii "+category.Name);
 
             GetCategoryInXML(category).Descendants("feeds").First().Add(new XElement("feed-link", new XAttribute("url", feed.FeedURL)));
         }
@@ -265,10 +265,22 @@ namespace PV138_RSS_Reader.Storage
         /// <returns>Zoznam clankov</returns>
         public List<IArticle> Search(string phrase)
         {
-            return GetFeeds().SelectMany(feed =>
+            var searchFor = phrase.ToLower().RemoveDiacritics();
+            var ret = new List<IArticle>();
+
+            foreach(var feed in Doc.Descendants("feed"))
             {
-                return GetArticles(feed).Where(article => article.Identificator.ToLower().RemoveDiacritics().Contains(phrase.ToLower().RemoveDiacritics()));
-            }).ToList();
+                IFeed ifeed = CreateFeed(feed);
+                ret.AddRange
+                (
+                    feed.Descendants("article").Where(article =>
+                        article.Descendants("title").First().Value.ToLower().RemoveDiacritics().Contains(searchFor) ||
+                        String.Join(" ", article.Descendants("description").DescendantNodes().OfType<XText>()).ToLower().RemoveDiacritics().Contains(searchFor)
+                    ).Select(article => CreateArticle(article, ifeed))
+                );
+            }
+
+            return ret;
         }
 
 
