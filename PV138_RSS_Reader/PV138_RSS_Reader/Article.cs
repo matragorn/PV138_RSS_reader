@@ -9,7 +9,7 @@ namespace PV138_RSS_Reader
     /// <summary>
     /// Clanok
     /// </summary>
-    class Article : IArticle
+    public class Article : IArticle
     {
         public string Title { get; private set; }
 
