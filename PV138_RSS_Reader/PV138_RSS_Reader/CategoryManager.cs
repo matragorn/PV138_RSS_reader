@@ -65,7 +65,7 @@ namespace PV138_RSS_Reader
             if (cfb.ShowDialog() == DialogResult.OK)
             {
                 Category selectedCategory = ((Category)(listBoxCategory.SelectedItem));
-                //selectedCategory.AddFeed(cfb.SelectedFeed);
+                
                 try
                 {
                     _feedManager.AddFeedToCategory(selectedCategory, cfb.SelectedFeed);
@@ -77,7 +77,7 @@ namespace PV138_RSS_Reader
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("chyba", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(ex.Message, "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 listBoxCategory.SelectedIndex = -1;

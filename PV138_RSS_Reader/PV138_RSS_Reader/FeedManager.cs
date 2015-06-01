@@ -180,8 +180,9 @@ namespace PV138_RSS_Reader
         /// <summary>
         /// Prida feed do kategorie
         /// </summary>
-        /// <param name="category">kategoria</param>
-        /// <param name="feed">feed</param>
+        /// <param name="category">kategoria, do které se má feed přidat</param>
+        /// <param name="feed">feed který se má přidat</param>
+        /// <exception cref="InformUserException">Vyhazuje se když se nepovede přidat daný feed do kategorie</exception>
         public void AddFeedToCategory(Category category, IFeed feed)
         {
             Storage.AddFeedToCategory(category, feed);
