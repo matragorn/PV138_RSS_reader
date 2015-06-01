@@ -21,12 +21,19 @@ namespace PV138_RSS_Reader.Extensions
         public static bool ValidateStringXSD(this XDocument doc, string xsdString)
         {
             bool ret = true;
+            bool skip = false;
 
             // Nastavenia validatoru
             XmlReaderSettings settings = new XmlReaderSettings();
             settings.ValidationType = ValidationType.Schema;
             settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
-            settings.ValidationEventHandler += (o, e) => ret = false;
+            settings.ValidationEventHandler += (o, e) =>
+            {
+                if (((XmlReader)o).NamespaceURI.Equals(doc.Root.GetDefaultNamespace().NamespaceName))
+                    ret = false;
+                else
+                    skip = true;
+            };
 
             // Pridanie XSD
             using (StringReader stringReader = new StringReader(xsdString))
@@ -40,7 +47,16 @@ namespace PV138_RSS_Reader.Extensions
             // Validacia XDocumentu
             using (XmlReader xmlReader = XmlReader.Create(doc.CreateReader(), settings))
             {
-                while (xmlReader.Read() && ret) { }
+                while (ret)
+                {
+                    if (skip)
+                    {
+                        skip = false;
+                        xmlReader.Skip();
+                    }
+                    else if (!xmlReader.Read())
+                        break;
+                }
             }
 
             return ret;
