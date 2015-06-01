@@ -16,6 +16,10 @@ namespace PV138_RSS_Reader
         private List<Category> _categories;
         private FeedManager _feedManager;
 
+        /// <summary>
+        /// konstruktor
+        /// </summary>
+        /// <param name="manager">manazer ktery spravuje feedy, ktere budeme radit do kategorii</param>
         public CategoryManager(FeedManager manager)
         {
             this._feedManager = manager;
@@ -23,7 +27,11 @@ namespace PV138_RSS_Reader
             InitializeComponent();
             listBoxCategory.Items.AddRange(_categories.ToArray());
         }
-
+        /// <summary>
+        /// handler pridani kategorie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_addCategory_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)(listBoxCategory.SelectedItem);
@@ -41,6 +49,11 @@ namespace PV138_RSS_Reader
             listBoxCategory.SelectedItem = selectedCategory;
         }
 
+        /// <summary>
+        /// handler pridani feedu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_AddFeed_Click(object sender, EventArgs e)
         {
             if (_feedManager.Feeds.Count < 1)
@@ -73,11 +86,21 @@ namespace PV138_RSS_Reader
 
         }
 
+        /// <summary>
+        /// handle OK click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void buttonOK_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// handler pro zmenu upravovane kategorie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (listBoxCategory.SelectedIndex != -1)
@@ -101,7 +124,11 @@ namespace PV138_RSS_Reader
                 listBox_Feeds.Visible = button_deleteFeed.Visible = label_feeds.Visible = button_AddFeed.Visible = false;
             }
         }
-
+        /// <summary>
+        /// hanler prejmenovani kategorie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_RenameCategory_Click(object sender, EventArgs e)
         {
 
@@ -117,12 +144,22 @@ namespace PV138_RSS_Reader
             listBoxCategory.SelectedItem = selectedCategory;
         }
 
+        /// <summary>
+        /// handelr vyberu categorie doubleclickem
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBoxCategory_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             listBoxCategory_SelectedIndexChanged(listBoxCategory, null);
             button_RenameCategory_Click(null, null);
         }
 
+        /// <summary>
+        /// handler vyberu feedu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listBox_Feeds_SelectedIndexChanged(object sender, EventArgs e)
         {
             Feed SelectedFeed = listBox_Feeds.SelectedItem as Feed;
@@ -137,11 +174,11 @@ namespace PV138_RSS_Reader
             }
         }
 
-        private void listBox_Feeds_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            //TODO
-        }
-
+   /// <summary>
+   /// handler mazani kategorie
+   /// </summary>
+   /// <param name="sender"></param>
+   /// <param name="e"></param>
         private void button_deleteCategory_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)(listBoxCategory.SelectedItem);
@@ -156,6 +193,11 @@ namespace PV138_RSS_Reader
             listBoxCategory.Items.AddRange(_categories.ToArray());
         }
 
+        /// <summary>
+        /// handler mazani feedu z kategorie
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button_deleteFeed_Click(object sender, EventArgs e)
         {
             Category selectedCategory = (Category)(listBoxCategory.SelectedItem);
