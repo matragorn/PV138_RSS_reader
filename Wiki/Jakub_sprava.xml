@@ -1,0 +1,68 @@
+<?xml version="1.0" ?>
+
+<article xmlns="http://docbook.org/ns/docbook">
+	<title>RssReader: Jakub Matuška</title>
+	<info>
+		<author>
+			<personname>
+				<firstname>Jakub</firstname>
+				<surname>Matuška</surname>
+			</personname>
+		</author>
+	</info>
+	<section>
+		<title>RssReader - Jakub Matuška</title>
+		<para>
+			Na programe RssReader som sa podieľal už od začiatku, keď som vymyslel tému - čítačka RSS feedov. Moja pozícia v tíme bola backend programátor, ale pomáhal som aj s použivateľským rozhraním.
+			Na začiatku som si naštudoval špecifikáciu RSS a ATOM a zostavil som návrh štruktúry programu. Tá pôvodne vyzerala nasledovne:
+
+			* Article pre reprezentáciu článkov
+			* Feed pre reprezentáciu kanálu RSS
+			* Category pre reprezentáciu kategórie kanálov
+			* FeedReader pre parsovanie kanálov
+			* FeedManager pre združenie hlavnej funkcionality programu
+			* 2x Storage
+
+			Nakoniec som vytvoril všetku funkcionalitu okrem Category, o ktoré sa postaral Michael Rádl.
+		</para>
+		<section>
+			<title>Storage</title>
+			<para>
+				Asi najväčšia zmena v programe počas vývoja nastala v spôsobe ukladania dát.
+			</para>
+			<section>
+				<title>Pôvodný návrh</title>
+				<para>
+					Podľa pôvodného návrhu sa mali využiť 2 triedy, z ktorých každá implementuje rozhranie úložiska. Jedna (XMLStorage) by dáta ukladala v externom úložisku (XML databáza), druhá (InMemoryStorage) by pre zrýchlenie odozvy dáta cacheovala v pamäti. InMemoryStorage by obaľovala XMLStorage, čím by sa zrýchlilo čítanie dát. Storage by dáta poskytoval len ako read-only snímky stavu databázy. Tento návrh však nebol praktický.
+				</para>
+			</section>
+			<section>
+				<title>Súčastnosť</title>
+				<para>
+					V súčastnosti sa dve triedy z pôvodného návrhu zlúčili do jednej - XMLStorage. XMLStorage využíva na ukladanie dát XML súbor na disku (FeedRead.dat). Ten sa pri spustení programu načíta do RAM, pri ukončení sa zase uloží naspäť na disk. Pri normálnej práci programu Storage k dátam v pamäti pristupuje pomocou technológie LINQ to XML.
+				</para>
+			</section>
+		</section>
+		<section>
+			<title>Parsing</title>
+			<para>
+				Aplikácia podporuje dva formáty: Atom 1.0 a RSS 2.0. Pre rozlíšenie konkrétneho kanálu sa používa validácia pomocou XML Schema. Keď je rozhodnuté, o ktorý formát sa jedná, FeedReader predá dokument konkrétnemu parseru.
+			</para>
+		</section>
+		<section>
+			<title>Pomoc s GUI</title>
+			<para>
+				Uživateľské rozhranie mal na starosti Michael Rádl. Ja som vytvoril WebControl na zobrazenie obsahu konkrétneho článku. Sandboxovaná inštancia webového prehliadača jednoducho zobrazuje info z článku a je rýchlo modifikovateľná cez HTML a CSS. Takisto som do ešte počas ranného štádia programu implementoval obnovenie článkov.
+			</para>
+		</section>
+		<section>
+			<title>Externý kód</title>
+			<para>
+				V programe som použil aj externý kód:
+
+				* XML Schema for RSS 2.0 od Jorgena Thelina
+				* Exyus Atom XSD z http://exyus.com/
+			</para>
+		</section>
+	</section>
+</article>
