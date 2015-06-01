@@ -166,7 +166,7 @@
             this.treeView_Filters.Size = new System.Drawing.Size(297, 566);
             this.treeView_Filters.TabIndex = 0;
             this.treeView_Filters.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView_Filters_AfterSelect);
-            this.treeView_Filters.MouseDown += new System.Windows.Forms.MouseEventHandler(this.treeView_Filters_MouseDown);
+            
             // 
             // contextMenuStrip2
             // 
@@ -174,7 +174,7 @@
             this.odhlásitToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
             this.contextMenuStrip2.Size = new System.Drawing.Size(153, 48);
-            this.contextMenuStrip2.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip2_Opening);
+           
             // 
             // odhlásitToolStripMenuItem
             // 
@@ -232,7 +232,7 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             this.listView1.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.listView1_ItemSelectionChanged);
-            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            
             this.listView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listView1_MouseClick);
             // 
             // Date
@@ -353,7 +353,7 @@
             this.toolStripTextBox1.Margin = new System.Windows.Forms.Padding(1, 3, 1, 0);
             this.toolStripTextBox1.Name = "toolStripTextBox1";
             this.toolStripTextBox1.Size = new System.Drawing.Size(300, 23);
-            this.toolStripTextBox1.Click += new System.EventHandler(this.toolStripTextBox1_Click);
+            
             this.toolStripTextBox1.TextChanged += new System.EventHandler(this.toolStripTextBox1_TextChanged);
             // 
             // toolStripLabel1
