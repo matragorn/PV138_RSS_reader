@@ -1,4 +1,5 @@
-﻿using PV138_RSS_Reader.Storage;
+﻿using PV138_RSS_Reader.Exceptions;
+using PV138_RSS_Reader.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace PV138_RSS_Reader
 
         private IEnumerable<IArticle> actuallyShowingArticles = new List<IArticle>();
 
-        private const float TIME_TO_READ = 0.5f;
+        private const float TIME_TO_READ = 0.001f;
         private const int SEARCH_INTERVAL = 500; //ms
         /// <summary>
         /// clanek se oznaci za precteny pokud bude zobrazen alespon TIME_TO_READ sekund 
@@ -45,7 +46,7 @@ namespace PV138_RSS_Reader
             InitializeComponent();
 
             readTimer.Tick += readTimer_Tick;
-            readTimer.Interval = (int)(1000 * TIME_TO_READ);
+            readTimer.Interval = (int)(1000 * TIME_TO_READ+1);
             searchTimer.Interval = SEARCH_INTERVAL;
             searchTimer.Tick += searchTimer_Tick;
 
@@ -265,6 +266,10 @@ namespace PV138_RSS_Reader
             int xMax = xMin + 15;
             if (e.X >= xMin && e.X <= xMax)
             {
+                if (((IArticle)item.Tag).Identificator == "Nenalezeny žádné feedy")
+                {
+                    return;
+                }
                 manager.SetStarred(((IArticle)item.Tag), !((IArticle)item.Tag).Starred);
                 ((IArticle)item.Tag).Starred = !((IArticle)item.Tag).Starred;
                 item.ImageIndex = ((IArticle)item.Tag).Starred ? 1 : 0;
@@ -285,10 +290,20 @@ namespace PV138_RSS_Reader
             }
             ListViewItem item = listView1.SelectedItems[0];
             if (((IArticle)item.Tag).Read) { return; }
+            if (((IArticle)item.Tag).Identificator == "Nenalezeny žádné feedy")
+            {
+                return;
+            }
             var index = listView1.SelectedIndices[0];
 
-            manager.SetRead((IArticle)item.Tag, true);
-
+            try
+            {
+                manager.SetRead((IArticle)item.Tag, true);
+            }
+            catch
+            {
+                int breakPoint= 0;
+            }
             //RefreshView();
             item.Font = new System.Drawing.Font(item.Font, FontStyle.Regular);
 
@@ -414,6 +429,11 @@ namespace PV138_RSS_Reader
                 {
                     manager.SubscribeToURL(url);
                     UpdateTreeView();
+                }
+                catch (InformUserException ex)
+                {
+                    MessageBox.Show(ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 catch
                 {

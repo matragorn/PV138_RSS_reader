@@ -1,0 +1,59 @@
+<?xml version="1.0" ?>
+
+<article xmlns="http://docbook.org/ns/docbook">
+	<title>RssReader: Michael Rádl</title>
+	<info>
+		<author>
+			<personname>
+				<firstname>Michael</firstname>
+				<surname>Rádl</surname>
+			</personname>
+		</author>
+	</info>
+	<section>
+		<title>RssReader - Michael Rádl</title>
+		<para>
+			Na preojektu jsem se podílel od začátku, moje pozice byla hlavně frondend programátor a koordinátor práce v týmu. Jelikož jsem sám nikdy nepoužívál RSS čtečku, na začátku jsem udělal letmý research designů dostupných nástrojů a navrhl základní podobu GUI, zvolil jsem technologii C# Windows forms a navrhl zakladní rozložení tříd a rozhraní.
+		</para>
+		<para>
+			Během projektu jsem se take snažil koordinovat práci v týmu aby se stíhaly deadliny a také jsem apeloval na používání nástrojů jako GitHub Issues, což se povedlo, a celkovém důsledku nám výrazně zjednodušily práci.
+		</para>
+		<para>
+			Jako koordinátor práce bych chtěl vyzdvihnout práci Jakuba Matušky, který se ujal úkolů, které původně nebyly určené pro něj, a výrazně tím zrychlil dovedení projektu do zdárného konce. (implementace XMLStorage)
+		</para>
+		<para>
+			V závěru projektu jsem vytvořil slidy pro obhajobu, které byly doplněny ostatnimi členy tymu.
+		</para>
+		<section>
+			<title>GUI</title>
+			<para>
+				GUI jsem rozdelil na 3 hlavní části. V levé je umísteěn strom feedů, kategorií, oblibenych članku, atd... Vpravo nahoře seznam aktuálně rozkliknutých článků nebo výsledků hledání. Vlevo dole pak control na zobrazení obsahu článku (tento control implementoval Jakub).
+				
+			</para>
+			<para>
+			
+				V seznamu članku je mozne oznacit clanek za nepřecteny/přečtený (automaticky po prectení se oznaci jako precteny), oblibeny/neoblibený (kliknutim na hvězdičku), ve stromu feedů zle jednoduže daný odběr odhlasit, pomoci kontextove nabidky.
+				
+			</para>
+			<para>
+				
+				V horní části cele aplikace se nacházi menu, s moznosti vyhledávání v článcích.
+				
+			</para>
+			
+		</section>
+		<section>
+			<title>Categorie</title>
+			<para>
+				Dále sem implementoval správu kategorií se všemi CRUD operacemi. Uzivatel tak muze jednoduše pridavat kategorie do kterych muže vkladat feedy dle libosti, odebirat a prejmenovávat.
+			</para>
+		</section>
+		<section>
+			<title>Vyhledávání</title>
+			<para>
+				V aplikaci je implementováno realtimové vyhledávání v obsazích i titulcích článků, které během psaní dotazu okamžite zobrazuje výsledky v seznamu článků.
+			</para>
+		</section>
+
+	</section>
+</article>

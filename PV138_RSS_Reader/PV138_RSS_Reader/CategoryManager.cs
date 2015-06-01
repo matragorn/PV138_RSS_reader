@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PV138_RSS_Reader.Exceptions;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,7 +53,20 @@ namespace PV138_RSS_Reader
             {
                 Category selectedCategory = ((Category)(listBoxCategory.SelectedItem));
                 //selectedCategory.AddFeed(cfb.SelectedFeed);
-                _feedManager.AddFeedToCategory(selectedCategory, cfb.SelectedFeed);
+                try
+                {
+                    _feedManager.AddFeedToCategory(selectedCategory, cfb.SelectedFeed);
+                }
+                catch (InformUserException ex)
+                {
+                    MessageBox.Show(ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("chyba", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 listBoxCategory.SelectedIndex = -1;
                 listBoxCategory.SelectedItem = selectedCategory;
             }

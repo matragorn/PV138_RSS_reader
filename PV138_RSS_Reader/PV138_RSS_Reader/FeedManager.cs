@@ -107,7 +107,7 @@ namespace PV138_RSS_Reader
         /// <param name="article">Clanok</param>
         /// <param name="setTo">Hodnota, na ktoru sa ma zmenit</param>
         public void SetRead(IArticle article, bool setTo)
-        {
+        { 
             Storage.SetRead(article, setTo);
         }
 
@@ -184,6 +184,7 @@ namespace PV138_RSS_Reader
         public void AddFeedToCategory(Category category, IFeed feed)
         {
             Storage.AddFeedToCategory(category, feed);
+
             category.Feeds.Add(feed);
         }
 
