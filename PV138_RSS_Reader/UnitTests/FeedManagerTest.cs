@@ -9,7 +9,7 @@ namespace UnitTests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void NullStorage()
+        public void FeedManagerNullStorage()
         {
             FeedManager manager = new FeedManager(null);
         }

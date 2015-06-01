@@ -9,7 +9,7 @@ namespace UnitTests
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void NullTitleGetException()
+        public void FeedNullTitleGetException()
         {
             string FeedUrl = "www.someURL.com";
             string Title = null;
@@ -21,7 +21,7 @@ namespace UnitTests
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentNullException))]
-        public void NullURLGetException()
+        public void FeedNullURLGetException()
         {
             string FeedUrl = null;
             string Title = "News";
@@ -32,7 +32,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void EqualFeeds()
+        public void FeedEqualFeeds()
         {
             string FeedUrl = "www.someURL.com";
             string Title = "News";
@@ -47,7 +47,7 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void NotEqualFeeds()
+        public void FeedNotEqualFeeds()
         {
             string FeedUrlOne = "www.someURL.com";
             string FeedUrlTwo = "www.anotherURL.com";
@@ -61,5 +61,7 @@ namespace UnitTests
             Assert.AreNotEqual(true, feedOne.Equals(feedTwo));
             Assert.AreNotEqual(true, feedTwo.Equals(feedOne));
         }
+
+        
     }
 }
