@@ -11,7 +11,7 @@ namespace PV138_RSS_Reader.Storage
     /// <summary>
     /// XML suborove ulozisko dat
     /// </summary>
-    class XMLStorage : IStorageManager
+    public class XMLStorage : IStorageManager
     {
         private string Uri { get; set; }
         private XDocument Doc { get; set; }
@@ -95,9 +95,17 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">Feed</param>
         public void RemoveFeed(IFeed feed)
         {
-            Doc.Descendants("feed-link").Where(link => link.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
+            try
+            {
 
-            GetFeedInXML(feed).Remove();
+                Doc.Descendants("feed-link").Where(link => link.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
+
+                GetFeedInXML(feed).Remove();
+            
+            }catch(InvalidOperationException e ){
+                // doesnt contain this feed
+                return;
+            }
         }
 
         /// <summary>
