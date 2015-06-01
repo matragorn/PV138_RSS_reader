@@ -302,7 +302,7 @@ namespace PV138_RSS_Reader
             }
             catch
             {
-                int breakPoint= 0;
+                int breakPoint  = 0;
             }
             //RefreshView();
             item.Font = new System.Drawing.Font(item.Font, FontStyle.Regular);
