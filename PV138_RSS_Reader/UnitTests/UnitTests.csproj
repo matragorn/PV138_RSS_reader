@@ -55,7 +55,6 @@
     <Compile Include="ArticleTest.cs" />
     <Compile Include="CategoryTest.cs" />
     <Compile Include="FeedManagerTest.cs" />
-    <Compile Include="XMLStorageTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PV138_RSS_Reader\PV138_RSS_Reader.csproj">
