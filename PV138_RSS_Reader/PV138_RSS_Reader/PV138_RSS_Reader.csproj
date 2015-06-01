@@ -80,6 +80,7 @@
       <DependentUpon>ChooseFeedBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\InformUserException.cs" />
+    <Compile Include="Exceptions\NoSuchItemInDatabase.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
     <Compile Include="Parsers\AtomParser.cs" />
     <Compile Include="RenameBox.cs">
@@ -132,6 +133,7 @@
     <EmbeddedResource Include="RenameBox.resx">
       <DependentUpon>RenameBox.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

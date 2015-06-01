@@ -95,17 +95,12 @@ namespace PV138_RSS_Reader.Storage
         /// <param name="feed">Feed</param>
         public void RemoveFeed(IFeed feed)
         {
-            try
-            {
-
+           
                 Doc.Descendants("feed-link").Where(link => link.Attribute("url").Value.Equals(feed.FeedURL)).Remove();
 
                 GetFeedInXML(feed).Remove();
             
-            }catch(InvalidOperationException e ){
-                // doesnt contain this feed
-                return;
-            }
+           
         }
 
         /// <summary>

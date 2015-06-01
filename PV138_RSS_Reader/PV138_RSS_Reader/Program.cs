@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PV138_RSS_Reader.Storage;
+using System.IO;
 
 namespace PV138_RSS_Reader
 {
@@ -38,9 +40,39 @@ namespace PV138_RSS_Reader
                 manager.Unsubscribe(feed);
             }
             feeds = manager.Feeds;
+            *//*
+            string uri = @"../testAAAAAAAAAAAAAAAAAAAAAAAa.xml";
+            XMLStorage storage;
+            storage = new XMLStorage(uri);
+            List<Category> categories = new List<Category>()
+            {
+            new Category(new List<IFeed>(), "category1", 1),
+            new Category(new List<IFeed>(), "category2", 2),
+            new Category(new List<IFeed>(), "category3", 3)
+            };
+
+             foreach (Category cat in categories)
+            {
+                storage.AddCategory(cat);
+            }
+            List<Category> inDatabase = storage.GetCategories();
+            //CollectionAssert.AreEqual(categories, storage.GetCategories());
+
+             for (int i = 0; i < categories.Count; i++)
+             {
+               /*  Console.WriteLine("Original: {0}, database: {1}", categories[i].ToString(), inDatabase[i].ToString());
+                 Console.WriteLine("OriginalID: {0}, databaseID: {1}", categories[i].Feeds.ToString(), inDatabase[i].Feeds.ToString());
+                 Console.WriteLine("toString: "+categories[i].ToString().Equals(inDatabase[i].ToString()));
+                 Console.WriteLine("names: "+categories[i].Name.Equals(inDatabase[i].Name));
+                 Console.WriteLine(categories[i].ID.Equals(inDatabase[i].ID));*/
+            /*     Console.WriteLine("Feeds: "+categories[i].Feeds.Equals(inDatabase[i].Feeds));
+                 Console.WriteLine(categories[i].Feeds.ToString().Equals(inDatabase[i].Feeds.ToString()));
+
+             }
+
+
+                 File.Delete(uri);
             */
-
-
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
