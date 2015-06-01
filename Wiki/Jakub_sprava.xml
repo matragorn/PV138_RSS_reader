@@ -16,12 +16,14 @@
 			Na programe RssReader som sa podieľal už od začiatku, keď som vymyslel tému - čítačka RSS feedov. Moja pozícia v tíme bola backend programátor, ale pomáhal som aj s použivateľským rozhraním.
 			Na začiatku som si naštudoval špecifikáciu RSS a ATOM a zostavil som návrh štruktúry programu. Tá pôvodne vyzerala nasledovne:
 
-			* Article pre reprezentáciu článkov
-			* Feed pre reprezentáciu kanálu RSS
-			* Category pre reprezentáciu kategórie kanálov
-			* FeedReader pre parsovanie kanálov
-			* FeedManager pre združenie hlavnej funkcionality programu
-			* 2x Storage
+			<itemizedlist mark="bullet">
+			<listitem>Article pre reprezentáciu článkov</listitem>
+			<listitem>Feed pre reprezentáciu kanálu RSS</listitem>
+			<listitem>Category pre reprezentáciu kategórie kanálov</listitem>
+			<listitem>FeedReader pre parsovanie kanálov</listitem>
+			<listitem>FeedManager pre združenie hlavnej funkcionality programu</listitem>
+			<listitem>2x Storage</listitem>
+			</itemizedlist>
 
 			Nakoniec som vytvoril všetku funkcionalitu okrem Category, o ktoré sa postaral Michael Rádl.
 		</para>
