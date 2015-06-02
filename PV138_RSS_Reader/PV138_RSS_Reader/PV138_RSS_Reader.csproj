@@ -82,6 +82,7 @@
     <Compile Include="Exceptions\InformUserException.cs" />
     <Compile Include="Exceptions\NoSuchItemInDatabase.cs" />
     <Compile Include="Extensions\StringExtension.cs" />
+    <Compile Include="Extensions\WebUtilsExtension.cs" />
     <Compile Include="Parsers\AtomParser.cs" />
     <Compile Include="RenameBox.cs">
       <SubType>Form</SubType>

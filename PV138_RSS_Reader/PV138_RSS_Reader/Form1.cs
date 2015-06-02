@@ -1,4 +1,5 @@
-﻿using PV138_RSS_Reader.Storage;
+﻿using PV138_RSS_Reader.Exceptions;
+using PV138_RSS_Reader.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,7 +27,7 @@ namespace PV138_RSS_Reader
 
         private IEnumerable<IArticle> actuallyShowingArticles = new List<IArticle>();
 
-        private const float TIME_TO_READ = 0.5f;
+        private const float TIME_TO_READ = 0.001f;
         private const int SEARCH_INTERVAL = 500; //ms
         /// <summary>
         /// clanek se oznaci za precteny pokud bude zobrazen alespon TIME_TO_READ sekund 
@@ -45,7 +46,7 @@ namespace PV138_RSS_Reader
             InitializeComponent();
 
             readTimer.Tick += readTimer_Tick;
-            readTimer.Interval = (int)(1000 * TIME_TO_READ);
+            readTimer.Interval = (int)(1000 * TIME_TO_READ+1);
             searchTimer.Interval = SEARCH_INTERVAL;
             searchTimer.Tick += searchTimer_Tick;
 
@@ -87,29 +88,54 @@ namespace PV138_RSS_Reader
 
         }
 
+        /// <summary>
+        /// zobrazí about box
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event argument</param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox dialog = new AboutBox();
             dialog.ShowDialog();
         }
 
+        /// <summary>
+        /// ukončí aplikaci
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event argument</param>
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void splitContainer_Feeds_FeedDetails_MouseUp(object sender, MouseEventArgs e)
         {
             //odstrani nehezky vypadajici focus ze splitteru (bohuzel stale zustava po spusteni progrmau focus na vertikalnim splitteru)
             panel_FilterView.Focus();
         }
 
+        /// <summary>
+        /// blokuje nastavení šírky treewiev nad hodnotu maximalna
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void splitContainer_Tree_MainContent_SplitterMoved(object sender, SplitterEventArgs e)
         {
             splitContainer_Tree_MainContent.SplitterDistance = Math.Max(splitContainer_Tree_MainContent.Panel1.Width, TREE_PANEL_MIN_WIDTH);
             splitContainer_Tree_MainContent.SplitterDistance = Math.Min(splitContainer_Tree_MainContent.Panel1.Width, TREE_PANEL_MAX_WIDTH);
         }
 
+        /// <summary>
+        /// blokuje nastavení výsky seznamu clanku nad hodnotu maximalna
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void splitContainer_Feeds_FeedDetails_SplitterMoved(object sender, SplitterEventArgs e)
         {
 
@@ -117,6 +143,11 @@ namespace PV138_RSS_Reader
             splitContainer_FilterView_ArticleView.SplitterDistance = Math.Min(splitContainer_FilterView_ArticleView.Panel1.Height, FEEDS_PANEL_MAX_WIDTH);
         }
 
+        /// <summary>
+        /// pri zmeně vybraného článku zobrazí vybraný článek v dolním okně
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void listView1_ItemSelectionChanged(object sender, System.Windows.Forms.ListViewItemSelectionChangedEventArgs e)
         {
             readTimer.Stop();
@@ -133,6 +164,11 @@ namespace PV138_RSS_Reader
                 "</body></html>";
 
         }
+        /// <summary>
+        /// handle on load, potrebne rutiny po zapnuti
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void MainWindow_Load(object sender, EventArgs e)
         {
             treeView_Filters.ExpandAll();
@@ -140,6 +176,12 @@ namespace PV138_RSS_Reader
             RefreshView();
         }
 
+
+        /// <summary>
+        /// handle refresh buttonu, aktualizuje feedy a updatne GUI
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void RefreshButton_Click(object sender, EventArgs e)
         {
             manager.UpdateAllFeeds();
@@ -147,6 +189,9 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
         }
 
+        /// <summary>
+        /// refreshne seznam clanku, podle obsahu kolekce s aktualne zobrazovanymi clanky
+        /// </summary>
         private void RefreshView()
         {
             listView1.SuspendLayout();
@@ -173,8 +218,11 @@ namespace PV138_RSS_Reader
             listView1.ResumeLayout();
         }
 
-
-
+        /// <summary>
+        /// handler řešící webové odkazy
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void webBrowser1_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             if (e.Url.ToString() != "about:blank")
@@ -184,6 +232,12 @@ namespace PV138_RSS_Reader
             }
         }
 
+
+        /// <summary>
+        /// andler vyvolany po stisknuti tlacitka sprava kategorii, otevře uzivateli dialog se spravou catgorii
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arg</param>
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             CategoryManager cm = new CategoryManager(manager);
@@ -192,6 +246,10 @@ namespace PV138_RSS_Reader
 
         }
 
+
+        /// <summary>
+        /// updatuje Treeview
+        /// </summary>
         private void UpdateTreeView()
         {
 
@@ -217,6 +275,11 @@ namespace PV138_RSS_Reader
 
         }
 
+        /// <summary>
+        /// vytvoří treenode do stromu s feedy ze zadaneho listu categorií
+        /// </summary>
+        /// <param name="categories">list categorii</param>
+        /// <returns>pole treenodes</returns>
         private TreeNode[] CategoryNodes(List<Category> categories)
         {
             TreeNode[] nodes = new TreeNode[categories.Count];
@@ -231,6 +294,11 @@ namespace PV138_RSS_Reader
             return nodes;
         }
 
+        /// <summary>
+        /// vytvoří pole  treenode  do stromu s feedy ze zadaneho listu feedu
+        /// </summary>
+        /// <param name="categories">list feedu</param>
+        /// <returns>pole treenodes</returns>
         private TreeNode[] NodesFromFeeds(List<IFeed> unread)
         {
             TreeNode[] nodes = new TreeNode[unread.Count];
@@ -249,6 +317,12 @@ namespace PV138_RSS_Reader
             return nodes;
         }
 
+
+        /// <summary>
+        /// handle obsluha kliku na seznam clanku, pri kliku na hvezdicku, pridani do oblibenych
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void listView1_MouseClick(object sender, MouseEventArgs e)
         {
 
@@ -265,6 +339,10 @@ namespace PV138_RSS_Reader
             int xMax = xMin + 15;
             if (e.X >= xMin && e.X <= xMax)
             {
+                if (((IArticle)item.Tag).Identificator == "Nenalezeny žádné feedy")
+                {
+                    return;
+                }
                 manager.SetStarred(((IArticle)item.Tag), !((IArticle)item.Tag).Starred);
                 ((IArticle)item.Tag).Starred = !((IArticle)item.Tag).Starred;
                 item.ImageIndex = ((IArticle)item.Tag).Starred ? 1 : 0;
@@ -274,6 +352,12 @@ namespace PV138_RSS_Reader
             }
         }
 
+
+        /// <summary>
+        /// udalost po vyprseni timeru delaye pro zaznacny přečtení článku  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void readTimer_Tick(object sender, EventArgs e)
         {
 
@@ -285,10 +369,20 @@ namespace PV138_RSS_Reader
             }
             ListViewItem item = listView1.SelectedItems[0];
             if (((IArticle)item.Tag).Read) { return; }
+            if (((IArticle)item.Tag).Identificator == "Nenalezeny žádné feedy")
+            {
+                return;
+            }
             var index = listView1.SelectedIndices[0];
 
-            manager.SetRead((IArticle)item.Tag, true);
-
+            try
+            {
+                manager.SetRead((IArticle)item.Tag, true);
+            }
+            catch
+            {
+                int breakPoint  = 0;
+            }
             //RefreshView();
             item.Font = new System.Drawing.Font(item.Font, FontStyle.Regular);
 
@@ -298,12 +392,6 @@ namespace PV138_RSS_Reader
             }
             UpdateTreeView();
         }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         /// <summary>
         /// po kliknuti a vybrani kategorie feedu ci articku z leveho menu nastavi kolekci zbrazovanyh clanku
@@ -403,6 +491,12 @@ namespace PV138_RSS_Reader
             }
         }
 
+
+        /// <summary>
+        /// handler pro pridání odběru  
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             //znovu znasilnime RenameBox
@@ -415,6 +509,11 @@ namespace PV138_RSS_Reader
                     manager.SubscribeToURL(url);
                     UpdateTreeView();
                 }
+                catch (InformUserException ex)
+                {
+                    MessageBox.Show(ex.Message, "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 catch
                 {
                     MessageBox.Show("Neplatná adresa, zkuste prosim znovu.", "Chyba", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -424,14 +523,12 @@ namespace PV138_RSS_Reader
             };
         }
 		
-		private void listView1_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (listView1.SelectedItems.Count == 1)
-            {
-                System.Diagnostics.Process.Start(((IArticle)(listView1.SelectedItems[0].Tag)).URL);
-            }
-        }
 
+        /// <summary>
+        /// handle toolstrip menu, oznací selected clanky za prectene
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arguments</param>
         private void označPřečtenéToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.SelectedItems)
@@ -442,6 +539,11 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
         }
 
+        /// <summary>
+        /// handle toolstrip menu, oznací selected clanky za neprectene
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arguments</param>
         private void označNepřečtenéToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.SelectedItems)
@@ -452,6 +554,11 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
         }
 
+        /// <summary>
+        /// handle toolstrip menu, oznací selected clanky za oblibene
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arguments</param>
         private void oblíbenéToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.SelectedItems)
@@ -463,6 +570,11 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
         }
 
+        /// <summary>
+        /// handle toolstrip menu, odznací oblibenos selected clankum
+        /// </summary>
+        /// <param name="sender">sender</param>
+        /// <param name="e">event arguments</param>
         private void neoblíbenéToolStripMenuItem_Click(object sender, EventArgs e)
         {
             foreach (ListViewItem item in listView1.SelectedItems)
@@ -474,11 +586,11 @@ namespace PV138_RSS_Reader
             UpdateTreeView();
         }
 
-        private void toolStripTextBox1_Click(object sender, EventArgs e)
-        {
+     
 
-        }
-
+        /// <summary>
+        /// implementuje realtimove vyhledavani se zpozděním
+        /// </summary>
         private void search()
         {
             string text = toolStripTextBox1.Text;
@@ -495,17 +607,14 @@ namespace PV138_RSS_Reader
                 listView1.Items[0].ImageIndex = -1;
                 return;
             }
-            //Feed feed = (Feed)feeds.First();
-            //foreach (TreeNode item in allFeeds.Nodes)
-            //{
-            //    if (((Feed)(item.Tag)).ToString() == feed.ToString())
-            //    {
-            //        treeView_Filters.SelectedNode = item;
-            //    }
-            //}
-            //actuallyShowingArticles = manager.Articles(feed);
             RefreshView();
         }
+
+        /// <summary>
+        /// handler zapina efekt zpozdeni realtimoveho vyhledavani, pri změně vyhledavaneho textu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripTextBox1_TextChanged(object sender, EventArgs e)
         {
             _canSearch = false;
@@ -515,6 +624,11 @@ namespace PV138_RSS_Reader
             
         }
 
+        /// <summary>
+        /// handler resici odhlaseni odberu feedu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void odhlásitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!(treeView_Filters.SelectedNode.Tag is IFeed))
@@ -527,16 +641,6 @@ namespace PV138_RSS_Reader
             
             UpdateTreeView();
             treeView_Filters.SelectedNode = unreadFeeds;
-
-        }
-
-        private void treeView_Filters_MouseDown(object sender, MouseEventArgs e)
-        {
-            //contextMenuStrip2.Items[0].Enabled = (treeView_Filters.SelectedNode.Tag is IFeed);
-        }
-
-        private void contextMenuStrip2_Opening(object sender, CancelEventArgs e)
-        {
 
         }
     }

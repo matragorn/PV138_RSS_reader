@@ -88,7 +88,6 @@
             this.listBox_Feeds.TabIndex = 7;
             this.listBox_Feeds.Visible = false;
             this.listBox_Feeds.SelectedIndexChanged += new System.EventHandler(this.listBox_Feeds_SelectedIndexChanged);
-            this.listBox_Feeds.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listBox_Feeds_MouseDoubleClick);
             // 
             // button_AddFeed
             // 
