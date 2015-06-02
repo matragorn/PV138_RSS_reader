@@ -63,8 +63,7 @@ namespace UnitTests
             }
 
             Assert.AreEqual(categories.Count, storage.GetCategories().Count);
-            //CollectionAssert.AreEqual(categories, storage.GetCategories()); !!!!!!!!!!! z nejakyho duvodu to neprochazi
-
+          
             string newName =  "New name";
             storage.RenameCategory(categories[0], newName);
 
