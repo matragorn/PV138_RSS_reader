@@ -106,11 +106,55 @@ namespace UnitTests
         }
 
         [TestMethod]
-        public void StorageArticles()
+        public void StorageArticlesAdd()
         {
+            List<Article> articles = InitArticles();
+            IFeed feed = feedList[0];
 
+            storage.AddFeed(feed);
+            storage.AddArticles(articles, feed);
+           
+            CollectionAssert.AreEqual(articles, storage.GetArticles(feed));
+            
+      
         }
 
+        [TestMethod]
+        public void StorageArticlesSearch()
+        {
+            List<Article> articles = InitArticles();
+            IFeed feed1 = feedList[0];
+            IFeed feed2 = feedList[1];
+
+            storage.AddFeed(feed1);
+
+            Assert.AreEqual(0, storage.Search("Title").Count);
+
+            storage.AddArticles(articles, feed1);
+
+            CollectionAssert.AreEqual(articles, storage.Search("Title"));
+            Assert.AreEqual(0, storage.Search("Shit").Count);
+
+            storage.AddFeed(feed2);
+            storage.AddArticles(articles, feed2);
+
+            Assert.AreEqual(articles.Count * 2, storage.Search("Title").Count);
+            Assert.AreEqual(2, storage.Search("Title1").Count);
+                        
+        }
+
+        private List<Article> InitArticles()
+        {
+            List<Article> articles = new List<Article>();
+
+            for(int i = 1; i < 5; i++){
+                articles.Add(new Article("Title"+i.ToString(),"www.url"+i.ToString()+".com", "Description"+i.ToString(),new DateTime(1999+i,i,i)));
+                
+            }
+
+            return articles;
+
+        }
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
