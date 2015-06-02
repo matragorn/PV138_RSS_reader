@@ -55,6 +55,7 @@
     <Compile Include="ArticleTest.cs" />
     <Compile Include="CategoryTest.cs" />
     <Compile Include="FeedManagerTest.cs" />
+    <Compile Include="FeedManagerOnlineTest.cs" />
     <Compile Include="XMLStorageTest.cs" />
   </ItemGroup>
   <ItemGroup>
