@@ -62,3 +62,16 @@ C:\Users\Admin\Documents\skola\Zn jazyky\PV138_RSS_reader\PV138_RSS_Reader\PV138
 C:\Users\Admin\Documents\skola\Zn jazyky\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.Properties.Resources.resources
 C:\Users\Admin\Documents\skola\Zn jazyky\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.RenameBox.resources
 C:\Users\Admin\Documents\skola\Zn jazyky\PV138_RSS_reader\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe.config
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.exe
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.pdb
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.exe
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\bin\Debug\PV138_RSS_Reader.pdb
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csprojResolveAssemblyReference.cache
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.AboutBox.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.CategoryManager.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.ChooseFeedBox.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.MainWindow.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.Properties.Resources.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.RenameBox.resources
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\PV138_RSS_Reader\obj\Debug\PV138_RSS_Reader.csproj.GenerateResource.Cache

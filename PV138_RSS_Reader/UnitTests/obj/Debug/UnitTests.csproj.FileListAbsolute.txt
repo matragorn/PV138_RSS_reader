@@ -12,3 +12,10 @@ C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitT
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\Michael Rádl\Desktop\PV138_XML\PV138_RSS_reader\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\bin\Debug\PV138_RSS_Reader.exe
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\bin\Debug\PV138_RSS_Reader.pdb
+C:\Users\Jirka\Source\Repos\PV138_RSS_reader2\PV138_RSS_Reader\UnitTests\obj\Debug\UnitTests.pdb

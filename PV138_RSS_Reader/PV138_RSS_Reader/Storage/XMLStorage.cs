@@ -131,7 +131,7 @@ namespace PV138_RSS_Reader.Storage
         }
 
         /// <summary>
-        /// Zmeni ohviezdickovanost clanku
+        /// Zmeni ohviezdickovanost clankux 
         /// </summary>
         /// <param name="article">Clanok</param>
         /// <param name="setTo">Hodnota, na ktoru sa ma zmenit</param>
