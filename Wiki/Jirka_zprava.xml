@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Záverečná správa</title>
+
+    <author>
+      <firstname>Jiří</firstname>
+
+      <surname>Vrbka</surname>
+
+      <affiliation>
+        <orgname/>
+      </affiliation>
+    </author>
+
+    <pubdate>1.6.2015</pubdate>
+  </articleinfo>
+
+  <section>
+    <title>Projekt RSS/Atom Reader - Jiří Vrbka</title>
+
+    <para>Cílem projektu bylo vytvoření RSS čtečky schopné zpracovávat zdroje (feeds) z veřejných zdrojů, ukládat do kategorií a zobrazovat je.
+    Požadavky:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>správně rozpoznat a zpracovat RSS/ATOM kanál.</para>
+      </listitem>
+
+      <listitem>
+        <para>Možnost vytváření kategorií</para>
+      </listitem>
+
+      <listitem>
+        <para>Ukládání do databáze</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Projekt, psaný v jazyce C#, byl vytvářen pomocí webové aplikace Github</para>
+
+    <section>
+      <title>Tým a rozdělení úloh</title>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Bc. Michael Rádl</emphasis> Winforms </para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Jakub Matuška</emphasis> - Backend,
+          databáze v XML, GUI</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Lukáš Findura</emphasis> - návrhové
+          diagramy, wiki a web stránka</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Jiří Vrbka</emphasis> - unit
+          testy a různé úpravy</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Průběžná práce</title>
+
+      <para>S projektem se začalo už od prvních dní zadání, vytvořili jsme grafy pro lepší zpracování a následnou implementaci. Aktivně jsme používali github issues správu.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Moje úloha</title>
+
+    <para>V projektu jsem dal dohromady tým, který byl opravdu skvělý. Osobně jsem sestavoval unit testy a prováděl drobné korektury a zpracování vyjímek</para>
+  </section>
+</article>
