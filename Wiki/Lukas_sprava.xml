@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+"http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd">
+<article>
+  <articleinfo>
+    <title>Záverečná správa</title>
+
+    <author>
+      <firstname>Lukáš</firstname>
+
+      <surname>Findura</surname>
+
+      <affiliation>
+        <orgname/>
+      </affiliation>
+    </author>
+
+    <pubdate>1.6.2015</pubdate>
+  </articleinfo>
+
+  <section>
+    <title>Projekt RSS/Atom Reader - PB138</title>
+
+    <para>Cieľom projektu bolo vytvoriť aplikáciu (webovú alebo desktopovú),
+    ktorá bude schopná zobraziť články zadaného kanálu (ang. feed). Funkčné
+    požiadavky na aplikáciu:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para>získať RSS/Atom kanál a textovo reprezentovať,</para>
+      </listitem>
+
+      <listitem>
+        <para>možnosť označenia "obľúbené",</para>
+      </listitem>
+
+      <listitem>
+        <para>vyhladávanie</para>
+      </listitem>
+    </itemizedlist>
+
+    <para>Projekt je hostovaný na GitHub a prísluší k nemu jednoduchá web
+    stránka a wiki. Aplikácia je napísaná v C#.</para>
+
+    <section>
+      <title>Tím a rozdelenie úloh</title>
+
+      <itemizedlist>
+        <listitem>
+          <para><emphasis role="bold">Bc. Michael Rádl</emphasis> - GUI a
+          implementácia logiky</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Jakub Matuška</emphasis> - Backend,
+          databáza v XML, GUI</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Lukáš Findura</emphasis> - návrhové
+          diagramy, wiki a web stránka</para>
+        </listitem>
+
+        <listitem>
+          <para><emphasis role="bold">Jiří Vrbka</emphasis> - unit
+          testy</para>
+        </listitem>
+      </itemizedlist>
+    </section>
+
+    <section>
+      <title>Priebežná práca</title>
+
+      <para>Na projekte sa pracovalo priebežne, o čom svedčia grafy aktivity
+      <ulink
+      url="???">https://github.com/matragorn/PV138_RSS_reader/graphs/contributors</ulink>.
+      Aktívne bol využívaný systém problémov "issues", viď. <ulink
+      url="???">https://github.com/matragorn/PV138_RSS_reader/issues</ulink>.</para>
+    </section>
+  </section>
+
+  <section>
+    <title>Moja úloha</title>
+
+    <para>V projekte som sa zhostil úlohy priebežnej dokumentácie práce, tj.
+    textová špecifikácia vybraných tried, zostrojenie návrhu GUI, zostrojenie
+    návrhových diagramov (Use Case Diagram, Class Diagram) písanie a priebežná
+    aktualizácia wiki a web stránky.</para>
+  </section>
+</article>
